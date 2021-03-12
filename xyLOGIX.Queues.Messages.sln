@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Interfaces", "xyLOGIX.Queues.Messages.Interfaces\xyLOGIX.Queues.Messages.Interfaces.csproj", "{9853CAC0-2EA1-440E-80B8-F4F42129868A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Events", "xyLOGIX.Queues.Messages.Events\xyLOGIX.Queues.Messages.Events.csproj", "{BB924F16-86CB-452D-9D11-5CF9954151A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{9853CAC0-2EA1-440E-80B8-F4F42129868A}.Release|x64.Build.0 = Release|x64
 		{9853CAC0-2EA1-440E-80B8-F4F42129868A}.Release|x86.ActiveCfg = Release|x86
 		{9853CAC0-2EA1-440E-80B8-F4F42129868A}.Release|x86.Build.0 = Release|x86
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Debug|x64.ActiveCfg = Debug|x64
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Debug|x64.Build.0 = Debug|x64
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Debug|x86.ActiveCfg = Debug|x86
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Debug|x86.Build.0 = Debug|x86
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Release|x64.ActiveCfg = Release|x64
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Release|x64.Build.0 = Release|x64
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Release|x86.ActiveCfg = Release|x86
+		{BB924F16-86CB-452D-9D11-5CF9954151A2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
