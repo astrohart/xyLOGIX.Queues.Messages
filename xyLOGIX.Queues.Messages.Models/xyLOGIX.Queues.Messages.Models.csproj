@@ -68,6 +68,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageQueueItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -83,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Interfaces\xyLOGIX.Queues.Messages.Interfaces.csproj">
+      <Project>{9853cac0-2ea1-440e-80b8-f4f42129868a}</Project>
+      <Name>xyLOGIX.Queues.Messages.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
