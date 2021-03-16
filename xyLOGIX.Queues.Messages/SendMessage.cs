@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -42,20 +43,18 @@ namespace xyLOGIX.Queues.Messages
         /// </remarks>
         public static SendMessage<T> Having { get; } = new SendMessage<T>();
 
-        /// <summary> Supplies arguments for the message to be sent. </summary>
+        /// <summary>
+        /// Supplies arguments for the message to be sent.
         /// </summary>
         /// <param name="args">
-        /// (Optional.) One of more values to be
-        /// passed as parameters to the message.
+        /// (Optional.) One of more values to be passed as parameters to the message.
         /// <para />
-        /// <b>NOTE:</b> The data
-        /// types, order, and number of parameters, if supplied, must match the
-        /// signature of the message's delegate.
+        /// <b>NOTE:</b> The data types, order, and number of parameters, if
+        /// supplied, must match the signature of the message's delegate.
         /// </param>
         /// <returns>
-        /// Reference to
-        /// the same instance of the object that called this method, for fluent
-        /// use.
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
         /// </returns>
         public SendMessage<T> Args(params object[] args)
         {
@@ -68,11 +67,43 @@ namespace xyLOGIX.Queues.Messages
         /// Filters the message queue by the unique identifier that the
         /// message's handler was initially mapped under.
         /// </summary>
-        /// <param name="messageId">(Required). Unique identifier (GUID) that the message handler was originally tagged with.<para/>The Zero GUID must not be passed for this parameter.<para/>If the Zero GUID is passed for this parameter, then this method throws <see cref="T:System.ArgumentException"/>.
+        /// <param name="messageId">
+        /// (Required). Unique identifier (GUID) that the message handler was
+        /// originally tagged with.
+        /// <para />
+        /// The Zero GUID must not be passed for this parameter.
+        /// <para />
+        /// If the Zero GUID is passed for this parameter, then this method
+        /// throws <see cref="T:System.ArgumentException" />.
         /// </param>
         public void ForMessageId(Guid messageId)
+            => MessageQueue.Instance.PostMessage<T>(messageId, _args);
+
+        /// <summary>
+        /// Specifies that the message is to be sent without any input data.
+        /// </summary>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <remarks>
+        /// This method initializes the internal storage of this class that is
+        /// devoted to storing the argument list for the new message to contain
+        /// zero elements.
+        /// <para />
+        /// <b>NOTE:</b> Calling this method is the same as calling the
+        /// <see
+        ///     cref="M:xyLOGIX.Queues.Messages.SendMessage.Args" />
+        /// method without
+        /// passing any parameters. Having this method available can make client
+        /// code more fluent.
+        /// </remarks>
+        public SendMessage<T> NoArgs()
         {
-            MessageQueue.Instance.PostMessage<T>(messageId, _args);
+            _args = Enumerable.Empty<object>()
+                              .ToArray();
+
+            return this;
         }
     }
 }
