@@ -58,5 +58,214 @@ This class library contains all the C# `interface`s that are implemented by the 
 
 ### xyLOGIX.Queues.Messages.Models
 
-
 Class library to contain POCOs that are used in the other libraries in this system.
+
+## Using this system
+
+First of all, before I go into some code examples, let me again just point you over to the [SampleMVP](https://github.com/astrohart/SampleMVP) repository.  This repository has the source code for the `SampleMVP` calculator, that uses this infrastructure (in lieu of/in combination with) the C# `event` pattern to notify different parts of the application that it is time to do something.
+
+However, let's go over the spots in the sample code where the library is in use.
+
+### Adding references
+
+So, in my case, using this code was made easier by using a tool known as [ReSharper](https://www.jetbrains.com/resharper/), which, if you do not already use, then I highly recommend.  
+
+Basically, I added the projects in this system to my `SampleMVP.sln` from their existing folders, and then I added references to them to the `SampleMVP.csproj` project.
+
+I plan to make this into a NuGet package someday, so that adding this library becomes as easy as opening the NuGet Package Manager in Visual Studio or adding it using VSCode.
+
+At the present time however, this is not feasible.
+
+OKAY, so let's see how this stuff works.  I am going to present a small tutorial on adding code for exchanging messages around my `SampleMVP` applicaiton as a way of showing you where the touch points are.
+
+#### Touchpoint: The `CalcView` class
+
+First, let's look at the `CalcView` class.  This class encapsulates the main window of the application:
+
+![Fig01](fig01.png)
+Figure 1. The Calculator interface.
+
+(By the way, thank you, [Grant Kinney](https://grantwinney.com/its-possible-to-test-a-winforms-app-using-mvp/) for not suing me for merely using your tutorial as a jumping off point).
+
+I want to specifically draw your attention to the big, friendly **Add** and **Reset** buttons on the form.
+
+Obviously, a `Button` object in Windows Form exposes a C# `event`.  This event's name is `Click`.  We handle the `Click` event in order to respond when the user clicks the mouse on the button.
+
+Now, Mr. Kinney's methodology was to expose `Add` and `Reset` events in his `CalcView` class and then have the `CalcPresenter` attach handlers to _those_ events.
+
+I thought this could be decoupled.  Also, I didn't like the idea of event handlers invoking events.  This tends to make UI code vastly more tightly-coupled than it needs to be, IMHO.
+
+To start, in the Designer, I am actually going to go ahead and add `Click` event handler methods to my view for each button:
+
+```
+using xyLOGIX.Queues.Messages;
+
+/* ... */
+
+private void OnClickAddButton(object sender, EventArgs e)
+{
+    throw new NotImplementedException();
+}
+
+/* ... */
+
+private void OnClickResetButton(object sender, EventArgs e)
+{
+    throw new NotImplementedException();
+}
+```
+**Listing 1.** The `OnClickAddButton` and `OnClickResetButton` event handlers.
+
+(Sound of vinyl record scratching) But wait!  These event handlers don't do anything but throw `NotImplementedException`!  How is that of any use to us?
+
+You're right.  They aren't.   First, we need to define GUIDs that will uniquely identify, to the Presenter, the messages that these buttons send, using the `xyLOGIX.Queues.Messages` library's ability to tag messages with GUIDs.
+
+Now, you can use GUIDs that are defined only once and given a constant value, but I prefer to have the software create brand-new GUIDs every single time the application is launched.  Since I personally hate having "magic literals" thoughout my code, in favor of named constants, I'm going to design a class called `CalcViewMessages`. 
+
+This will be a `static` class and will conain constant-like `public static readonly` fields, all of type `System.Guid`, that are labeled with fluent identifiers so I can tell which is for which mesage:
+
+```
+using System;
+
+namespace SampleMVP
+{
+    public static class CalcViewMessages
+    {
+        public static readonly Guid ADD_BUTTON_CLICKED = Guid.NewGuid();
+
+        public static readonly Guid RESET_BUTTON_CLICKED = Guid.NewGuid();
+    }
+}
+```
+**Listing 2.** The `CalcViewMessages` class.
+
+For compactness' sake, I've removed the `<summary>` etc. XML doc comments from all code in this mini-tutorial.
+
+As we can see, the identifiers `ADD_BUTTON_CLICKED` and `RESET_BUTTON_CLICKED` that serve as the name of each field clearly specify which GUID is for which message.  You do not have to do as I did above; just be consistent.
+
+We want to label our messages with unique identifiers; otherwise, the message recepient code will not know which button got clicked.
+
+OK,.so going back to the `CalcView` class, we implement the event handlers that were introduced in **Listing 1** as follows:
+
+```
+using xyLOGIX.Queues.Messages;
+
+/* ... */
+
+private void OnClickAddButton(object sender, EventArgs e)
+{
+    SendMessage<EventArgs>.Having.NoArgs()
+                                 .ForMessageId(
+                                     CalcViewMessages.ADD_BUTTON_CLICKED
+                                 );
+}
+
+/* ... */
+
+private void OnClickResetButton(object sender, EventArgs e)
+{
+    SendMessage<EventArgs>.Having.NoArgs()
+                                 .ForMessageId(
+                                     CalcViewMessages.RESET_BUTTON_CLICKED
+                                 );
+}
+```
+**Listing 3.** The implementations of the `OnClickAddButton` and `OnClickResetButton` event handlers using our event aggregator framework.
+
+Notice how fluent our invocations are -- they form a complete sentence in English.  We make use of the singleton `SendMessage<T>` class in the `xyLOGIX.Messages.Queues` library through its singleton `Having` property.  Then we invoke its `NoArgs()` method.  The `NoArgs()` method specifies that the message should be handled by a method that does not take any input.  Finally, we complete the fluent call by invoking the `ForMessageId()` method.  This method tells the `SendMessage<T>` class what unique identifier it should tag the message with.  If you do not invoke this method, then the rest of the application will not be notified.
+
+The `SendMessage<T>` call will not return until the message has been handled everywhere in the application. 
+
+**_OBVIOUSLY_** there is no support for `async` and `await` in my system..._yet_.  Stay tuned.
+
+**_OKAY_**, so how do we handle these notifications?  We want the Presenter to take care of the work, right?  And we specified that our message handler should be one that does not take any input.  The message handler should not return a value, either; it's sole purpose in life is simply to carry out some actions when the notification is received from the View.  This means that, by and large, message handlers will be methods that have `void` for their return types and no arguments.
+
+***
+**NOTE** that this software system is written in a very (I think) SOLID way, so the idea is that it can be easily extended to add new functionality, such as message handlers that return values or `async` and `await` support.
+***
+
+Go to the `CalcPresenter` class and then add the following call to a `MapMessages()` method in the constructor (this is a method we will implement next):
+
+```
+namespace SampleMVP
+{
+    public class CalcPresenter : ICalcPresenter
+    {
+        /* ... */
+
+        public CalcPresenter(ICalcView view = null, ICalcModel model = null,
+                ICalcService service = null)
+        {
+            /* ... */
+
+            MapMessages();
+
+            /* ... */
+        }
+
+        /* ... */
+    }
+}
+```
+**Listing 3.** Calling the `MapMessages()` method in the `CalcPresenter` constructor.
+
+Now, let's implement the `MapMessages` method.  Just like the old-style `//{{AFX_MSG_MAP` comments in MFC, this method will hook messages up to their handlers using our fluent infrastructure:
+
+```
+namespace SampleMVP
+{
+    public class CalcPresenter : ICalcPresenter
+    {
+        /* ... */
+
+        private void MapMessages()
+        {
+            NewMessageMapping<EventArgs>
+                .Associate.WithMessageId(CalcViewMessages.ADD_BUTTON_CLICKED)
+                .AndHandler(new Action(Add));
+            NewMessageMapping<EventArgs>
+                .Associate.WithMessageId(CalcViewMessages.RESET_BUTTON_CLICKED)
+                .AndHandler(new Action(Reset));
+        }
+    }
+```
+**Listing 4.** Calling the `NewMessageMapping<T>` class with its fluent properties and methods to hook messages up to handlers.
+
+The fluent sentence is something like, "Associate a new Message Mapping for a message with a message ID of `X` having a handler method `Y`."
+
+Then we implement the `Add` and `Reset` methods as in the [tutorial](https://grantwinney.com/its-possible-to-test-a-winforms-app-using-mvp/).  Only this time, they look like:
+
+```
+using xyLOGIX.Queues.Messages;
+
+namespace SampleMVP
+{
+    public class CalcPresenter : ICalcPresenter
+    {
+        /* ... */
+
+        private void Add()
+        {
+            // Add method code here
+        }
+
+        private void Reset()
+        {
+            // Reset method code here
+        }
+    }
+```
+**Listing 5.** Implementing the `Add` and `Reset` event handlers.
+
+Important deltas from the usual way of doing WinForms MVP:
+
+* No events are exposed by the `ICalcView` interface and subscribed by the `CalcPresenter` class.
+* The View merely uses the `SendMessage<T>` class and its properties and methods to fluently send a message that is associated with a unique identifier, in order to implement the `Click` event handlers for each of its buttons;
+* The Presenter merely sets up mappings between the messages with those same identifiers and methods that actually perform the desired operations.
+* Then we create `void` methods that take no inputs to actually carry out the operations.
+
+This totally decouples the firing of the `Click` events by the buttons from the code in the Presenter that handles the operations that are to occur when they are clicked.  
+
+Another upshot of this infrastructure is that message handlers can be mapped to the unique identifiers `CalcViewMessages.ADD_BUTTON_CLICKED` and `CalcViewMessages.RESET_BUTTON_CLICKED` anywhere else in the application that also needs to perform certain operations when the buttons get clicked -- all without having to have a reference to the view.
+
+In principle, this means that a Presenter could implement updating the view for the calculation's results, while, off to the side, a database service could store the values typed in by the user to a database or log an audit record that the clicks were done.
