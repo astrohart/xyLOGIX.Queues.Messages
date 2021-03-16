@@ -9,7 +9,7 @@ namespace xyLOGIX.Queues.Messages.Models
     public class MessageQueueItem : IMessageQueueItem
     {
         /// <summary>
-        /// A <see cref="T:System.Action" /> that specifies how to remove this
+        /// An <see cref="T:System.Action" /> that specifies how to remove this
         /// <see cref="T:xyLOGIX.Queues.Messages.Models.MessageQueueItem" /> from
         /// the message queue.
         /// </summary>
