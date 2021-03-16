@@ -140,6 +140,6 @@ exit /b 0</PostBuildEvent>
     git commit -m "Update README.md"
     git push -u origin master
 )
-exit /b 0a</PreBuildEvent>
+exit /b 0</PreBuildEvent>
   </PropertyGroup>
 </Project>
