@@ -4,14 +4,14 @@ using xyLOGIX.Queues.Messages.Interfaces;
 namespace xyLOGIX.Queues.Messages.Models
 {
     /// <summary>
-    /// Represents a single item in a message queue.
+    /// Represents a single item in a
+    /// <see cref="T:xyLOGIX.Queues.Messages.MessageQueue" />.
     /// </summary>
     public class MessageQueueItem : IMessageQueueItem
     {
         /// <summary>
         /// An <see cref="T:System.Action" /> that specifies how to remove this
-        /// <see cref="T:xyLOGIX.Queues.Messages.Models.MessageQueueItem" /> from
-        /// the message queue.
+        /// <c>MessageQueueItem</c> from the <c>MessageQueue</c>.
         /// </summary>
         private Action<IMessageQueueItem> _removalAction;
 
@@ -28,7 +28,7 @@ namespace xyLOGIX.Queues.Messages.Models
 
         /// <summary>
         /// Gets or sets the unique identifier of the message ID of this
-        /// specific message queue item.
+        /// specific <c>MessageQueueItem</c>.
         /// </summary>
         /// <remarks>
         /// If this property is set to the zero GUID, then the message is broadcast.
@@ -36,8 +36,8 @@ namespace xyLOGIX.Queues.Messages.Models
         public Guid MessageId { get; set; } = Guid.Empty;
 
         /// <summary>
-        /// Fluent-builder method to associate this message queue item with code
-        /// to be executed when the message is published.
+        /// Fluent-builder method to associate this <c>MessageQueueItem</c> with
+        /// code to be executed when the message is published.
         /// </summary>
         /// <returns>
         /// Reference to the same instance of the object that called this
@@ -58,8 +58,9 @@ namespace xyLOGIX.Queues.Messages.Models
         }
 
         /// <summary>
-        /// Fluent-builder method to mark this message queue item for processing
-        /// only by those objects who map handlers to a specific message ID.
+        /// Fluent-builder method to mark this <c>MessageQueueItem</c> for
+        /// processing only by those objects who map handlers to a specific
+        /// message ID.
         /// </summary>
         /// <param name="messageId">
         /// (Required.) A <see cref="T:System.Guid" /> tagging this message with
@@ -71,7 +72,7 @@ namespace xyLOGIX.Queues.Messages.Models
         /// </returns>
         /// <remarks>
         /// Calling this method is optional. The Zero GUID will be associated
-        /// with this message queue item if this method is not called.
+        /// with this <c>MessageQueueItem</c> if this method is not called.
         /// <para />
         /// Associating a message with the Zero GUID means that the message in
         /// question should be dispatched to all interested parties.
@@ -84,13 +85,6 @@ namespace xyLOGIX.Queues.Messages.Models
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing,
-        /// releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-            => _removalAction?.Invoke(this);
-
-        /// <summary>
         /// Fluent-builder method that enables us to attach a
         /// <see
         ///     cref="T:System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}" />
@@ -100,7 +94,7 @@ namespace xyLOGIX.Queues.Messages.Models
         /// The most common implementation is to remove the newly-built
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// -implementing object from the internal list maintained by the
-        /// message queue object.
+        /// <c>MessageQueue</c> object.
         /// </summary>
         /// <returns>
         /// Reference to the same instance of the object that called this
@@ -116,5 +110,12 @@ namespace xyLOGIX.Queues.Messages.Models
 
             return this;
         }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing,
+        /// releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+            => _removalAction?.Invoke(this);
     }
 }
