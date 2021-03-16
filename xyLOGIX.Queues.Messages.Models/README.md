@@ -32,7 +32,7 @@ Represents a single item in a message queue.
 
 ##### Summary
 
-A [Action](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action') that specifies how to remove this
+An [Action](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action') that specifies how to remove this
 [MessageQueueItem](#T-xyLOGIX-Queues-Messages-Models-MessageQueueItem 'xyLOGIX.Queues.Messages.Models.MessageQueueItem') from
 the message queue.
 
