@@ -1,9 +1,5 @@
 # xyLOGIX.Queues.Messages
 
-* [xyLOGIX.Queues.Messages code docs]()
-* [xyLOGIX.Queues.Messages.Events docs]()
-* [xyLOGIX.Queues.Messages.Interfaces docs]()
-
 This project is a collection of C# class libraries -- that I hope to combine into a NuGet package some day -- which implement a very simple version of the Event Aggregator pattern.
 
 I am heavily experienced in C++/MFC/Win32 and, as such, I sought to emulate the way the Microsoft Foundation Class Library implements event aggregation (called message maps in that implementation) on a very microcosm level in C#.
