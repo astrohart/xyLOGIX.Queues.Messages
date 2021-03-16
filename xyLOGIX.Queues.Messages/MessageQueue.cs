@@ -124,7 +124,7 @@ namespace xyLOGIX.Queues.Messages
 
             lock (SyncRoot)
             {
-                // Add the message to the message map Basically, you are telling
+                // Add the message to the message map. Basically, you are telling
                 // me that, when a message of type T, with Message ID messageId
                 // is posted to the queue, then execute the code referred to by
                 // the messageHandler delegate.
