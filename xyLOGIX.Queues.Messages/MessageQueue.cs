@@ -91,13 +91,9 @@ namespace xyLOGIX.Queues.Messages
                 // me that, when a message of type T is posted to the queue,
                 // then call the code referenced by the messageHandler.
                 _internalMessageQueue.Add(
-                    MakeNewMessageQueueItem
-                        .ForEventDataType(typeof(T))
-                        .AndHandler(messageHandler)
-                        .AttachDisposalAction(
-                            item => _internalMessageQueue
-                                .Remove(item)
-                        )
+                    MakeNewMessageQueueItem.ForEventDataType(typeof(T))
+                                           .AndHandler(messageHandler)
+                                           .AttachDisposalAction(Remove)
                 );
             }
         }
@@ -124,18 +120,15 @@ namespace xyLOGIX.Queues.Messages
 
             lock (SyncRoot)
             {
-                // Add the message to the message map. Basically, you are telling
-                // me that, when a message of type T, with Message ID messageId
-                // is posted to the queue, then execute the code referred to by
-                // the messageHandler delegate.
+                // Add the message to the message map. Basically, you are
+                // telling me that, when a message of type T, with Message ID
+                // messageId is posted to the queue, then execute the code
+                // referred to by the messageHandler delegate.
                 _internalMessageQueue.Add(
                     MakeNewMessageQueueItem.ForEventDataType(typeof(T))
                                            .AndMessageID(messageId)
                                            .AndHandler(messageHandler)
-                                           .AttachDisposalAction(
-                                               item => _internalMessageQueue
-                                                   .Remove(item)
-                                           )
+                                           .AttachDisposalAction(Remove)
                 );
             }
         }
@@ -180,6 +173,27 @@ namespace xyLOGIX.Queues.Messages
                     item => item.IsBoundToMessageId<T>(messageId)
                 )) item.MessageHandler?.DynamicInvoke(args);
             }
+        }
+
+        /// <summary>
+        /// Removes the first occurrence of the specified
+        /// <paramref
+        ///     name="item" />
+        /// from the message queue.
+        /// </summary>
+        /// <param name="item">
+        /// (Required.) Reference an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
+        /// interface and which represents the item to be removed.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="item" />, is passed
+        /// a <c>null</c> value.
+        /// </exception>
+        private void Remove(IMessageQueueItem item)
+        {
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            _internalMessageQueue.Remove(item);
         }
     }
 }
