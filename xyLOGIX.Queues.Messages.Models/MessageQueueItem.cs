@@ -77,7 +77,7 @@ namespace xyLOGIX.Queues.Messages.Models
         /// Associating a message with the Zero GUID means that the message in
         /// question should be dispatched to all interested parties.
         /// </remarks>
-        public IMessageQueueItem AndMessageID(Guid messageId)
+        public IMessageQueueItem HavingMessageId(Guid messageId)
         {
             MessageId = messageId;
 
@@ -100,7 +100,7 @@ namespace xyLOGIX.Queues.Messages.Models
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        public IMessageQueueItem AttachDisposalAction(
+        public IMessageQueueItem WithDisposalAction(
             Action<IMessageQueueItem> removalAction)
         {
             _removalAction = removalAction ??

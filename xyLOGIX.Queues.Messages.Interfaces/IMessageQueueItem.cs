@@ -61,7 +61,7 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         /// Associating a message with the Zero GUID means that the message in
         /// question should be dispatched to all interested parties.
         /// </remarks>
-        IMessageQueueItem AndMessageID(Guid messageId);
+        IMessageQueueItem HavingMessageId(Guid messageId);
 
         /// <summary>
         /// Fluent-builder method that enables us to attach an
@@ -79,7 +79,7 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        IMessageQueueItem AttachDisposalAction(
+        IMessageQueueItem WithDisposalAction(
             Action<IMessageQueueItem> removalAction);
     }
 }

@@ -93,9 +93,48 @@ namespace xyLOGIX.Queues.Messages
                 _internalMessageQueue.Add(
                     MakeNewMessageQueueItem.ForEventDataType(typeof(T))
                                            .AndHandler(messageHandler)
-                                           .AttachDisposalAction(Remove)
+                                           .WithDisposalAction(Remove)
                 );
             }
+        }
+
+        /// <summary>
+        /// Associates a unique identifier with the code to be executed when the
+        /// message is posted to the queue, with no regard for the event data type.
+        /// </summary>
+        /// <param name="messageId">
+        /// (Required.) A <see cref="T:System.Guid" /> indicating the specific
+        /// application object that should process the message.
+        /// </param>
+        /// <param name="messageHandler">
+        /// A <see cref="T:System.Delegate" /> that specifies the code to be
+        /// executed when the message is posted to the queue.
+        /// </param>
+        public void MapMessage(Guid messageId, Delegate messageHandler)
+        {
+            if (messageHandler == null)
+                throw new ArgumentNullException(nameof(messageHandler));
+
+            if (Guid.Empty == messageId)
+                throw new ArgumentException(
+                    "You cannot pass the Zero GUID for the messageId parameter.",
+                    nameof(messageId)
+                );
+
+            lock (SyncRoot)
+            {
+                // Add the message to the message map. Basically, you are
+                // telling me that, when a message with Message ID messageId
+                // is posted to the queue, then execute the code
+                // referred to by the messageHandler delegate.
+                _internalMessageQueue.Add(
+                    MakeNewMessageQueueItem.FromScratch()
+                                           .HavingMessageId(messageId)
+                                           .AndHandler(messageHandler)
+                                           .WithDisposalAction(Remove)
+                );
+            }
+
         }
 
         /// <summary>
@@ -114,9 +153,26 @@ namespace xyLOGIX.Queues.Messages
         /// A <see cref="T:System.Delegate" /> that specifies the code to be
         /// executed when the message is posted to the queue.
         /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the Zero GUID is passed for the
+        /// <paramref
+        ///     name="messageId" />
+        /// parameter.
+        /// </exception>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="messageHandler" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
         public void MapMessage<T>(Guid messageId, Delegate messageHandler)
         {
-            if (messageHandler == null) return;
+            if (messageHandler == null)
+                throw new ArgumentNullException(nameof(messageHandler));
+
+            if (Guid.Empty == messageId)
+                throw new ArgumentException(
+                    "You cannot pass the Zero GUID for the messageId parameter.",
+                    nameof(messageId)
+                );
 
             lock (SyncRoot)
             {
@@ -126,9 +182,9 @@ namespace xyLOGIX.Queues.Messages
                 // referred to by the messageHandler delegate.
                 _internalMessageQueue.Add(
                     MakeNewMessageQueueItem.ForEventDataType(typeof(T))
-                                           .AndMessageID(messageId)
+                                           .HavingMessageId(messageId)
                                            .AndHandler(messageHandler)
-                                           .AttachDisposalAction(Remove)
+                                           .WithDisposalAction(Remove)
                 );
             }
         }
@@ -182,8 +238,10 @@ namespace xyLOGIX.Queues.Messages
         /// from the message queue.
         /// </summary>
         /// <param name="item">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// interface and which represents the item to be removed.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
