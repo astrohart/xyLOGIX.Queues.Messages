@@ -124,9 +124,9 @@ namespace xyLOGIX.Queues.Messages
             lock (SyncRoot)
             {
                 // Add the message to the message map. Basically, you are
-                // telling me that, when a message with Message ID messageId
-                // is posted to the queue, then execute the code
-                // referred to by the messageHandler delegate.
+                // telling me that, when a message with Message ID messageId is
+                // posted to the queue, then execute the code referred to by the
+                // messageHandler delegate.
                 _internalMessageQueue.Add(
                     MakeNewMessageQueueItem.FromScratch()
                                            .HavingMessageId(messageId)
@@ -134,7 +134,6 @@ namespace xyLOGIX.Queues.Messages
                                            .WithDisposalAction(Remove)
                 );
             }
-
         }
 
         /// <summary>
