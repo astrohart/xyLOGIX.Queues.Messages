@@ -231,6 +231,54 @@ namespace xyLOGIX.Queues.Messages
         }
 
         /// <summary>
+        /// Posts a message to the message queue and aims it at the specific
+        /// message ID indicated by the <paramref name="messageId" />. Only the
+        /// objects who originally mapped handlers to the message with the
+        /// specified message ID will be sent the message.
+        /// </summary>
+        /// <param name="messageId">
+        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// </param>
+        /// <param name="args">
+        /// Zero or more arguments to be provided to the message handler.
+        /// <para />
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must
+        /// match the message delegate's signature precisely.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the Zero GUID is passed for the
+        /// <paramref
+        ///     name="messageId" />
+        /// parameter.
+        /// </exception>
+        public void PostMessage(Guid messageId, params object[] args)
+        {
+            /*
+             * OKAY, check whether the messageId is the empty GUID. If so, then
+             * throw ArgumentException -- this overload does not allow the
+             * Zero GUID.  Callers have to pass a non-zero GUID for the messageId
+             * parameter.
+             */
+            if (Guid.Empty == messageId)
+                throw new ArgumentException(
+                    "You cannot pass the Zero GUID for the messageId parameter.",
+                    nameof(messageId)
+                );
+
+
+            lock (SyncRoot)
+            {
+                if (!_internalMessageQueue.Any(
+                    item => item.IsBoundToMessageId(messageId)
+                )) return;
+
+                foreach (var item in _internalMessageQueue.Where(
+                    item => item.IsBoundToMessageId(messageId)
+                )) item.MessageHandler?.DynamicInvoke(args);
+            }
+        }
+
+        /// <summary>
         /// Removes the first occurrence of the specified
         /// <paramref
         ///     name="item" />

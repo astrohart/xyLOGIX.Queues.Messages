@@ -84,5 +84,28 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         /// match the message delegate's signature precisely.
         /// </param>
         void PostMessage<T>(Guid messageId, params object[] args);
+
+        /// <summary>
+        /// Posts a message to the message queue and aims it at the specific
+        /// message ID indicated by the <paramref name="messageId" />. Only the
+        /// objects who originally mapped handlers to the message with the
+        /// specified message ID will be sent the message.
+        /// </summary>
+        /// <param name="messageId">
+        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// </param>
+        /// <param name="args">
+        /// Zero or more arguments to be provided to the message handler.
+        /// <para />
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must
+        /// match the message delegate's signature precisely.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the Zero GUID is passed for the
+        /// <paramref
+        ///     name="messageId" />
+        /// parameter.
+        /// </exception>
+        void PostMessage(Guid messageId, params object[] args);
     }
 }
