@@ -37,50 +37,9 @@ namespace xyLOGIX.Queues.Messages
         /// </summary>
         public static NewMessageMapping Associate { get; } =
             new NewMessageMapping();
-
+        
         /// <summary>
-        /// Associates a <see cref="T:System.Delegate"/> with the message.
-        /// </summary>
-        /// <param name="d">
-        /// A <see cref="T:System.Delegate"/> specifying the code to be invoked
-        /// when the message is sent.
-        /// </param>
-        /// <remarks>
-        /// The delegate, <paramref name="d"/>, can be thought of as being
-        /// analogous to a C-style function pointer, in that it refers to code
-        /// that will be invoked when a message matching the creation criteria
-        /// is sent.
-        /// <para/>
-        /// <b>NOTE:</b> This method is meant to be called in a fluent-builder
-        /// style after calling the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/> method.
-        /// <para/>
-        /// If the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
-        /// method has not been called before this one, this method will throw
-        /// <see cref="T:System.InvalidOperationException"/>.
-        /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="d"/>, is passed a
-        /// <c>null</c> value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown in the event that the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
-        /// method has not been called.
-        /// </exception>
-        public void AndHandler(Delegate d)
-        {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called after calling the WithMessageId method in a fluent manner."
-                );
-            d.MapToMessage(_messageId);
-        }
-
-        /// <summary>
-        /// Associates a <see cref="T:System.Delegate"/> with the message having unique identifier specified by the earlier call to the 
+        /// Associates a <see cref="T:System.Delegate"/> with the message having unique identifier specified by the earlier call to the <see cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/> method.
         /// </summary>
         /// <param name="d">
         /// A <see cref="T:System.Delegate"/> specifying the code to be invoked
@@ -108,7 +67,7 @@ namespace xyLOGIX.Queues.Messages
         /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
         /// method has been called prior to calling this method.
         /// </exception>
-        public void WithHandler(Delegate d)
+        public void AndHandler(Delegate d)
         {
             if (d == null) throw new ArgumentNullException(nameof(d));
             if (Guid.Empty != _messageId)
