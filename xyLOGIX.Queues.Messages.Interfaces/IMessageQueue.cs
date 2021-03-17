@@ -35,6 +35,20 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         void MapMessage<T>(Delegate messageHandler);
 
         /// <summary>
+        /// Associates a unique identifier with the code to be executed when the message
+        /// is posted to the queue, with no regard for the event data type.
+        /// </summary>
+        /// <param name="messageId">
+        /// (Required.) A <see cref="T:System.Guid" /> indicating the specific
+        /// application object that should process the message.
+        /// </param>
+        /// <param name="messageHandler">
+        /// A <see cref="T:System.Delegate" /> that specifies the code to be
+        /// executed when the message is posted to the queue.
+        /// </param>
+        void MapMessage(Guid messageId, Delegate messageHandler);
+
+        /// <summary>
         /// Associates event data with the code to be executed when the message
         /// is posted to the queue.
         /// </summary>
