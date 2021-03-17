@@ -25,7 +25,8 @@ xyLOGIX.Queues.Messages.Models
 
 ##### Summary
 
-Represents a single item in a message queue.
+Represents a single item in a
+[MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
 
 <a name='F-xyLOGIX-Queues-Messages-Models-MessageQueueItem-_removalAction'></a>
 ### _removalAction `constants`
@@ -33,8 +34,7 @@ Represents a single item in a message queue.
 ##### Summary
 
 An [Action](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action') that specifies how to remove this
-[MessageQueueItem](#T-xyLOGIX-Queues-Messages-Models-MessageQueueItem 'xyLOGIX.Queues.Messages.Models.MessageQueueItem') from
-the message queue.
+`MessageQueueItem` from the `MessageQueue`.
 
 <a name='P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-EventDataType'></a>
 ### EventDataType `property`
@@ -57,7 +57,7 @@ code is to be run when a message is sent.
 ##### Summary
 
 Gets or sets the unique identifier of the message ID of this
-specific message queue item.
+specific `MessageQueueItem`.
 
 ##### Remarks
 
@@ -68,8 +68,8 @@ If this property is set to the zero GUID, then the message is broadcast.
 
 ##### Summary
 
-Fluent-builder method to associate this message queue item with code
-to be executed when the message is published.
+Fluent-builder method to associate this `MessageQueueItem` with
+code to be executed when the message is published.
 
 ##### Returns
 
@@ -92,8 +92,9 @@ is passed a `null` value. |
 
 ##### Summary
 
-Fluent-builder method to mark this message queue item for processing
-only by those objects who map handlers to a specific message ID.
+Fluent-builder method to mark this `MessageQueueItem` for
+processing only by those objects who map handlers to a specific
+message ID.
 
 ##### Returns
 
@@ -110,7 +111,7 @@ a unique identifier. |
 ##### Remarks
 
 Calling this method is optional. The Zero GUID will be associated
-with this message queue item if this method is not called.
+with this `MessageQueueItem` if this method is not called.
 
 
 
@@ -132,7 +133,7 @@ from memory by the garbage collector.
 The most common implementation is to remove the newly-built
 [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 -implementing object from the internal list maintained by the
-message queue object.
+`MessageQueue` object.
 
 ##### Returns
 
