@@ -23,6 +23,7 @@
   - [MapMessage\`\`1(messageHandler)](#M-xyLOGIX-Queues-Messages-MessageQueue-MapMessage``1-System-Delegate- 'xyLOGIX.Queues.Messages.MessageQueue.MapMessage``1(System.Delegate)')
   - [MapMessage\`\`1(messageId,messageHandler)](#M-xyLOGIX-Queues-Messages-MessageQueue-MapMessage``1-System-Guid,System-Delegate- 'xyLOGIX.Queues.Messages.MessageQueue.MapMessage``1(System.Guid,System.Delegate)')
   - [PostMessage\`\`1(messageId,args)](#M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``1-System-Guid,System-Object[]- 'xyLOGIX.Queues.Messages.MessageQueue.PostMessage``1(System.Guid,System.Object[])')
+  - [Remove(item)](#M-xyLOGIX-Queues-Messages-MessageQueue-Remove-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem- 'xyLOGIX.Queues.Messages.MessageQueue.Remove(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem)')
 - [MessageQueueItemExtensions](#T-xyLOGIX-Queues-Messages-MessageQueueItemExtensions 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions')
   - [DoesEventDataTypeMatch\`\`1(item)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-DoesEventDataTypeMatch``1-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.DoesEventDataTypeMatch``1(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem)')
   - [IsBoundToMessageId\`\`1(item,messageId)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-IsBoundToMessageId``1-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem,System-Guid- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.IsBoundToMessageId``1(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem,System.Guid)')
@@ -42,7 +43,9 @@
   - [_args](#F-xyLOGIX-Queues-Messages-SendMessage`1-_args 'xyLOGIX.Queues.Messages.SendMessage`1._args')
   - [Having](#P-xyLOGIX-Queues-Messages-SendMessage`1-Having 'xyLOGIX.Queues.Messages.SendMessage`1.Having')
   - [#cctor()](#M-xyLOGIX-Queues-Messages-SendMessage`1-#cctor 'xyLOGIX.Queues.Messages.SendMessage`1.#cctor')
+  - [Args(args)](#M-xyLOGIX-Queues-Messages-SendMessage`1-Args-System-Object[]- 'xyLOGIX.Queues.Messages.SendMessage`1.Args(System.Object[])')
   - [ForMessageId(messageId)](#M-xyLOGIX-Queues-Messages-SendMessage`1-ForMessageId-System-Guid- 'xyLOGIX.Queues.Messages.SendMessage`1.ForMessageId(System.Guid)')
+  - [NoArgs()](#M-xyLOGIX-Queues-Messages-SendMessage`1-NoArgs 'xyLOGIX.Queues.Messages.SendMessage`1.NoArgs')
 
 <a name='T-xyLOGIX-Queues-Messages-BroadcastMessage`1'></a>
 ## BroadcastMessage\`1 `type`
@@ -424,6 +427,30 @@ match the message delegate's signature precisely. |
 | ---- | ----------- |
 | T | Name of the type of data that will be passed to the message handler. |
 
+<a name='M-xyLOGIX-Queues-Messages-MessageQueue-Remove-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-'></a>
+### Remove(item) `method`
+
+##### Summary
+
+Removes the first occurrence of the specified
+`item`
+from the message queue.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| item | [xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') | (Required.) Reference to an instance of an object that implements the
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
+interface and which represents the item to be removed. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `item`, is passed
+a `null` value. |
+
 <a name='T-xyLOGIX-Queues-Messages-MessageQueueItemExtensions'></a>
 ## MessageQueueItemExtensions `type`
 
@@ -782,6 +809,29 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`1-Args-System-Object[]-'></a>
+### Args(args) `method`
+
+##### Summary
+
+Supplies arguments for the message to be sent.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+
+
+
+The data types, order, and number of parameters, if
+supplied, must match the signature of the message's delegate. |
+
 <a name='M-xyLOGIX-Queues-Messages-SendMessage`1-ForMessageId-System-Guid-'></a>
 ### ForMessageId(messageId) `method`
 
@@ -794,7 +844,8 @@ message's handler was initially mapped under.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was originally tagged with.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was
+originally tagged with.
 
 
 
@@ -802,4 +853,35 @@ The Zero GUID must not be passed for this parameter.
 
 
 
-If the Zero GUID is passed for this parameter, then this method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+If the Zero GUID is passed for this parameter, then this method
+throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`1-NoArgs'></a>
+### NoArgs() `method`
+
+##### Summary
+
+Specifies that the message is to be sent without any input data.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This method initializes the internal storage of this class that is
+devoted to storing the argument list for the new message to contain
+zero elements.
+
+
+
+Calling this method is the same as calling the
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
+method without
+passing any parameters. Having this method available can make client
+code more fluent.
