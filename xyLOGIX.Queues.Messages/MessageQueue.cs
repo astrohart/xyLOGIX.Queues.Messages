@@ -182,7 +182,7 @@ namespace xyLOGIX.Queues.Messages
         /// from the message queue.
         /// </summary>
         /// <param name="item">
-        /// (Required.) Reference an instance of an object that implements the
+        /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// interface and which represents the item to be removed.
         /// </param>
