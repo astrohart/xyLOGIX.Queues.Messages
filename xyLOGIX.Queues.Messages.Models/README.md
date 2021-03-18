@@ -9,9 +9,9 @@
   - [MessageHandler](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-MessageHandler 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.MessageHandler')
   - [MessageId](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-MessageId 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.MessageId')
   - [AndHandler()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.AndHandler(System.Delegate)')
-  - [AndMessageID(messageId)](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AndMessageID-System-Guid- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.AndMessageID(System.Guid)')
-  - [AttachDisposalAction()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AttachDisposalAction-System-Action{xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem}- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.AttachDisposalAction(System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem})')
   - [Dispose()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-Dispose 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.Dispose')
+  - [HavingMessageId(messageId)](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-HavingMessageId-System-Guid- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.HavingMessageId(System.Guid)')
+  - [WithDisposalAction()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-WithDisposalAction-System-Action{xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem}- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.WithDisposalAction(System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem})')
 - [Resources](#T-xyLOGIX-Queues-Messages-Models-Properties-Resources 'xyLOGIX.Queues.Messages.Models.Properties.Resources')
   - [Culture](#P-xyLOGIX-Queues-Messages-Models-Properties-Resources-Culture 'xyLOGIX.Queues.Messages.Models.Properties.Resources.Culture')
   - [ResourceManager](#P-xyLOGIX-Queues-Messages-Models-Properties-Resources-ResourceManager 'xyLOGIX.Queues.Messages.Models.Properties.Resources.ResourceManager')
@@ -25,8 +25,7 @@ xyLOGIX.Queues.Messages.Models
 
 ##### Summary
 
-Represents a single item in a
-[MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
+Represents a single item in a [MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
 
 <a name='F-xyLOGIX-Queues-Messages-Models-MessageQueueItem-_removalAction'></a>
 ### _removalAction `constants`
@@ -87,8 +86,20 @@ This method has no parameters.
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `messageHandler`,
 is passed a `null` value. |
 
-<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AndMessageID-System-Guid-'></a>
-### AndMessageID(messageId) `method`
+<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+Performs application-defined tasks associated with freeing,
+releasing, or resetting unmanaged resources.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-HavingMessageId-System-Guid-'></a>
+### HavingMessageId(messageId) `method`
 
 ##### Summary
 
@@ -118,39 +129,25 @@ with this `MessageQueueItem` if this method is not called.
 Associating a message with the Zero GUID means that the message in
 question should be dispatched to all interested parties.
 
-<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AttachDisposalAction-System-Action{xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem}-'></a>
-### AttachDisposalAction() `method`
+<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-WithDisposalAction-System-Action{xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem}-'></a>
+### WithDisposalAction() `method`
 
 ##### Summary
 
-Fluent-builder method that enables us to attach a
-[IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}')
+Fluent-builder method that enables us to attach a [IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}')
 to this object that is called when this object's resources are freed
 from memory by the garbage collector.
 
 
 
-The most common implementation is to remove the newly-built
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
+The most common implementation is to remove the newly-built [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 -implementing object from the internal list maintained by the
-`MessageQueue` object.
+ `MessageQueue` object.
 
 ##### Returns
 
 Reference to the same instance of the object that called this
 method, for fluent use.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-Dispose'></a>
-### Dispose() `method`
-
-##### Summary
-
-Performs application-defined tasks associated with freeing,
-releasing, or resetting unmanaged resources.
 
 ##### Parameters
 
