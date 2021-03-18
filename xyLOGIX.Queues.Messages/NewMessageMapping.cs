@@ -45,6 +45,50 @@ namespace xyLOGIX.Queues.Messages
             new NewMessageMapping<T>();
 
         /// <summary>
+        /// Associates a <see cref="T:System.EventHandler"/> with the message
+        /// having unique identifier specified by the earlier call to the <see
+        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/> method.
+        /// </summary>
+        /// <param name="handler">
+        /// A <see cref="T:System.EventHandler"/> specifying the code to be
+        /// invoked when the message is sent.
+        /// </param>
+        /// <remarks>
+        /// The delegate, <paramref name="handler"/>, can be thought of as being
+        /// analogous to a C-style function pointer, in that it refers to code
+        /// that will be invoked when a message matching the creation criteria
+        /// is sent.
+        /// <para/>
+        /// <b>NOTE:</b> This method is meant to be called in a fluent-builder
+        /// style after calling the <see
+        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/> method.
+        /// <para/>
+        /// If the <see
+        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
+        /// method has not been called before this one, this method will throw
+        /// <see cref="T:System.InvalidOperationException"/>.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="handler"/>, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if the <see
+        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
+        /// method has been called prior to calling this method.
+        /// </exception>
+        public void AndEventHandler(EventHandler<T> handler)
+        {
+            if (handler == null)
+                throw new ArgumentNullException(nameof(handler));
+            if (Guid.Empty == _messageId)
+                throw new InvalidOperationException(
+                    "This method should be called in a fluent chain along with the WithMessageId method."
+                );
+            handler.MapToMessage(_messageId);
+        }
+
+        /// <summary>
         /// Associates a <see cref="T:System.Delegate"/> with the message.
         /// </summary>
         /// <param name="d">

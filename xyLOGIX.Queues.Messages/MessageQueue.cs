@@ -90,11 +90,20 @@ namespace xyLOGIX.Queues.Messages
                 // Add the message to the message map Basically, you are telling
                 // me that, when a message of type T is posted to the queue,
                 // then call the code referenced by the messageHandler.
-                _internalMessageQueue.Add(
-                    MakeNewMessageQueueItem.ForEventDataType(typeof(T))
-                                           .AndHandler(messageHandler)
-                                           .WithDisposalAction(Remove)
-                );
+                var item = MakeNewMessageQueueItem.ForEventDataType(typeof(T))
+                                                  .AndHandler(messageHandler)
+                                                  .WithDisposalAction(Remove);
+
+                /*
+                 * Specific mappings, between specific methods and specific event
+                 * identifiers, can only be added once.
+                 */
+                if (!_internalMessageQueue.Contains(
+                    item,
+                    GetMessageQueueItemEquialityComparer.That
+                        .TakesEventDataTypeIntoAccount()
+                ))
+                    _internalMessageQueue.Add(item);
             }
         }
 
@@ -127,12 +136,17 @@ namespace xyLOGIX.Queues.Messages
                 // telling me that, when a message with Message ID messageId is
                 // posted to the queue, then execute the code referred to by the
                 // messageHandler delegate.
-                _internalMessageQueue.Add(
-                    MakeNewMessageQueueItem.FromScratch()
-                                           .HavingMessageId(messageId)
-                                           .AndHandler(messageHandler)
-                                           .WithDisposalAction(Remove)
-                );
+                var item = MakeNewMessageQueueItem.FromScratch()
+                                                  .HavingMessageId(messageId)
+                                                  .AndHandler(messageHandler)
+                                                  .WithDisposalAction(Remove);
+
+                if (!_internalMessageQueue.Contains(
+                    item,
+                    GetMessageQueueItemEquialityComparer.That
+                        .DoesNotTakeEventDataTypeIntoAccount()
+                ))
+                    _internalMessageQueue.Add(item);
             }
         }
 
@@ -220,6 +234,11 @@ namespace xyLOGIX.Queues.Messages
 
             lock (SyncRoot)
             {
+                /*
+                 * Check if any mapped messages matching the messageId are
+                 * even in the queue to begin with.  If this is not the case,
+                 * then stop.
+                 */
                 if (!_internalMessageQueue.Any(
                     item => item.IsBoundToMessageId<T>(messageId)
                 )) return;
@@ -265,9 +284,12 @@ namespace xyLOGIX.Queues.Messages
                     nameof(messageId)
                 );
 
-
             lock (SyncRoot)
             {
+                /*
+                 * If there are no messages in the queue that are mapped to the
+                 * message ID messageId, then stop.
+                 */
                 if (!_internalMessageQueue.Any(
                     item => item.IsBoundToMessageId(messageId)
                 )) return;

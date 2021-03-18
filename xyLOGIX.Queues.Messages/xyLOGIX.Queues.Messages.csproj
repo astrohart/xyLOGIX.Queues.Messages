@@ -76,6 +76,9 @@
   <ItemGroup>
     <Compile Include="BroadcastMessage.cs" />
     <Compile Include="DelegateExtensions.cs" />
+    <Compile Include="GetMessageQueueItemEquialityComparer.cs" />
+    <Compile Include="MessageQueueItemWithDataTypeComparer.cs" />
+    <Compile Include="MessageQueueItemWithNoDataTypeComparer.cs" />
     <Compile Include="SendMessage.NonGeneric.cs" />
     <Compile Include="NewMessageMapping.NonGeneric.cs" />
     <Compile Include="MakeNewMessageQueueItem.cs" />
