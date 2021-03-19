@@ -38,7 +38,7 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="messageHandler" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         IMessageQueueItem AndHandler(Delegate messageHandler);
 

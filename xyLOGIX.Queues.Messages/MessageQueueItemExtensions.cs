@@ -30,10 +30,10 @@ namespace xyLOGIX.Queues.Messages
         /// message queue item to be checked.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the event data type of the provided
+        /// <see langword="true" /> if the event data type of the provided
         /// <paramref
         ///     name="item" />
-        /// matches; <c>false</c> otherwise.
+        /// matches; <see langword="false" /> otherwise.
         /// </returns>
         public static bool DoesEventDataTypeMatch<T>(
             this IMessageQueueItem item)
@@ -59,9 +59,9 @@ namespace xyLOGIX.Queues.Messages
         /// A <see cref="T:System.Guid" /> indicating who should receive the message.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the message queue <paramref name="item" /> is bound
+        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
         /// for the message ID with the specified <paramref name="messageId" />;
-        /// <c>false</c> otherwise.
+        /// <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId<T>(this IMessageQueueItem item,
             Guid messageId)
@@ -84,9 +84,9 @@ namespace xyLOGIX.Queues.Messages
         /// A <see cref="T:System.Guid" /> indicating who should receive the message.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the message queue <paramref name="item" /> is bound
+        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
         /// for the message ID with the specified <paramref name="messageId" />;
-        /// <c>false</c> otherwise.
+        /// <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId(this IMessageQueueItem item,
             Guid messageId)

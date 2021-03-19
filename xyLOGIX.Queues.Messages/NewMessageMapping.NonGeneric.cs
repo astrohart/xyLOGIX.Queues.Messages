@@ -69,7 +69,7 @@ namespace xyLOGIX.Queues.Messages
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="handler" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if the
@@ -117,7 +117,7 @@ namespace xyLOGIX.Queues.Messages
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="d" />, is passed a
-        /// <c>null</c> value.
+        /// <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if the

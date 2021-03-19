@@ -25,7 +25,7 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="d" />, is passed a
-        /// <c>null</c> value.
+        /// <see langword="null" /> value.
         /// </exception>
         public static void MapToMessage<T>(this Delegate d)
         {
@@ -58,7 +58,7 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="messageId" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the Zero GUID is supplied for the
@@ -98,7 +98,7 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="messageId" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the Zero GUID is supplied for the

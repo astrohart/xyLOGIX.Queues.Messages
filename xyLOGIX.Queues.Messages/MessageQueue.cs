@@ -174,7 +174,7 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="messageHandler" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public void MapMessage<T>(Guid messageId, Delegate messageHandler)
         {
@@ -315,7 +315,7 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="item" />, is passed
-        /// a <c>null</c> value.
+        /// a <see langword="null" /> value.
         /// </exception>
         private void Remove(IMessageQueueItem item)
         {

@@ -25,7 +25,7 @@ namespace xyLOGIX.Queues.Messages
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="eventDataType"/>,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         /// <remarks>
         /// After calling this method, callers must then invoke the <see
