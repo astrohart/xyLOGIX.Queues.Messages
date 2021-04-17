@@ -31,9 +31,7 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the event data type of the provided
-        /// <paramref
-        ///     name="item" />
-        /// matches; <see langword="false" /> otherwise.
+        /// <paramref name="item" /> matches; <see langword="false" /> otherwise.
         /// </returns>
         public static bool DoesEventDataTypeMatch<T>(
             this IMessageQueueItem item)
@@ -59,9 +57,11 @@ namespace xyLOGIX.Queues.Messages
         /// A <see cref="T:System.Guid" /> indicating who should receive the message.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
-        /// for the message ID with the specified <paramref name="messageId" />;
-        /// <see langword="false" /> otherwise.
+        /// <see langword="true" /> if the message queue <paramref name="item" />
+        /// is bound for the message ID with the specified
+        /// <paramref
+        ///     name="messageId" />
+        /// ; <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId<T>(this IMessageQueueItem item,
             Guid messageId)
@@ -69,9 +69,11 @@ namespace xyLOGIX.Queues.Messages
                item.EventDataType == typeof(T) && item.MessageId == messageId;
 
         /// <summary>
-        /// Determines whether a message queue <paramref name="item" /> has data
-        /// of type <typeparamref name="T" /> and corresponds to the message ID
-        /// specified by the <paramref name="messageId" /> parameter.
+        /// Determines whether a message queue <paramref name="item" />
+        /// corresponds to the message ID specified by the
+        /// <paramref
+        ///     name="messageId" />
+        /// parameter.
         /// </summary>
         /// <param name="item">
         /// Reference to an instance of an object that implements the
@@ -84,9 +86,11 @@ namespace xyLOGIX.Queues.Messages
         /// A <see cref="T:System.Guid" /> indicating who should receive the message.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
-        /// for the message ID with the specified <paramref name="messageId" />;
-        /// <see langword="false" /> otherwise.
+        /// <see langword="true" /> if the message queue <paramref name="item" />
+        /// is bound for the message ID with the specified
+        /// <paramref
+        ///     name="messageId" />
+        /// ; <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId(this IMessageQueueItem item,
             Guid messageId)

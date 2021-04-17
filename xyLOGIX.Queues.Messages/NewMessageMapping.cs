@@ -38,9 +38,6 @@ namespace xyLOGIX.Queues.Messages
         /// <summary>
         /// Associates a message and its handler together.
         /// </summary>
-        /// <typeparam name="T">
-        /// Name of the type to be composed with this object.
-        /// </typeparam>
         public static NewMessageMapping<T> Associate { get; } =
             new NewMessageMapping<T>();
 
