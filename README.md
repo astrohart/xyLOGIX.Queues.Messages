@@ -14,17 +14,19 @@ Component libraries:
 
 This project is a collection of C# class libraries -- that I hope to combine into a NuGet package some day -- which implement a very simple version of the Event Aggregator pattern.
 
-I am heavily experienced in C++/MFC/Win32 and, as such, I sought to emulate the way the Microsoft Foundation Class Library implements event aggregation (called message maps in that implementation) on a very microcosm level in C#.
+I am heavily experienced in C++/MFC/Win32 and, as such, I sought to emulate the way the Microsoft Foundation Class Library implements event aggregation (while I do not know for 100% sure, I suspect that the so-called "message maps" are MFC's way of, basically, more or less, doing event aggregation of Windows operating system messages) on a very microcosm level in C#.
 
 ### Motiviation
 
 The idea sprang from my working in a recent project where I had a service object being called by a WinForms Presenter (using MVP pattern). The service object exposed numerous C# `event`s that served as callbacks for various phases of the actions of the service object.
 
-That was less than satisfactory because:
+A difficulty arose because one component of the application needed to respond to events raised by another component.  The two components did not have direct access to references of each other, so C# `event` delegates were not so useful in this particular case.
 
-* (a) It tightly coupled the Presenter and the Service Object; and
-* (b) No one else but the Presenter could receive the event notifications.
-* (c) Some of the events were ones that the client(s) of the Presenter object might also be interested in.
+The case to be made against C# `event` delegate use is the following:
+
+* (a) These constructs force objects to be more tightly-coupled;
+* (b) No one else but the object who actually has the dependency can respond to events raised by the service object.
+* (c) Some of the events were ones that the client(s) of the containing object, or objects elsewhere in the application, for that matter, might also be interested in.
 
 This system of class libraries was the solution to that problem.  Using this framework is a way to allow me to decouple the sender of a C# `event` from a handler of it.
 
