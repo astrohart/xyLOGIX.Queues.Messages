@@ -82,18 +82,26 @@ OKAY, so let's see how this stuff works.  I am going to present a small tutorial
 
 #### Touchpoint: The `CalcView` class
 
+_**Recall:**_  The code for this WinForms sample is in the [SampleMVP](https://github.com/astrohart/SampleMVP) repository.
+
 First, let's look at the `CalcView` class.  This class encapsulates the main window of the application:
 
 ![Fig01](fig01.png)
-Figure 1. The Calculator interface.
 
-(By the way, thank you, [Grant Kinney](https://grantwinney.com/its-possible-to-test-a-winforms-app-using-mvp/) for not suing me for merely using your tutorial as a jumping off point).
+**Figure 1.** The Calculator interface.
+
+(By the way, thank you, [Grant Kinney](https://grantwinney.com/its-possible-to-test-a-winforms-app-using-mvp/), for not suing me for merely using your tutorial as a jumping off point).
 
 I want to specifically draw your attention to the big, friendly **Add** and **Reset** buttons on the form.
 
-Obviously, a `Button` object in Windows Form exposes a C# `event`.  This event's name is `Click`.  We handle the `Click` event in order to respond when the user clicks the mouse on the button.
+Obviously, a `Button` object in Windows Form exposes a C# `event`.  This event's name is `Click`.  The `Button` control raises its `Click` event when the user clicks on the button with the mouse.  We handle the `Click` event in order to execute handling in response to this action.
 
-Now, Mr. Kinney's methodology was to expose `Add` and `Reset` events in his `CalcView` class and then have the `CalcPresenter` attach handlers to _those_ events.
+Now, Mr. Kinney's methodology was to expose `Add` and `Reset` events in his `CalcView` class and then have the `CalcPresenter` attach handlers to _those_ events.  Basically, this sets up a wagon-train, i.e., you have events whose handlers raise other events, who themselves are handlers.
+
+---
+**NOTE:** Would not it make more sense to simply queue up  a message in some dictionary somewhere, letting anyone, wherever they are in the application code, know that something interesting happened?  
+
+---
 
 I thought this could be decoupled.  Also, I didn't like the idea of event handlers invoking events.  This tends to make UI code vastly more tightly-coupled than it needs to be, IMHO.
 
@@ -118,11 +126,15 @@ private void OnClickResetButton(object sender, EventArgs e)
 ```
 **Listing 1.** The `OnClickAddButton` and `OnClickResetButton` event handlers.
 
+It should be noted that adding `Click` event handlers has to be done somewhere, in order to get things moving.
+
 (Sound of vinyl record scratching) But wait!  These event handlers don't do anything but throw `NotImplementedException`!  How is that of any use to us?
 
-You're right.  They aren't.   First, we need to define GUIDs that will uniquely identify, to the Presenter, the messages that these buttons send, using the `xyLOGIX.Queues.Messages` library's ability to tag messages with GUIDs.
+You're right.  They aren't.   First, we need to define GUIDs that will uniquely identify, to the Presenter, the messages that these buttons send, using the `xyLOGIX.Queues.Messages` library's ability to tag messages with GUIDs.  
 
-Now, you can use GUIDs that are defined only once and given a constant value, but I prefer to have the software create brand-new GUIDs every single time the application is launched.  Since I personally hate having "magic literals" thoughout my code, in favor of named constants, I'm going to design a class called `CalcViewMessages`. 
+This is a similar approach to MFC, where, e.g., you have a `WM_COMMAND` defined constant that tells you you're handling the `WM_COMMAND` message from the operating system.  We use GUIDs in our approach since they are guaranteed to be unique..
+
+Now, you can use GUIDs that are defined only once and given a constant value, but I prefer to have the software create brand-new GUIDs every single time the application is launched.  Since I personally hate having "magic literals" thoughout my code, in favor of named constants, I'm going to design a class called `CalcViewMessages`, which will have static fields containing the relevant GUIDs. 
 
 This will be a `static` class and will conain constant-like `public static readonly` fields, all of type `System.Guid`, that are labeled with fluent identifiers so I can tell which is for which mesage:
 
@@ -141,9 +153,9 @@ namespace SampleMVP
 ```
 **Listing 2.** The `CalcViewMessages` class.
 
-For compactness' sake, I've removed the `<summary>` etc. XML doc comments from all code in this mini-tutorial.
+**NOTE:** For compactness' sake, I've removed the `<summary>` etc. XML doc comments from all code in this mini-tutorial.
 
-As we can see, the identifiers `ADD_BUTTON_CLICKED` and `RESET_BUTTON_CLICKED` that serve as the name of each field clearly specify which GUID is for which message.  You do not have to do as I did above; just be consistent.
+As we can see, the identifiers `ADD_BUTTON_CLICKED` and `RESET_BUTTON_CLICKED` that serve as the name of each field clearly specify which GUID is for which message.  You do not have to do as I did above; just be consistent in your own approach.  Perhaps you might think assigning each constant a specific hex value is good enough.
 
 We want to label our messages with unique identifiers; otherwise, the message recepient code will not know which button got clicked.
 
