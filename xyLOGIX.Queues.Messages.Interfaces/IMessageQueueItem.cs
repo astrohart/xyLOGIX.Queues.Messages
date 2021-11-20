@@ -29,6 +29,11 @@ namespace xyLOGIX.Queues.Messages.Interfaces
         Guid MessageId { get; set; }
 
         /// <summary>
+        /// Gets or sets the <see cref="T:System.Type" /> of the result.
+        /// </summary>
+        Type ResultDataType { get; set; }
+
+        /// <summary>
         /// Fluent-builder method to associate this message queue item with code
         /// to be executed when the message is published.
         /// </summary>

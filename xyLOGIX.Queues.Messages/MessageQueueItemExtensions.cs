@@ -69,6 +69,40 @@ namespace xyLOGIX.Queues.Messages
                item.EventDataType == typeof(T) && item.MessageId == messageId;
 
         /// <summary>
+        /// Determines whether a message queue <paramref name="item" /> has data
+        /// of type <typeparamref name="T" /> and corresponds to the message ID
+        /// specified by the <paramref name="messageId" /> parameter.
+        /// </summary>
+        /// <typeparam name="T">
+        /// Name of the class that contains the message queue item's data.
+        /// </typeparam>
+        /// <typeparam name="R">
+        /// Name of the class that contains the message queue item's result.
+        /// </typeparam>
+        /// <param name="item">
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:SampleMVP.IMessageQueueItem" />
+        /// interface that represents the
+        /// message queue item to be checked.
+        /// </param>
+        /// <param name="messageId">
+        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the message queue <paramref name="item" />
+        /// is bound for the message ID with the specified
+        /// <paramref
+        ///     name="messageId" />
+        /// ; <see langword="false" /> otherwise.
+        /// </returns>
+        public static bool IsBoundToMessageId<T, R>(this IMessageQueueItem item,
+            Guid messageId)
+            => item != null && messageId != Guid.Empty &&
+               item.EventDataType == typeof(T) &&
+               item.ResultDataType == typeof(R) && item.MessageId == messageId;
+
+        /// <summary>
         /// Determines whether a message queue <paramref name="item" />
         /// corresponds to the message ID specified by the
         /// <paramref

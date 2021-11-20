@@ -301,6 +301,67 @@ namespace xyLOGIX.Queues.Messages
         }
 
         /// <summary>
+        /// Posts a message to the message queue and aims it at the specific
+        /// message ID indicated by the <paramref name="messageId" />. Only the
+        /// objects who originally mapped handlers to the message with the
+        /// specified message ID will be sent the message.
+        /// </summary>
+        /// <typeparam name="T">
+        /// Name of the type of data that will be passed to the message handler.
+        /// </typeparam>
+        /// <typeparam name="R">
+        /// Name of the type of data that will be returned from the message handler as its result.
+        /// </typeparam>
+        /// <param name="messageId">
+        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// </param>
+        /// <param name="args">
+        /// Zero or more arguments to be provided to the message handler.
+        /// <para />
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must
+        /// match the message delegate's signature precisely.
+        /// </param>
+        public R PostMessage<T, R>(Guid messageId, params object[] args)
+        {
+            /*
+             * OKAY, check whether the messageId is the empty GUID. If so, then
+             * this method will devolve to a call to BroadcastMessage().
+             */
+            if (messageId == Guid.Empty)
+                throw new ArgumentException(
+                    "You cannot pass the Zero GUID to this method.",
+                    nameof(messageId)
+                );
+
+            R result;
+
+            lock (SyncRoot)
+            {
+                /*
+                 * Check if any mapped messages matching the messageId are
+                 * even in the queue to begin with.  If this is not the case,
+                 * then stop.
+                 */
+                if (!_internalMessageQueue.Any(
+                    item => item.IsBoundToMessageId<T, R>(messageId)
+                ))
+                    throw new InvalidOperationException(
+                        "The message that has been sent is not bound to a message ID value."
+                    );
+
+                result = (R)_internalMessageQueue.First(
+                                                     item => item
+                                                         .IsBoundToMessageId<T,
+                                                             R>(messageId)
+                                                 )
+                                                 .MessageHandler
+                                                 ?.DynamicInvoke(args);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Removes the first occurrence of the specified
         /// <paramref
         ///     name="item" />
