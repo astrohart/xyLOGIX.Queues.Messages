@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -20,6 +20,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Debug\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -33,6 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Release\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
     <SkipPostSharp>True</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -46,6 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Debug\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -59,6 +62,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Release\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
     <SkipPostSharp>True</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup>
