@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PostSharp.Patterns.Diagnostics;
+using System.Collections.Generic;
 using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages
@@ -10,6 +11,7 @@ namespace xyLOGIX.Queues.Messages
     /// interface to see if they are equal. Ignores the event data type
     /// associated with the item.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class
         MessageQueueItemWithNoDataTypeComparer : IEqualityComparer<
             IMessageQueueItem>

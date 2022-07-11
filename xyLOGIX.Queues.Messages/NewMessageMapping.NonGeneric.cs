@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -12,6 +13,7 @@ namespace xyLOGIX.Queues.Messages
     /// Message handlers are invoked automatically in response to messages being
     /// sent or broadcast with the corresponding identifier or data type specified.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class NewMessageMapping
     {
         /// <summary>

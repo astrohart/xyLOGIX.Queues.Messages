@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Queues.Messages.Interfaces;
 
@@ -10,6 +11,7 @@ namespace xyLOGIX.Queues.Messages
     ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
     /// interface more fluent.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MessageQueueItemExtensions
     {
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages.Models
@@ -7,6 +8,7 @@ namespace xyLOGIX.Queues.Messages.Models
     /// Represents a single item in a
     /// <see cref="T:xyLOGIX.Queues.Messages.MessageQueue" />.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class MessageQueueItem : IMessageQueueItem
     {
         /// <summary>
