@@ -1,4 +1,5 @@
 ﻿using System;
+using PostSharp.Patterns.Diagnostics;
 using xyLOGIX.Queues.Messages.Interfaces;
 using xyLOGIX.Queues.Messages.Models;
 
@@ -7,6 +8,7 @@ namespace xyLOGIX.Queues.Messages
     /// <summary>
     /// Creates new message queue item objects.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewMessageQueueItem
     {
         /// <summary>
