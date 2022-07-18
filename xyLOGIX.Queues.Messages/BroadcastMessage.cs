@@ -1,4 +1,4 @@
-﻿namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages
 {
     /// <summary>
     /// Broadcasts messages, with event data of type <typeparamref name="T" />,

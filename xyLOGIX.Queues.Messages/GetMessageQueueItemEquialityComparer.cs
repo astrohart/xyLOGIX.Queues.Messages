@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages
