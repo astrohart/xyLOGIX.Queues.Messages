@@ -14,6 +14,7 @@
   - [EventDataType](#P-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-EventDataType 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.EventDataType')
   - [MessageHandler](#P-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-MessageHandler 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.MessageHandler')
   - [MessageId](#P-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-MessageId 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.MessageId')
+  - [ResultDataType](#P-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-ResultDataType 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.ResultDataType')
   - [AndHandler()](#M-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.AndHandler(System.Delegate)')
   - [HavingMessageId(messageId)](#M-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-HavingMessageId-System-Guid- 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.HavingMessageId(System.Guid)')
   - [WithDisposalAction()](#M-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-WithDisposalAction-System-Action{xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem}- 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem.WithDisposalAction(System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem})')
@@ -213,6 +214,13 @@ specific message queue item.
 ##### Remarks
 
 If this property is set to the zero GUID, then the message is broadcast.
+
+<a name='P-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-ResultDataType'></a>
+### ResultDataType `property`
+
+##### Summary
+
+Gets or sets the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of the result.
 
 <a name='M-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-AndHandler-System-Delegate-'></a>
 ### AndHandler() `method`

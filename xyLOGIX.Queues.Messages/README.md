@@ -33,11 +33,13 @@
   - [MapMessage\`\`1(messageId,messageHandler)](#M-xyLOGIX-Queues-Messages-MessageQueue-MapMessage``1-System-Guid,System-Delegate- 'xyLOGIX.Queues.Messages.MessageQueue.MapMessage``1(System.Guid,System.Delegate)')
   - [PostMessage(messageId,args)](#M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage-System-Guid,System-Object[]- 'xyLOGIX.Queues.Messages.MessageQueue.PostMessage(System.Guid,System.Object[])')
   - [PostMessage\`\`1(messageId,args)](#M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``1-System-Guid,System-Object[]- 'xyLOGIX.Queues.Messages.MessageQueue.PostMessage``1(System.Guid,System.Object[])')
+  - [PostMessage\`\`2(messageId,args)](#M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``2-System-Guid,System-Object[]- 'xyLOGIX.Queues.Messages.MessageQueue.PostMessage``2(System.Guid,System.Object[])')
   - [Remove(item)](#M-xyLOGIX-Queues-Messages-MessageQueue-Remove-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem- 'xyLOGIX.Queues.Messages.MessageQueue.Remove(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem)')
 - [MessageQueueItemExtensions](#T-xyLOGIX-Queues-Messages-MessageQueueItemExtensions 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions')
   - [DoesEventDataTypeMatch\`\`1(item)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-DoesEventDataTypeMatch``1-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.DoesEventDataTypeMatch``1(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem)')
   - [IsBoundToMessageId(item,messageId)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-IsBoundToMessageId-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem,System-Guid- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.IsBoundToMessageId(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem,System.Guid)')
   - [IsBoundToMessageId\`\`1(item,messageId)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-IsBoundToMessageId``1-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem,System-Guid- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.IsBoundToMessageId``1(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem,System.Guid)')
+  - [IsBoundToMessageId\`\`2(item,messageId)](#M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-IsBoundToMessageId``2-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem,System-Guid- 'xyLOGIX.Queues.Messages.MessageQueueItemExtensions.IsBoundToMessageId``2(xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem,System.Guid)')
 - [MessageQueueItemWithDataTypeComparer](#T-xyLOGIX-Queues-Messages-MessageQueueItemWithDataTypeComparer 'xyLOGIX.Queues.Messages.MessageQueueItemWithDataTypeComparer')
   - [#ctor()](#M-xyLOGIX-Queues-Messages-MessageQueueItemWithDataTypeComparer-#ctor 'xyLOGIX.Queues.Messages.MessageQueueItemWithDataTypeComparer.#ctor')
   - [Instance](#P-xyLOGIX-Queues-Messages-MessageQueueItemWithDataTypeComparer-Instance 'xyLOGIX.Queues.Messages.MessageQueueItemWithDataTypeComparer.Instance')
@@ -67,6 +69,15 @@
   - [AndHandler(d)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`1-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.NewMessageMapping`1.AndHandler(System.Delegate)')
   - [WithHandler(d)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`1-WithHandler-System-Delegate- 'xyLOGIX.Queues.Messages.NewMessageMapping`1.WithHandler(System.Delegate)')
   - [WithMessageId(messageId)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`1-WithMessageId-System-Guid- 'xyLOGIX.Queues.Messages.NewMessageMapping`1.WithMessageId(System.Guid)')
+- [NewMessageMapping\`2](#T-xyLOGIX-Queues-Messages-NewMessageMapping`2 'xyLOGIX.Queues.Messages.NewMessageMapping`2')
+  - [#ctor()](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-#ctor 'xyLOGIX.Queues.Messages.NewMessageMapping`2.#ctor')
+  - [_messageId](#F-xyLOGIX-Queues-Messages-NewMessageMapping`2-_messageId 'xyLOGIX.Queues.Messages.NewMessageMapping`2._messageId')
+  - [Associate](#P-xyLOGIX-Queues-Messages-NewMessageMapping`2-Associate 'xyLOGIX.Queues.Messages.NewMessageMapping`2.Associate')
+  - [#cctor()](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-#cctor 'xyLOGIX.Queues.Messages.NewMessageMapping`2.#cctor')
+  - [AndEventHandler(handler)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-AndEventHandler-System-Func{System-Object,`0,`1}- 'xyLOGIX.Queues.Messages.NewMessageMapping`2.AndEventHandler(System.Func{System.Object,`0,`1})')
+  - [AndHandler(d)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.NewMessageMapping`2.AndHandler(System.Delegate)')
+  - [WithHandler(d)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-WithHandler-System-Delegate- 'xyLOGIX.Queues.Messages.NewMessageMapping`2.WithHandler(System.Delegate)')
+  - [WithMessageId(messageId)](#M-xyLOGIX-Queues-Messages-NewMessageMapping`2-WithMessageId-System-Guid- 'xyLOGIX.Queues.Messages.NewMessageMapping`2.WithMessageId(System.Guid)')
 - [Resources](#T-xyLOGIX-Queues-Messages-Properties-Resources 'xyLOGIX.Queues.Messages.Properties.Resources')
   - [Culture](#P-xyLOGIX-Queues-Messages-Properties-Resources-Culture 'xyLOGIX.Queues.Messages.Properties.Resources.Culture')
   - [ResourceManager](#P-xyLOGIX-Queues-Messages-Properties-Resources-ResourceManager 'xyLOGIX.Queues.Messages.Properties.Resources.ResourceManager')
@@ -86,6 +97,14 @@
   - [Args(args)](#M-xyLOGIX-Queues-Messages-SendMessage`1-Args-System-Object[]- 'xyLOGIX.Queues.Messages.SendMessage`1.Args(System.Object[])')
   - [ForMessageId(messageId)](#M-xyLOGIX-Queues-Messages-SendMessage`1-ForMessageId-System-Guid- 'xyLOGIX.Queues.Messages.SendMessage`1.ForMessageId(System.Guid)')
   - [NoArgs()](#M-xyLOGIX-Queues-Messages-SendMessage`1-NoArgs 'xyLOGIX.Queues.Messages.SendMessage`1.NoArgs')
+- [SendMessage\`2](#T-xyLOGIX-Queues-Messages-SendMessage`2 'xyLOGIX.Queues.Messages.SendMessage`2')
+  - [#ctor()](#M-xyLOGIX-Queues-Messages-SendMessage`2-#ctor 'xyLOGIX.Queues.Messages.SendMessage`2.#ctor')
+  - [_args](#F-xyLOGIX-Queues-Messages-SendMessage`2-_args 'xyLOGIX.Queues.Messages.SendMessage`2._args')
+  - [Having](#P-xyLOGIX-Queues-Messages-SendMessage`2-Having 'xyLOGIX.Queues.Messages.SendMessage`2.Having')
+  - [#cctor()](#M-xyLOGIX-Queues-Messages-SendMessage`2-#cctor 'xyLOGIX.Queues.Messages.SendMessage`2.#cctor')
+  - [Args(args)](#M-xyLOGIX-Queues-Messages-SendMessage`2-Args-System-Object[]- 'xyLOGIX.Queues.Messages.SendMessage`2.Args(System.Object[])')
+  - [ForMessageId(messageId)](#M-xyLOGIX-Queues-Messages-SendMessage`2-ForMessageId-System-Guid- 'xyLOGIX.Queues.Messages.SendMessage`2.ForMessageId(System.Guid)')
+  - [NoArgs()](#M-xyLOGIX-Queues-Messages-SendMessage`2-NoArgs 'xyLOGIX.Queues.Messages.SendMessage`2.NoArgs')
 
 <a name='T-xyLOGIX-Queues-Messages-BroadcastMessage`1'></a>
 ## BroadcastMessage\`1 `type`
@@ -661,6 +680,35 @@ match the message delegate's signature precisely. |
 | ---- | ----------- |
 | T | Name of the type of data that will be passed to the message handler. |
 
+<a name='M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``2-System-Guid,System-Object[]-'></a>
+### PostMessage\`\`2(messageId,args) `method`
+
+##### Summary
+
+Posts a message to the message queue and aims it at the specific
+message ID indicated by the `messageId`. Only the
+objects who originally mapped handlers to the message with the
+specified message ID will be sent the message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message handler.
+
+
+
+The number, order, and type of arguments provided must
+match the message delegate's signature precisely. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Name of the type of data that will be passed to the message handler. |
+| R | Name of the type of data that will be returned from the message handler as its result. |
+
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-Remove-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem-'></a>
 ### Remove(item) `method`
 
@@ -713,8 +761,7 @@ has a data object whose type matches that of
 ##### Returns
 
 `true` if the event data type of the provided
-`item`
-matches; `false` otherwise.
+`item` matches; `false` otherwise.
 
 ##### Parameters
 
@@ -736,15 +783,17 @@ message queue item to be checked. |
 
 ##### Summary
 
-Determines whether a message queue `item` has data
-of type `T` and corresponds to the message ID
-specified by the `messageId` parameter.
+Determines whether a message queue `item`
+corresponds to the message ID specified by the
+`messageId`
+parameter.
 
 ##### Returns
 
-`true` if the message queue `item` is bound
-for the message ID with the specified `messageId`;
-`false` otherwise.
+`true` if the message queue `item`
+is bound for the message ID with the specified
+`messageId`
+; `false` otherwise.
 
 ##### Parameters
 
@@ -767,9 +816,10 @@ specified by the `messageId` parameter.
 
 ##### Returns
 
-`true` if the message queue `item` is bound
-for the message ID with the specified `messageId`;
-`false` otherwise.
+`true` if the message queue `item`
+is bound for the message ID with the specified
+`messageId`
+; `false` otherwise.
 
 ##### Parameters
 
@@ -786,6 +836,39 @@ message queue item to be checked. |
 | Name | Description |
 | ---- | ----------- |
 | T | Name of the class that contains the message queue item's data. |
+
+<a name='M-xyLOGIX-Queues-Messages-MessageQueueItemExtensions-IsBoundToMessageId``2-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem,System-Guid-'></a>
+### IsBoundToMessageId\`\`2(item,messageId) `method`
+
+##### Summary
+
+Determines whether a message queue `item` has data
+of type `T` and corresponds to the message ID
+specified by the `messageId` parameter.
+
+##### Returns
+
+`true` if the message queue `item`
+is bound for the message ID with the specified
+`messageId`
+; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| item | [xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') | Reference to an instance of an object that implements the
+[IMessageQueueItem](#T-SampleMVP-IMessageQueueItem 'SampleMVP.IMessageQueueItem')
+interface that represents the
+message queue item to be checked. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Name of the class that contains the message queue item's data. |
+| R | Name of the class that contains the message queue item's result. |
 
 <a name='T-xyLOGIX-Queues-Messages-MessageQueueItemWithDataTypeComparer'></a>
 ## MessageQueueItemWithDataTypeComparer `type`
@@ -1220,12 +1303,6 @@ matched with a method that will be invoked when the message is sent.
 
 Associates a message and its handler together.
 
-##### Generic Types
-
-| Name | Description |
-| ---- | ----------- |
-| T | Name of the type to be composed with this object. |
-
 <a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`1-#cctor'></a>
 ### #cctor() `method`
 
@@ -1361,6 +1438,232 @@ method before calling this one. If this has been done anyway, then
 this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
 <a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`1-WithMessageId-System-Guid-'></a>
+### WithMessageId(messageId) `method`
+
+##### Summary
+
+Associates a unique identifier, `messageId`, with a
+message handler.
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that contains the unique
+identifier to assign to the message.
+
+
+
+The Empty GUID is not allowed. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the `messageId` parameter is passed [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') for its value. |
+
+##### Remarks
+
+You must call the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
+method after calling this method. This method has to be called prior
+to calling the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
+method. If this is not done, then the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
+method will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
+
+<a name='T-xyLOGIX-Queues-Messages-NewMessageMapping`2'></a>
+## NewMessageMapping\`2 `type`
+
+##### Namespace
+
+xyLOGIX.Queues.Messages
+
+##### Summary
+
+Fluent-builder object to build message-map entries.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Name of the data type that carries the event data. |
+| R | Name of the data type that carries the result of processing the message. |
+
+##### Remarks
+
+Message-map entries are what bind together a message's identifier and/or
+data object type with a method that handles it; i.e, its message handler.
+
+
+
+Message handlers are invoked automatically in response to messages being
+sent or broadcast with the corresponding identifier or data type specified.
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of [NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}') and returns
+a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-xyLOGIX-Queues-Messages-NewMessageMapping`2-_messageId'></a>
+### _messageId `constants`
+
+##### Summary
+
+Unique identifier that identifies the specific message that gets
+matched with a method that will be invoked when the message is sent.
+
+<a name='P-xyLOGIX-Queues-Messages-NewMessageMapping`2-Associate'></a>
+### Associate `property`
+
+##### Summary
+
+Associates a message and its handler together.
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-AndEventHandler-System-Func{System-Object,`0,`1}-'></a>
+### AndEventHandler(handler) `method`
+
+##### Summary
+
+Associates a [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') with the message
+having unique identifier specified by the earlier call to the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| handler | [System.Func{System.Object,\`0,\`1}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,`0,`1}') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the code to be
+invoked when the message is sent. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `handler`, is
+passed a `null` value. |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method has been called prior to calling this method. |
+
+##### Remarks
+
+The delegate, `handler`, can be thought of as being
+analogous to a C-style function pointer, in that it refers to code
+that will be invoked when a message matching the creation criteria
+is sent.
+
+
+
+This method is meant to be called in a fluent-builder
+style after calling the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+
+
+
+If the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method has not been called before this one, this method will throw
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-AndHandler-System-Delegate-'></a>
+### AndHandler(d) `method`
+
+##### Summary
+
+Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') with the message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
+when the message is sent. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `d`, is passed a
+`null` value. |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method has not been called. |
+
+##### Remarks
+
+The delegate, `d`, can be thought of as being
+analogous to a C-style function pointer, in that it refers to code
+that will be invoked when a message matching the creation criteria
+is sent.
+
+
+
+This method is meant to be called in a fluent-builder
+style after calling the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+
+
+
+If the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method has not been called before this one, this method will throw
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-WithHandler-System-Delegate-'></a>
+### WithHandler(d) `method`
+
+##### Summary
+
+Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') with the message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
+when the message is sent. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `d`, is passed a
+`null` value. |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method has been called prior to calling this method. |
+
+##### Remarks
+
+The delegate, `d`, can be thought of as being
+analogous to a C-style function pointer, in that it refers to code
+that will be invoked when a message matching the creation criteria
+is sent.
+
+
+
+This method is meant to be called in a standalone fashion.
+
+
+
+It is not required, nor is it even advisable, to call the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method before calling this one. If this has been done anyway, then
+this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+
+<a name='M-xyLOGIX-Queues-Messages-NewMessageMapping`2-WithMessageId-System-Guid-'></a>
 ### WithMessageId(messageId) `method`
 
 ##### Summary
@@ -1676,6 +1979,151 @@ If the Zero GUID is passed for this parameter, then this method
 throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 <a name='M-xyLOGIX-Queues-Messages-SendMessage`1-NoArgs'></a>
+### NoArgs() `method`
+
+##### Summary
+
+Specifies that the message is to be sent without any input data.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This method initializes the internal storage of this class that is
+devoted to storing the argument list for the new message to contain
+zero elements.
+
+
+
+Calling this method is the same as calling the
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
+method without
+passing any parameters. Having this method available can make client
+code more fluent.
+
+<a name='T-xyLOGIX-Queues-Messages-SendMessage`2'></a>
+## SendMessage\`2 `type`
+
+##### Namespace
+
+xyLOGIX.Queues.Messages
+
+##### Summary
+
+Sends messages to other application components, whose event data is of
+type specified.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Name of the type of data that the message notification will carry. |
+| R | Name of the type of the object that the method processing the received message will return. |
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`2-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-xyLOGIX-Queues-Messages-SendMessage`2-_args'></a>
+### _args `constants`
+
+##### Summary
+
+Array of instances of objects that provide input to the notification.
+
+<a name='P-xyLOGIX-Queues-Messages-SendMessage`2-Having'></a>
+### Having `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of
+[SendMessage](#T-SampleMVP-SendMessage 'SampleMVP.SendMessage').
+
+##### Remarks
+
+This property is meant to be used in a fluent manner.
+
+
+
+When using this property, first invoke the
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
+method and then
+the [ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId')
+method to send your message.
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`2-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`2-Args-System-Object[]-'></a>
+### Args(args) `method`
+
+##### Summary
+
+Supplies arguments for the message to be sent.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+
+
+
+The data types, order, and number of parameters, if
+supplied, must match the signature of the message's delegate. |
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`2-ForMessageId-System-Guid-'></a>
+### ForMessageId(messageId) `method`
+
+##### Summary
+
+Filters the message queue by the unique identifier that the
+message's handler was initially mapped under.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was
+originally tagged with.
+
+
+
+The Zero GUID must not be passed for this parameter.
+
+
+
+If the Zero GUID is passed for this parameter, then this method
+throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+
+<a name='M-xyLOGIX-Queues-Messages-SendMessage`2-NoArgs'></a>
 ### NoArgs() `method`
 
 ##### Summary

@@ -8,6 +8,7 @@
   - [EventDataType](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-EventDataType 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.EventDataType')
   - [MessageHandler](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-MessageHandler 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.MessageHandler')
   - [MessageId](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-MessageId 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.MessageId')
+  - [ResultDataType](#P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-ResultDataType 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.ResultDataType')
   - [AndHandler()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.AndHandler(System.Delegate)')
   - [Dispose()](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-Dispose 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.Dispose')
   - [HavingMessageId(messageId)](#M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-HavingMessageId-System-Guid- 'xyLOGIX.Queues.Messages.Models.MessageQueueItem.HavingMessageId(System.Guid)')
@@ -25,7 +26,8 @@ xyLOGIX.Queues.Messages.Models
 
 ##### Summary
 
-Represents a single item in a [MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
+Represents a single item in a
+[MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
 
 <a name='F-xyLOGIX-Queues-Messages-Models-MessageQueueItem-_removalAction'></a>
 ### _removalAction `constants`
@@ -61,6 +63,13 @@ specific `MessageQueueItem`.
 ##### Remarks
 
 If this property is set to the zero GUID, then the message is broadcast.
+
+<a name='P-xyLOGIX-Queues-Messages-Models-MessageQueueItem-ResultDataType'></a>
+### ResultDataType `property`
+
+##### Summary
+
+Gets or sets the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of the result.
 
 <a name='M-xyLOGIX-Queues-Messages-Models-MessageQueueItem-AndHandler-System-Delegate-'></a>
 ### AndHandler() `method`
@@ -134,15 +143,17 @@ question should be dispatched to all interested parties.
 
 ##### Summary
 
-Fluent-builder method that enables us to attach a [IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}')
+Fluent-builder method that enables us to attach a
+[IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}')
 to this object that is called when this object's resources are freed
 from memory by the garbage collector.
 
 
 
-The most common implementation is to remove the newly-built [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
+The most common implementation is to remove the newly-built
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 -implementing object from the internal list maintained by the
- `MessageQueue` object.
+`MessageQueue` object.
 
 ##### Returns
 
