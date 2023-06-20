@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System.Collections.Generic;
 using xyLOGIX.Queues.Messages.Interfaces;
 
@@ -13,6 +14,7 @@ namespace xyLOGIX.Queues.Messages
     ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class GetMessageQueueItemEquialityComparer
     {
         /// <summary>
