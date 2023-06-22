@@ -1,15 +1,23 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Factories;
+using xyLOGIX.Queues.Messages.Interfaces;
 
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Extensions
 {
     /// <summary>
     /// Provides extension methods that are designed to make assigning messages
     /// to handlers more fluent.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class DelegateExtensions
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
+        /// </summary>
+        private static IMessageQueue MessageQueue { get; } =
+            GetMessageQueue.SoleInstance();
+
         /// <summary>
         /// Called to map a <see cref="T:System.Delegate" />, that specifies the
         /// code to execute in order to handle a message, with a data parameter
@@ -25,15 +33,19 @@ namespace xyLOGIX.Queues.Messages
         ///     name="T" />
         /// .
         /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="d" />, is passed a
-        /// <see langword="null" /> value.
-        /// </exception>
         public static void MapToMessage<T>(this Delegate d)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
+            try
+            {
+                if (d == null) return;
 
-            MessageQueue.Instance.MapMessage<T>(d);
+                MessageQueue.MapMessage<T>(d);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -72,14 +84,18 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         public static void MapToMessage<T>(this Delegate d, Guid messageId)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You may not pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
+            try
+            {
+                if (d == null) return;
+                if (Guid.Empty == messageId) return;
 
-            MessageQueue.Instance.MapMessage<T>(messageId, d);
+                MessageQueue.MapMessage<T>(messageId, d);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -112,14 +128,18 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         public static void MapToMessage(this Delegate d, Guid messageId)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You may not pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
+            try
+            {
+                if (d == null) return;
+                if (Guid.Empty == messageId) return;
 
-            MessageQueue.Instance.MapMessage(messageId, d);
+                MessageQueue.MapMessage(messageId, d);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

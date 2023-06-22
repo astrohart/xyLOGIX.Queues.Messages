@@ -1,5 +1,7 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Extensions;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -69,25 +71,24 @@ namespace xyLOGIX.Queues.Messages
         /// method before calling this one. If this has been done anyway, then
         /// this method throws <see cref="T:System.InvalidOperationException" />.
         /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="handler" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the
-        /// <see
-        ///     cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId" />
-        /// method has been called prior to calling this method.
-        /// </exception>
         public void AndEventHandler(EventHandler handler)
         {
-            if (handler == null)
-                throw new ArgumentNullException(nameof(handler));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called in a fluent chain with the WithMessageId method."
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, $"*** INFO: Mapping event handler to message '{_messageId}'..."
                 );
-            handler.MapToMessage(_messageId);
+
+                if (handler == null) return;
+                if (Guid.Empty == _messageId) return;
+
+                handler.MapToMessage(_messageId);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>

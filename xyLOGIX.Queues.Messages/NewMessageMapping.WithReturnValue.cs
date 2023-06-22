@@ -1,5 +1,7 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Extensions;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -70,24 +72,20 @@ namespace xyLOGIX.Queues.Messages
         /// method has not been called before this one, this method will throw
         /// <see cref="T:System.InvalidOperationException"/>.
         /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="handler"/>, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
-        /// method has been called prior to calling this method.
-        /// </exception>
         public void AndEventHandler(Func<object, T, R> handler)
         {
-            if (handler == null)
-                throw new ArgumentNullException(nameof(handler));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called in a fluent chain along with the WithMessageId method."
-                );
-            handler.MapToMessage(_messageId);
+            try
+            {
+                if (handler == null) return;
+                if (Guid.Empty == _messageId) return;
+                
+                handler.MapToMessage(_messageId);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -112,23 +110,20 @@ namespace xyLOGIX.Queues.Messages
         /// method has not been called before this one, this method will throw
         /// <see cref="T:System.InvalidOperationException"/>.
         /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="d"/>, is passed a
-        /// <see langword="null" /> value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown in the event that the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
-        /// method has not been called.
-        /// </exception>
         public void AndHandler(Delegate d)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called after calling the WithMessageId method in a fluent manner."
-                );
-            d.MapToMessage<T>(_messageId);
+            try
+            {
+                if (d == null) return;
+                if (Guid.Empty == _messageId) return;
+                
+                d.MapToMessage<T>(_messageId);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -151,23 +146,20 @@ namespace xyLOGIX.Queues.Messages
         /// method before calling this one. If this has been done anyway, then
         /// this method throws <see cref="T:System.InvalidOperationException"/>.
         /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="d"/>, is passed a
-        /// <see langword="null" /> value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the <see
-        /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId"/>
-        /// method has been called prior to calling this method.
-        /// </exception>
         public void WithHandler(Delegate d)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty != _messageId)
-                throw new InvalidOperationException(
-                    "This method should not be called in a fluent chain along with the WithMessageId method."
-                );
-            d.MapToMessage<T>();
+            try
+            {
+                if (d == null) return;
+                if (Guid.Empty == _messageId) return;
+
+                d.MapToMessage<T>();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -195,19 +187,19 @@ namespace xyLOGIX.Queues.Messages
         /// cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler"/>
         /// method will throw a <see cref="T:System.InvalidOperationException"/> exception.
         /// </remarks>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="messageId"/> parameter is passed <see
-        /// cref="T:System.Guid.Empty"/> for its value.
-        /// </exception>
         public NewMessageMapping<T,R> WithMessageId(Guid messageId)
         {
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You may not pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
+            try
+            {
+                if (Guid.Empty == _messageId) return this;
 
-            _messageId = messageId;
+                _messageId = messageId;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
 
             return this;
         }

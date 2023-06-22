@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -55,6 +56,13 @@ namespace xyLOGIX.Queues.Messages
         /// </returns>
         public SendMessage Args(params object[] args)
         {
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Sending message with {args.Length} arguments."
+            );
+
+            if (args.Any()) return this;
+
             _args = args;
 
             return this;
@@ -74,7 +82,10 @@ namespace xyLOGIX.Queues.Messages
         /// throws <see cref="T:System.ArgumentException" />.
         /// </param>
         public void ForMessageId(Guid messageId)
-            => MessageQueue.Instance.PostMessage(messageId, _args);
+        {
+
+            MessageQueue.Instance.PostMessage(messageId, _args);
+        }
 
         /// <summary>
         /// Specifies that the message is to be sent without any input data.
