@@ -134,6 +134,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xyLOGIX.Queues.Messages.Extensions\xyLOGIX.Queues.Messages.Extensions.csproj">
       <Project>{52B2975A-FE03-45F0-8BFC-51BA3F77CBEE}</Project>
       <Name>xyLOGIX.Queues.Messages.Extensions</Name>

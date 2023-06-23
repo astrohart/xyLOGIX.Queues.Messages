@@ -128,9 +128,21 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Comparers.Factories\xyLOGIX.Queues.Messages.Comparers.Factories.csproj">
+      <Project>{29FFD392-8BE0-4272-AC31-A5C1D6BA40EE}</Project>
+      <Name>xyLOGIX.Queues.Messages.Comparers.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xyLOGIX.Queues.Messages.Interfaces\xyLOGIX.Queues.Messages.Interfaces.csproj">
       <Project>{9853cac0-2ea1-440e-80b8-f4f42129868a}</Project>
       <Name>xyLOGIX.Queues.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Items.Extensions\xyLOGIX.Queues.Messages.Items.Extensions.csproj">
+      <Project>{965F608B-19F7-4440-87D8-382BEE07275D}</Project>
+      <Name>xyLOGIX.Queues.Messages.Items.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Items.Factories\xyLOGIX.Queues.Messages.Items.Factories.csproj">
+      <Project>{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}</Project>
+      <Name>xyLOGIX.Queues.Messages.Items.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\xyLOGIX.Queues.Messages.Items.Interfaces\xyLOGIX.Queues.Messages.Items.Interfaces.csproj">
       <Project>{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}</Project>

@@ -3,7 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Comparers.Factories;
 using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Queues.Messages.Items.Extensions;
+using xyLOGIX.Queues.Messages.Items.Factories;
 using xyLOGIX.Queues.Messages.Items.Interfaces;
 
 namespace xyLOGIX.Queues.Messages

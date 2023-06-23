@@ -1,5 +1,7 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Extensions;
 
 namespace xyLOGIX.Queues.Messages.Mappings
 {
