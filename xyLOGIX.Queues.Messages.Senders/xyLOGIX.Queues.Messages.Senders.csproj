@@ -108,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="SendMessage.cs" />
+    <Compile Include="SendMessage.NonGeneric.cs" />
+    <Compile Include="SendMessage.WithReturnValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +132,24 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Factories\xyLOGIX.Queues.Messages.Factories.csproj">
+      <Project>{DCBCCE5A-2E09-48E4-ABBA-7F7A9E7BA147}</Project>
+      <Name>xyLOGIX.Queues.Messages.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Interfaces\xyLOGIX.Queues.Messages.Interfaces.csproj">
+      <Project>{9853CAC0-2EA1-440E-80B8-F4F42129868A}</Project>
+      <Name>xyLOGIX.Queues.Messages.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

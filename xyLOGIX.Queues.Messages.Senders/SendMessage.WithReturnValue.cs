@@ -1,7 +1,11 @@
 using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages.Factories;
+using xyLOGIX.Queues.Messages.Interfaces;
 
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Senders
 {
     /// <summary>
     /// Sends messages to other application components, whose event data is of
@@ -10,7 +14,10 @@ namespace xyLOGIX.Queues.Messages
     /// <typeparam name="T">
     /// Name of the type of data that the message notification will carry.
     /// </typeparam>
-    /// <typeparam name="R">Name of the type of the object that the method processing the received message will return.</typeparam>
+    /// <typeparam name="R">
+    /// Name of the type of the object that the method processing
+    /// the received message will return.
+    /// </typeparam>
     public class SendMessage<T, R>
     {
         /// <summary>
@@ -42,7 +49,15 @@ namespace xyLOGIX.Queues.Messages
         /// the <see cref="M:xyLOGIX.Queues.Messages.SendMessage.ForMessageId" />
         /// method to send your message.
         /// </remarks>
-        public static SendMessage<T, R> Having { get; } = new SendMessage<T, R>();
+        public static SendMessage<T, R> Having { get; } =
+            new SendMessage<T, R>();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
+        /// </summary>
+        private static IMessageQueue MessageQueue { get; } =
+            GetMessageQueue.SoleInstance();
 
         /// <summary>
         /// Supplies arguments for the message to be sent.
@@ -78,7 +93,20 @@ namespace xyLOGIX.Queues.Messages
         /// throws <see cref="T:System.ArgumentException" />.
         /// </param>
         public void ForMessageId(Guid messageId)
-            => MessageQueue.Instance.PostMessage<T>(messageId, _args);
+        {
+            try
+            {
+                if (messageId.IsZero()) return;
+                if (_args == null) return;
+
+                MessageQueue.PostMessage<T>(messageId, _args);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Specifies that the message is to be sent without any input data.

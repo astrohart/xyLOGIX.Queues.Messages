@@ -175,8 +175,8 @@ Internal message queue.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MessageQueue](#T-xyLOGIX-Queues-Messages-MessageQueue 'xyLOGIX.Queues.Messages.MessageQueue').
+Gets a reference to the one and only instance of the object that implements the
+[IMessageQueue](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueue 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueue') interface.
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-#cctor'></a>
 ### #cctor() `method`
