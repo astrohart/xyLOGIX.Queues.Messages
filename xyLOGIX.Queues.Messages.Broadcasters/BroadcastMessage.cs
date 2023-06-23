@@ -1,3 +1,6 @@
+using xyLOGIX.Queues.Messages.Factories;
+using xyLOGIX.Queues.Messages.Interfaces;
+
 namespace xyLOGIX.Queues.Messages.Broadcasters
 {
     /// <summary>
@@ -39,9 +42,11 @@ namespace xyLOGIX.Queues.Messages.Broadcasters
             new BroadcastMessage<T>();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        private static IMessageQueue MessageQueue { get; } = GetMessageQueue
+        private static IMessageQueue MessageQueue { get; } =
+            GetMessageQueue.SoleInstance();
 
         /// <summary>
         /// Passes a message to the message queue to be sent to all subscribed
