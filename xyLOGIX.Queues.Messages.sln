@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Sen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Senders.Interfaces", "xyLOGIX.Queues.Messages.Senders.Interfaces\xyLOGIX.Queues.Messages.Senders.Interfaces.csproj", "{094252D2-BFE9-4D63-8B5F-6BF6F09D59BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Broadcasters", "xyLOGIX.Queues.Messages.Broadcasters\xyLOGIX.Queues.Messages.Broadcasters.csproj", "{E18E7484-4C53-4137-86B0-637B08B37518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -257,6 +259,14 @@ Global
 		{094252D2-BFE9-4D63-8B5F-6BF6F09D59BF}.Release|x64.Build.0 = Release|x64
 		{094252D2-BFE9-4D63-8B5F-6BF6F09D59BF}.Release|x86.ActiveCfg = Release|x86
 		{094252D2-BFE9-4D63-8B5F-6BF6F09D59BF}.Release|x86.Build.0 = Release|x86
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Debug|x64.ActiveCfg = Debug|x64
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Debug|x64.Build.0 = Debug|x64
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Debug|x86.ActiveCfg = Debug|x86
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Debug|x86.Build.0 = Debug|x86
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Release|x64.ActiveCfg = Release|x64
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Release|x64.Build.0 = Release|x64
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Release|x86.ActiveCfg = Release|x86
+		{E18E7484-4C53-4137-86B0-637B08B37518}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

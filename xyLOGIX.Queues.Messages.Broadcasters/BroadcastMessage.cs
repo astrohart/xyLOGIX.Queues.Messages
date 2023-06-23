@@ -1,6 +1,4 @@
-using xyLOGIX.Queues.Messages.Interfaces;
-
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Broadcasters
 {
     /// <summary>
     /// Broadcasts messages, with event data of type <typeparamref name="T" />,
@@ -43,9 +41,7 @@ namespace xyLOGIX.Queues.Messages
         /// <summary>
         /// Gets a reference to an instance of an object that implements the <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        private static IMessageQueue MessageQueue { get; } =
-            MessageQueue.Instance;
-
+        private static IMessageQueue MessageQueue { get; } = GetMessageQueue
 
         /// <summary>
         /// Passes a message to the message queue to be sent to all subscribed
