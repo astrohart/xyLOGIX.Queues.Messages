@@ -31,6 +31,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Comparers.Tests", "xyLOGIX.Queues.Messages.Comparers.Tests\xyLOGIX.Queues.Messages.Comparers.Tests.csproj", "{A0818A88-2197-49F9-90E2-BF9C243B7361}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Items", "xyLOGIX.Queues.Messages.Items\xyLOGIX.Queues.Messages.Items.csproj", "{A0B530F8-9332-44B9-98EC-42598E8DADA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Items.Factories", "xyLOGIX.Queues.Messages.Items.Factories\xyLOGIX.Queues.Messages.Items.Factories.csproj", "{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Items.Interfaces", "xyLOGIX.Queues.Messages.Items.Interfaces\xyLOGIX.Queues.Messages.Items.Interfaces.csproj", "{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -127,6 +133,30 @@ Global
 		{A0818A88-2197-49F9-90E2-BF9C243B7361}.Release|x64.Build.0 = Release|x64
 		{A0818A88-2197-49F9-90E2-BF9C243B7361}.Release|x86.ActiveCfg = Release|x86
 		{A0818A88-2197-49F9-90E2-BF9C243B7361}.Release|x86.Build.0 = Release|x86
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Debug|x64.ActiveCfg = Debug|x64
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Debug|x64.Build.0 = Debug|x64
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Debug|x86.ActiveCfg = Debug|x86
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Debug|x86.Build.0 = Debug|x86
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Release|x64.ActiveCfg = Release|x64
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Release|x64.Build.0 = Release|x64
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Release|x86.ActiveCfg = Release|x86
+		{A0B530F8-9332-44B9-98EC-42598E8DADA9}.Release|x86.Build.0 = Release|x86
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Debug|x64.ActiveCfg = Debug|x64
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Debug|x64.Build.0 = Debug|x64
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Debug|x86.ActiveCfg = Debug|x86
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Debug|x86.Build.0 = Debug|x86
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Release|x64.ActiveCfg = Release|x64
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Release|x64.Build.0 = Release|x64
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Release|x86.ActiveCfg = Release|x86
+		{6A8671CD-AF67-44C8-AFCD-BA91AF1301B6}.Release|x86.Build.0 = Release|x86
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Debug|x64.ActiveCfg = Debug|x64
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Debug|x64.Build.0 = Debug|x64
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Debug|x86.ActiveCfg = Debug|x86
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Debug|x86.Build.0 = Debug|x86
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Release|x64.ActiveCfg = Release|x64
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Release|x64.Build.0 = Release|x64
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Release|x86.ActiveCfg = Release|x86
+		{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
