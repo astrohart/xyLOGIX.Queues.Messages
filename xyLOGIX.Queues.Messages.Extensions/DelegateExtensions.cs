@@ -1,5 +1,6 @@
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages.Factories;
 using xyLOGIX.Queues.Messages.Interfaces;
 
@@ -87,7 +88,7 @@ namespace xyLOGIX.Queues.Messages.Extensions
             try
             {
                 if (d == null) return;
-                if (Guid.Empty == messageId) return;
+                if (messageId.IsZero()) return;
 
                 MessageQueue.MapMessage<T>(messageId, d);
             }

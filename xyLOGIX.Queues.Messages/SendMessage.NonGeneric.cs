@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -83,9 +85,24 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         public void ForMessageId(Guid messageId)
         {
+            try
+            {
+                if (messageId.IsZero()) return;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
 
-            MessageQueue.Instance.PostMessage(messageId, _args);
+            MessageQueue.PostMessage(messageId, _args);
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
+        /// </summary>
+        private static IMessageQueue MessageQueue { get; } = GetMessageQueue.SoleInstance();
+
 
         /// <summary>
         /// Specifies that the message is to be sent without any input data.

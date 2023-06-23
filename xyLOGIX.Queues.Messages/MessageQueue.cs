@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages.Comparers.Factories;
 using xyLOGIX.Queues.Messages.Interfaces;
 using xyLOGIX.Queues.Messages.Items.Extensions;
@@ -39,8 +40,8 @@ namespace xyLOGIX.Queues.Messages
         protected MessageQueue() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:xyLOGIX.Queues.Messages.MessageQueue" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
         public static IMessageQueue Instance { get; } = new MessageQueue();
 
@@ -68,21 +69,22 @@ namespace xyLOGIX.Queues.Messages
                             item => item.DoesEventDataTypeMatch<T>()
                         ))
                         return;
+
+                    foreach (var item in _internalMessageQueue.Where(
+                                 item => item.DoesEventDataTypeMatch<T>()
+                             ))
+                    {
+                        if (item?.MessageHandler == null) continue;
+                        if (item.MessageId.IsZero()) continue;
+
+                        item.MessageHandler.DynamicInvoke(args);
+                    }
                 }
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
                     DebugUtils.LogException(ex);
                 }
-
-                if (!_internalMessageQueue.Any(
-                        item => item.DoesEventDataTypeMatch<T>()
-                    ))
-                    return;
-
-                foreach (var item in _internalMessageQueue.Where(
-                             item => item.DoesEventDataTypeMatch<T>()
-                         )) item.MessageHandler?.DynamicInvoke(args);
             }
         }
 
