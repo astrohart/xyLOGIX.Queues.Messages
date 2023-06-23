@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [Resources](#T-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources')
-  - [Culture](#P-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources-Culture 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources-ResourceManager 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources.ResourceManager')
+- [Resources](#T-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources')
+  - [Culture](#P-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources-Culture 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources-ResourceManager 'xyLOGIX.Queues.Messages.Comparers.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources'></a>
+<a name='T-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -18,7 +18,7 @@ xyLOGIX.Queues.Messages.Comparers.Tests.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources-Culture'></a>
+<a name='P-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -26,7 +26,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-xyLOGIX.Queues.Messages.Comparers.Tests-Properties-Resources-ResourceManager'></a>
+<a name='P-xyLOGIX-Queues-Messages-Comparers-Tests-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary

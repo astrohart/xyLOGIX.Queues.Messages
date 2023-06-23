@@ -48,9 +48,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MessageQueueItemWithNoDataTypeComparer](#T-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithNoDataTypeComparer 'xyLOGIX.Queues.Messages.Comparers.MessageQueueItemWithNoDataTypeComparer')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer{xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem}')
+interface.
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithDataTypeComparer-#cctor'></a>
 ### #cctor() `method`
@@ -72,16 +72,18 @@ Determines whether the specified objects are equal.
 
 ##### Returns
 
-`true` if the specified objects are equal;
-otherwise, `false`.
+`true` if the specified objects are equal; otherwise,
+`false`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| x | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The first object that implements the [typeparamref](#T-typeparamref 'typeparamref')
+| x | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The first object that implements the
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
 interface to compare. |
-| y | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The second object that implements the [typeparamref](#T-typeparamref 'typeparamref')
+| y | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The second object that implements the
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
 interface to compare. |
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithDataTypeComparer-GetHashCode-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem-'></a>
