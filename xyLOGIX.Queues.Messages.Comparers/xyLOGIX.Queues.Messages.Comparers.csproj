@@ -110,6 +110,8 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageQueueItemWithDataTypeComparer.cs" />
+    <Compile Include="MessageQueueItemWithNoDataTypeComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
