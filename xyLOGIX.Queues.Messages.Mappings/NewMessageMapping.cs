@@ -1,5 +1,7 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages.Extensions;
 
 namespace xyLOGIX.Queues.Messages.Mappings
@@ -87,13 +89,18 @@ namespace xyLOGIX.Queues.Messages.Mappings
         /// </exception>
         public void AndEventHandler(EventHandler<T> handler)
         {
-            if (handler == null)
-                throw new ArgumentNullException(nameof(handler));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called in a fluent chain along with the WithMessageId method."
-                );
-            handler.MapToMessage(_messageId);
+            try
+            {
+                if (handler == null) return;
+                if (_messageId.IsZero()) return;
+
+                handler.MapToMessage(_messageId);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -133,12 +140,18 @@ namespace xyLOGIX.Queues.Messages.Mappings
         /// </exception>
         public void AndHandler(Delegate d)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty == _messageId)
-                throw new InvalidOperationException(
-                    "This method should be called after calling the WithMessageId method in a fluent manner."
-                );
-            d.MapToMessage<T>(_messageId);
+            try
+            {
+                if (d == null) return;
+                if (_messageId.IsZero()) return;
+
+                d.MapToMessage<T>(_messageId);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -174,12 +187,17 @@ namespace xyLOGIX.Queues.Messages.Mappings
         /// </exception>
         public void WithHandler(Delegate d)
         {
-            if (d == null) throw new ArgumentNullException(nameof(d));
-            if (Guid.Empty != _messageId)
-                throw new InvalidOperationException(
-                    "This method should not be called in a fluent chain along with the WithMessageId method."
-                );
-            d.MapToMessage<T>();
+            try
+            {
+                if (d == null) return;
+
+                d.MapToMessage<T>();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -219,15 +237,23 @@ namespace xyLOGIX.Queues.Messages.Mappings
         /// </exception>
         public NewMessageMapping<T> WithMessageId(Guid messageId)
         {
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You may not pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
+            var result = this;
 
-            _messageId = messageId;
+            try
+            {
+                if (messageId.IsZero()) return result;
 
-            return this;
+                _messageId = messageId;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = this;
+            }
+
+            return result;
         }
     }
 }

@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -13,7 +12,6 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
     ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
     /// interface more fluent.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class MessageQueueItemExtensions
     {
         /// <summary>
@@ -90,6 +88,7 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
                 if (item == null) return result;
                 if (messageId.IsZero()) return result;
                 if (item.EventDataType != typeof(T)) return result;
+                if (item.MessageHandler == null) return result;
 
                 result = item.MessageId == messageId;
             }

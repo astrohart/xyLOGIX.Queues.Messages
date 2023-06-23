@@ -115,7 +115,8 @@ namespace xyLOGIX.Queues.Messages.Items
         /// method, for fluent use.
         /// </returns>
         public IMessageQueueItem WithDisposalAction(
-            Action<IMessageQueueItem> removalAction)
+            Action<IMessageQueueItem> removalAction
+        )
         {
             _removalAction = removalAction ??
                              throw new ArgumentNullException(
@@ -124,5 +125,10 @@ namespace xyLOGIX.Queues.Messages.Items
 
             return this;
         }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+            => $"MessageQueueItem = {{ EventDataType = {EventDataType?.FullName}, MessageHandler = {MessageHandler}, MessageId = '{MessageId}' }}";
     }
 }

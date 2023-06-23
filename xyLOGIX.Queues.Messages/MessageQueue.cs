@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +14,6 @@ namespace xyLOGIX.Queues.Messages
     /// <summary>
     /// Centralized storehouse for application messages.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public class MessageQueue : IMessageQueue
     {
         /// <summary>
@@ -107,27 +105,43 @@ namespace xyLOGIX.Queues.Messages
         /// </remarks>
         public void MapMessage<T>(Delegate messageHandler)
         {
-            if (messageHandler == null) return;
-
             lock (SyncRoot)
             {
-                // Add the message to the message map Basically, you are telling
-                // me that, when a message of type T is posted to the queue,
-                // then call the code referenced by the messageHandler.
-                var item = MakeNewMessageQueueItem.ForEventDataType(typeof(T))
-                                                  .AndHandler(messageHandler)
-                                                  .WithDisposalAction(Remove);
+                try
+                {
+                    if (messageHandler == null) return;
+                    if (_internalMessageQueue == null) return;
+                    if (_internalMessageQueue.Any(
+                            message => messageHandler.Equals(
+                                message.MessageHandler
+                            )
+                        ))
+                        return; // message is already mapped
 
-                /*
-                 * Specific mappings, between specific methods and specific event
-                 * identifiers, can only be added once.
-                 */
-                if (!_internalMessageQueue.Contains(
-                        item,
-                        GetMessageQueueItemEquialityComparer.That
-                            .TakesEventDataTypeIntoAccount()
-                    ))
-                    _internalMessageQueue.Add(item);
+                    // Add the message to the message map Basically, you are telling
+                    // me that, when a message of type T is posted to the queue,
+                    // then call the code referenced by the messageHandler.
+                    var item = MakeNewMessageQueueItem
+                               .ForEventDataType(typeof(T))
+                               .AndHandler(messageHandler)
+                               .WithDisposalAction(Remove);
+
+                    /*
+                     * Specific mappings, between specific methods and specific event
+                     * identifiers, can only be added once.
+                     */
+                    if (!_internalMessageQueue.Contains(
+                            item,
+                            GetMessageQueueItemEquialityComparer.That
+                                .TakesEventDataTypeIntoAccount()
+                        ))
+                        _internalMessageQueue.Add(item);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -140,37 +154,46 @@ namespace xyLOGIX.Queues.Messages
         /// application object that should process the message.
         /// </param>
         /// <param name="messageHandler">
+        /// s
         /// A <see cref="T:System.Delegate" /> that specifies the code to be
         /// executed when the message is posted to the queue.
         /// </param>
         public void MapMessage(Guid messageId, Delegate messageHandler)
         {
-            if (messageHandler == null)
-                throw new ArgumentNullException(nameof(messageHandler));
-
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You cannot pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
-
             lock (SyncRoot)
             {
-                // Add the message to the message map. Basically, you are
-                // telling me that, when a message with Message ID messageId is
-                // posted to the queue, then execute the code referred to by the
-                // messageHandler delegate.
-                var item = MakeNewMessageQueueItem.FromScratch()
-                                                  .HavingMessageId(messageId)
-                                                  .AndHandler(messageHandler)
-                                                  .WithDisposalAction(Remove);
+                try
+                {
+                    // Dump the variable messageId to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"MessageQueue.MapMessage: messageId = '{messageId}'"
+                    );
 
-                if (!_internalMessageQueue.Contains(
-                        item,
-                        GetMessageQueueItemEquialityComparer.That
-                            .DoesNotTakeEventDataTypeIntoAccount()
-                    ))
-                    _internalMessageQueue.Add(item);
+                    if (messageId.IsZero()) return;
+                    if (messageHandler == null) return;
+                    if (_internalMessageQueue == null) return;
+                    if (_internalMessageQueue.Any(
+                            message => messageId.Equals(message.MessageId)
+                        ))
+                        return; // message is already mapped
+
+                    // Add the message to the message map. Basically, you are
+                    // telling me that, when a message of type T, with Message ID
+                    // messageId is posted to the queue, then execute the code
+                    // referred to by the messageHandler delegate.
+                    _internalMessageQueue.Add(
+                        MakeNewMessageQueueItem.FromScratch()
+                                               .HavingMessageId(messageId)
+                                               .AndHandler(messageHandler)
+                                               .WithDisposalAction(Remove)
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -202,27 +225,45 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         public void MapMessage<T>(Guid messageId, Delegate messageHandler)
         {
-            if (messageHandler == null)
-                throw new ArgumentNullException(nameof(messageHandler));
-
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You cannot pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
-
             lock (SyncRoot)
             {
-                // Add the message to the message map. Basically, you are
-                // telling me that, when a message of type T, with Message ID
-                // messageId is posted to the queue, then execute the code
-                // referred to by the messageHandler delegate.
-                _internalMessageQueue.Add(
-                    MakeNewMessageQueueItem.ForEventDataType(typeof(T))
-                                           .HavingMessageId(messageId)
-                                           .AndHandler(messageHandler)
-                                           .WithDisposalAction(Remove)
-                );
+                try
+                {
+                    // Dump the variable typeof(T) to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"MessageQueue.MapMessage: typeof(T) = '{typeof(T).FullName}'"
+                    );
+
+                    // Dump the variable messageId to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"MessageQueue.MapMessage: messageId = '{messageId}'"
+                    );
+                    if (messageId.IsZero()) return;
+                    if (messageHandler == null) return;
+                    if (_internalMessageQueue == null) return;
+                    if (_internalMessageQueue.Any(
+                            message => messageId.Equals(message.MessageId)
+                        ))
+                        return; // message is already mapped
+
+                    // Add the message to the message map. Basically, you are
+                    // telling me that, when a message of type T, with Message ID
+                    // messageId is posted to the queue, then execute the code
+                    // referred to by the messageHandler delegate.
+                    _internalMessageQueue.Add(
+                        MakeNewMessageQueueItem.ForEventDataType(typeof(T))
+                                               .HavingMessageId(messageId)
+                                               .AndHandler(messageHandler)
+                                               .WithDisposalAction(Remove)
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -246,30 +287,51 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         public void PostMessage<T>(Guid messageId, params object[] args)
         {
-            /*
-             * OKAY, check whether the messageId is the empty GUID. If so, then
-             * this method will devolve to a call to BroadcastMessage().
-             */
-            if (messageId == Guid.Empty)
-            {
-                BroadcastMessage<T>(args);
-                return;
-            }
-
             lock (SyncRoot)
             {
-                /*
-                 * Check if any mapped messages matching the messageId are
-                 * even in the queue to begin with.  If this is not the case,
-                 * then stop.
-                 */
-                if (!_internalMessageQueue.Any(
-                        item => item.IsBoundToMessageId<T>(messageId)
-                    )) return;
+                try
+                {
+                    // Dump the variable messageId to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"MessageQueue.PostMessage: messageId = '{messageId}'"
+                    );
 
-                foreach (var item in _internalMessageQueue.Where(
-                             item => item.IsBoundToMessageId<T>(messageId)
-                         )) item.MessageHandler?.DynamicInvoke(args);
+                    /*
+                     * OKAY, check whether the messageId is the empty GUID. If so, then
+                     * this method will devolve to a call to BroadcastMessage().
+                     */
+                    if (messageId.IsZero())
+                    {
+                        BroadcastMessage<T>(args);
+                        return;
+                    }
+
+                    if (_internalMessageQueue == null) return;
+                    if (!_internalMessageQueue.Any()) return;
+                    if (!_internalMessageQueue.Any(
+                            item => item.IsBoundToMessageId(messageId)
+                        ))
+                        return;
+
+                    /*
+                     * Check if any mapped messages matching the messageId are
+                     * even in the queue to begin with.  If this is not the case,
+                     * then stop.
+                     */
+                    if (!_internalMessageQueue.Any(
+                            item => item.IsBoundToMessageId<T>(messageId)
+                        )) return;
+
+                    foreach (var item in _internalMessageQueue.Where(
+                                 item => item.IsBoundToMessageId<T>(messageId)
+                             )) item.MessageHandler?.DynamicInvoke(args);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -296,31 +358,27 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         public void PostMessage(Guid messageId, params object[] args)
         {
-            /*
-             * OKAY, check whether the messageId is the empty GUID. If so, then
-             * throw ArgumentException -- this overload does not allow the
-             * Zero GUID.  Callers have to pass a non-zero GUID for the messageId
-             * parameter.
-             */
-            if (Guid.Empty == messageId)
-                throw new ArgumentException(
-                    "You cannot pass the Zero GUID for the messageId parameter.",
-                    nameof(messageId)
-                );
-
             lock (SyncRoot)
             {
-                /*
-                 * If there are no messages in the queue that are mapped to the
-                 * message ID messageId, then stop.
-                 */
-                if (!_internalMessageQueue.Any(
-                        item => item.IsBoundToMessageId(messageId)
-                    )) return;
+                try
+                {
+                    if (messageId.IsZero()) return;
+                    if (_internalMessageQueue == null) return;
+                    if (!_internalMessageQueue.Any()) return;
+                    if (!_internalMessageQueue.Any(
+                            item => item.IsBoundToMessageId(messageId)
+                        ))
+                        return;
 
-                foreach (var item in _internalMessageQueue.Where(
-                             item => item.IsBoundToMessageId(messageId)
-                         )) item.MessageHandler?.DynamicInvoke(args);
+                    foreach (var item in _internalMessageQueue.Where(
+                                 item => item.IsBoundToMessageId(messageId)
+                             )) item.MessageHandler?.DynamicInvoke(args);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -348,42 +406,33 @@ namespace xyLOGIX.Queues.Messages
         /// </param>
         public R PostMessage<T, R>(Guid messageId, params object[] args)
         {
-            /*
-             * OKAY, check whether the messageId is the empty GUID. If so, then
-             * this method will devolve to a call to BroadcastMessage().
-             */
-            if (messageId == Guid.Empty)
-                throw new ArgumentException(
-                    "You cannot pass the Zero GUID to this method.",
-                    nameof(messageId)
-                );
-
-            R result;
-
             lock (SyncRoot)
             {
-                /*
-                 * Check if any mapped messages matching the messageId are
-                 * even in the queue to begin with.  If this is not the case,
-                 * then stop.
-                 */
-                if (!_internalMessageQueue.Any(
-                        item => item.IsBoundToMessageId<T, R>(messageId)
-                    ))
-                    throw new InvalidOperationException(
-                        "The message that has been sent is not bound to a message ID value."
-                    );
+                R result = default;
 
-                result = (R)_internalMessageQueue.First(
-                                                     item => item
-                                                         .IsBoundToMessageId<T,
-                                                             R>(messageId)
-                                                 )
-                                                 .MessageHandler
-                                                 ?.DynamicInvoke(args);
+                try
+                {
+                    if (messageId.IsZero()) return result;
+                    if (_internalMessageQueue == null) return result;
+                    if (!_internalMessageQueue.Any()) return result;
+                    if (!_internalMessageQueue.Any(
+                            item => item.IsBoundToMessageId<T, R>(messageId)
+                        ))
+                        return result;
+
+                    result = (R)_internalMessageQueue.First(
+                            item => item.IsBoundToMessageId<T, R>(messageId)
+                        )
+                        .MessageHandler?.DynamicInvoke(args);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
+                return result;
             }
-
-            return result;
         }
 
         /// <summary>
