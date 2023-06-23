@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
-using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages.Items.Interfaces;
 
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Comparers
 {
     /// <summary>
     /// Compares two instances of objects that implement the
@@ -24,35 +26,51 @@ namespace xyLOGIX.Queues.Messages
         protected MessageQueueItemWithDataTypeComparer() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
+        /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:xyLOGIX.Queues.Messages.MessageQueueItemWithNoDataTypeComparer" />
-        /// .
+        ///     cref="T:System.Collections.Generic.IEqualityComparer{xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem}" />
+        /// interface.
         /// </summary>
-        public static MessageQueueItemWithDataTypeComparer Instance { get; } =
+        public static IEqualityComparer<IMessageQueueItem> Instance { get; } =
             new MessageQueueItemWithDataTypeComparer();
 
-        /// <summary>
-        /// Determines whether the specified objects are equal.
-        /// </summary>
+        /// <summary>Determines whether the specified objects are equal.</summary>
         /// <param name="x">
-        /// The first object that implements the <see cref="T:typeparamref" />
+        /// The first object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
         /// interface to compare.
         /// </param>
         /// <param name="y">
-        /// The second object that implements the <see cref="T:typeparamref" />
+        /// The second object that implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
         /// interface to compare.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the specified objects are equal;
-        /// otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the specified objects are equal; otherwise,
+        /// <see langword="false" />.
         /// </returns>
         public bool Equals(IMessageQueueItem x, IMessageQueueItem y)
         {
-            if (ReferenceEquals(x, y)) return true;
-            if (x is null) return false;
-            if (y is null) return false;
-            if (x.GetType() != y.GetType()) return false;
+            var result = false;
+
+            try
+            {
+                if (x.GetType() != y.GetType()) return result;
+
+                result = (x == null && y == null) ||
+                         (x.EventDataType == y.EventDataType &&
+                          Equals(x.MessageHandler, y.MessageHandler) &&
+                          x.MessageId.Equals(y.MessageId));
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
             return x.EventDataType == y.EventDataType &&
                    Equals(x.MessageHandler, y.MessageHandler) &&
                    x.MessageId.Equals(y.MessageId);

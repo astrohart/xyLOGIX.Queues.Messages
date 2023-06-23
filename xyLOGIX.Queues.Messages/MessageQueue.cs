@@ -2,7 +2,9 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Queues.Messages.Items.Interfaces;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -55,14 +57,29 @@ namespace xyLOGIX.Queues.Messages
         {
             lock (SyncRoot)
             {
+                try
+                {
+                    if (_internalMessageQueue == null) return;
+                    if (!_internalMessageQueue.Any()) return;
+                    if (!_internalMessageQueue.Any(
+                            item => item.DoesEventDataTypeMatch<T>()
+                        ))
+                        return;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
                 if (!_internalMessageQueue.Any(
-                    item => item.DoesEventDataTypeMatch<T>()
-                ))
+                        item => item.DoesEventDataTypeMatch<T>()
+                    ))
                     return;
 
                 foreach (var item in _internalMessageQueue.Where(
-                    item => item.DoesEventDataTypeMatch<T>()
-                )) item.MessageHandler?.DynamicInvoke(args);
+                             item => item.DoesEventDataTypeMatch<T>()
+                         )) item.MessageHandler?.DynamicInvoke(args);
             }
         }
 
@@ -101,10 +118,10 @@ namespace xyLOGIX.Queues.Messages
                  * identifiers, can only be added once.
                  */
                 if (!_internalMessageQueue.Contains(
-                    item,
-                    GetMessageQueueItemEquialityComparer.That
-                        .TakesEventDataTypeIntoAccount()
-                ))
+                        item,
+                        GetMessageQueueItemEquialityComparer.That
+                            .TakesEventDataTypeIntoAccount()
+                    ))
                     _internalMessageQueue.Add(item);
             }
         }
@@ -144,10 +161,10 @@ namespace xyLOGIX.Queues.Messages
                                                   .WithDisposalAction(Remove);
 
                 if (!_internalMessageQueue.Contains(
-                    item,
-                    GetMessageQueueItemEquialityComparer.That
-                        .DoesNotTakeEventDataTypeIntoAccount()
-                ))
+                        item,
+                        GetMessageQueueItemEquialityComparer.That
+                            .DoesNotTakeEventDataTypeIntoAccount()
+                    ))
                     _internalMessageQueue.Add(item);
             }
         }
@@ -242,12 +259,12 @@ namespace xyLOGIX.Queues.Messages
                  * then stop.
                  */
                 if (!_internalMessageQueue.Any(
-                    item => item.IsBoundToMessageId<T>(messageId)
-                )) return;
+                        item => item.IsBoundToMessageId<T>(messageId)
+                    )) return;
 
                 foreach (var item in _internalMessageQueue.Where(
-                    item => item.IsBoundToMessageId<T>(messageId)
-                )) item.MessageHandler?.DynamicInvoke(args);
+                             item => item.IsBoundToMessageId<T>(messageId)
+                         )) item.MessageHandler?.DynamicInvoke(args);
             }
         }
 
@@ -293,12 +310,12 @@ namespace xyLOGIX.Queues.Messages
                  * message ID messageId, then stop.
                  */
                 if (!_internalMessageQueue.Any(
-                    item => item.IsBoundToMessageId(messageId)
-                )) return;
+                        item => item.IsBoundToMessageId(messageId)
+                    )) return;
 
                 foreach (var item in _internalMessageQueue.Where(
-                    item => item.IsBoundToMessageId(messageId)
-                )) item.MessageHandler?.DynamicInvoke(args);
+                             item => item.IsBoundToMessageId(messageId)
+                         )) item.MessageHandler?.DynamicInvoke(args);
             }
         }
 
@@ -312,7 +329,8 @@ namespace xyLOGIX.Queues.Messages
         /// Name of the type of data that will be passed to the message handler.
         /// </typeparam>
         /// <typeparam name="R">
-        /// Name of the type of data that will be returned from the message handler as its result.
+        /// Name of the type of data that will be returned from the message handler as its
+        /// result.
         /// </typeparam>
         /// <param name="messageId">
         /// A <see cref="T:System.Guid" /> indicating who should receive the message.
@@ -345,8 +363,8 @@ namespace xyLOGIX.Queues.Messages
                  * then stop.
                  */
                 if (!_internalMessageQueue.Any(
-                    item => item.IsBoundToMessageId<T, R>(messageId)
-                ))
+                        item => item.IsBoundToMessageId<T, R>(messageId)
+                    ))
                     throw new InvalidOperationException(
                         "The message that has been sent is not bound to a message ID value."
                     );
@@ -382,8 +400,20 @@ namespace xyLOGIX.Queues.Messages
         /// </exception>
         private void Remove(IMessageQueueItem item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
-            _internalMessageQueue.Remove(item);
+            try
+            {
+                if (item == null) return;
+                if (_internalMessageQueue == null) return;
+                if (!_internalMessageQueue.Any()) return;
+                if (!_internalMessageQueue.Contains(item)) return;
+
+                _internalMessageQueue.Remove(item);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

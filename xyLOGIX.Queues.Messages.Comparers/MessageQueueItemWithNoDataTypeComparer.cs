@@ -1,8 +1,8 @@
 using PostSharp.Patterns.Diagnostics;
 using System.Collections.Generic;
-using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Queues.Messages.Items.Interfaces;
 
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Comparers
 {
     /// <summary>
     /// Compares two instances of objects that implement the
@@ -13,8 +13,7 @@ namespace xyLOGIX.Queues.Messages
     /// </summary>
     [Log(AttributeExclude = true)]
     public class
-        MessageQueueItemWithNoDataTypeComparer : IEqualityComparer<
-            IMessageQueueItem>
+        MessageQueueItemWithNoDataTypeComparer : IEqualityComparer<IMessageQueueItem>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -29,7 +28,7 @@ namespace xyLOGIX.Queues.Messages
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:xyLOGIX.Queues.Messages.MessageQueueItemWithNoDataTypeComparer" />
+        ///     cref="T:xyLOGIX.Queues.Messages.Comparers.MessageQueueItemWithNoDataTypeComparer" />
         /// .
         /// </summary>
         public static MessageQueueItemWithNoDataTypeComparer Instance { get; } =

@@ -1,17 +1,17 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Models")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions")]
 [assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Models")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX xyLOGIX.Queues.Messages.  xyLOGIX.Queues.Messages is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("592c2e49-7f5f-4c5a-be04-fa818fb5a32a")]
+[assembly: Guid("965f608b-19f7-4440-87d8-382bee07275d")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -35,4 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

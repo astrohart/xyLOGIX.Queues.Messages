@@ -1,8 +1,8 @@
 using PostSharp.Patterns.Diagnostics;
 using System.Collections.Generic;
-using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Queues.Messages.Items.Interfaces;
 
-namespace xyLOGIX.Queues.Messages
+namespace xyLOGIX.Queues.Messages.Comparers.Factories
 {
     /// <summary>
     /// Gets references to instances of objects that implement the
@@ -29,7 +29,7 @@ namespace xyLOGIX.Queues.Messages
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:xyLOGIX.Queues.Messages.GetMessageQueueItemEquialityComparer" />.
+        /// <see cref="T:xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer" />.
         /// </summary>
         public static GetMessageQueueItemEquialityComparer That { get; } =
             new GetMessageQueueItemEquialityComparer();
@@ -44,8 +44,7 @@ namespace xyLOGIX.Queues.Messages
         ///     cref="T:System.Collections.Generic.IEqualityComparer" />
         /// interface
         /// for objects implementing the
-        /// <see
-        ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// interface.
         /// </returns>
         public IEqualityComparer<IMessageQueueItem>

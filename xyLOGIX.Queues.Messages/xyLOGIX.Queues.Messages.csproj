@@ -135,9 +135,9 @@
       <Project>{9853cac0-2ea1-440e-80b8-f4f42129868a}</Project>
       <Name>xyLOGIX.Queues.Messages.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Models\xyLOGIX.Queues.Messages.Models.csproj">
-      <Project>{40919A13-6676-4C0C-834C-D21B8C29D256}</Project>
-      <Name>xyLOGIX.Queues.Messages.Models</Name>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Items.Interfaces\xyLOGIX.Queues.Messages.Items.Interfaces.csproj">
+      <Project>{1661BCAD-47A2-4088-B0A7-C5DDAB9BE377}</Project>
+      <Name>xyLOGIX.Queues.Messages.Items.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,8 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
-using xyLOGIX.Queues.Messages.Interfaces;
+using xyLOGIX.Queues.Messages.Items.Interfaces;
 
-namespace xyLOGIX.Queues.Messages.Models
+namespace xyLOGIX.Queues.Messages.Items
 {
     /// <summary>
     /// Represents a single item in a

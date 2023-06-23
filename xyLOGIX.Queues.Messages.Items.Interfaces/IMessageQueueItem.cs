@@ -1,6 +1,6 @@
 using System;
 
-namespace xyLOGIX.Queues.Messages.Interfaces
+namespace xyLOGIX.Queues.Messages.Items.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a message queue

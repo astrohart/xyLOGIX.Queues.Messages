@@ -1,7 +1,6 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Queues.Messages.Extensions;
 
 namespace xyLOGIX.Queues.Messages
 {
@@ -76,7 +75,8 @@ namespace xyLOGIX.Queues.Messages
             try
             {
                 DebugUtils.WriteLine(
-                    DebugLevel.Info, $"*** INFO: Mapping event handler to message '{_messageId}'..."
+                    DebugLevel.Info,
+                    $"*** INFO: Mapping event handler to message '{_messageId}'..."
                 );
 
                 if (handler == null) return;
