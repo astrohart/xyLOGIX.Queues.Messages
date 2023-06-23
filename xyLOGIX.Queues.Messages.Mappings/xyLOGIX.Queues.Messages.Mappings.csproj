@@ -110,6 +110,9 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewMessageMapping.cs" />
+    <Compile Include="NewMessageMapping.NonGeneric.cs" />
+    <Compile Include="NewMessageMapping.WithReturnValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +132,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xyLOGIX.Queues.Messages.Extensions\xyLOGIX.Queues.Messages.Extensions.csproj">
+      <Project>{52B2975A-FE03-45F0-8BFC-51BA3F77CBEE}</Project>
+      <Name>xyLOGIX.Queues.Messages.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
