@@ -94,7 +94,7 @@ namespace xyLOGIX.Queues.Messages.Mappings
                 if (handler == null) return;
                 if (_messageId.IsZero()) return;
 
-                handler.MapToMessage(_messageId);
+                handler.MapToMessage<T>(_messageId);
             }
             catch (Exception ex)
             {

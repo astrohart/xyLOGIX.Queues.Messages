@@ -71,7 +71,7 @@ namespace xyLOGIX.Queues.Messages.Senders
                 $"*** INFO: Sending message with {args.Length} arguments."
             );
 
-            if (args.Any()) return this;
+            if (!args.Any()) return this;
 
             _args = args;
 

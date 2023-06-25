@@ -310,18 +310,9 @@ namespace xyLOGIX.Queues.Messages
                     if (_internalMessageQueue == null) return;
                     if (!_internalMessageQueue.Any()) return;
                     if (!_internalMessageQueue.Any(
-                            item => item.IsBoundToMessageId(messageId)
+                            item => item.IsBoundToMessageId<T>(messageId)
                         ))
                         return;
-
-                    /*
-                     * Check if any mapped messages matching the messageId are
-                     * even in the queue to begin with.  If this is not the case,
-                     * then stop.
-                     */
-                    if (!_internalMessageQueue.Any(
-                            item => item.IsBoundToMessageId<T>(messageId)
-                        )) return;
 
                     foreach (var item in _internalMessageQueue.Where(
                                  item => item.IsBoundToMessageId<T>(messageId)
