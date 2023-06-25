@@ -12,6 +12,7 @@
   - [AndHandler()](#M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-AndHandler-System-Delegate- 'xyLOGIX.Queues.Messages.Items.MessageQueueItem.AndHandler(System.Delegate)')
   - [Dispose()](#M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-Dispose 'xyLOGIX.Queues.Messages.Items.MessageQueueItem.Dispose')
   - [HavingMessageId(messageId)](#M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-HavingMessageId-System-Guid- 'xyLOGIX.Queues.Messages.Items.MessageQueueItem.HavingMessageId(System.Guid)')
+  - [ToString()](#M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-ToString 'xyLOGIX.Queues.Messages.Items.MessageQueueItem.ToString')
   - [WithDisposalAction()](#M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-WithDisposalAction-System-Action{xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem}- 'xyLOGIX.Queues.Messages.Items.MessageQueueItem.WithDisposalAction(System.Action{xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem})')
 - [Resources](#T-xyLOGIX-Queues-Messages-Items-Properties-Resources 'xyLOGIX.Queues.Messages.Items.Properties.Resources')
   - [Culture](#P-xyLOGIX-Queues-Messages-Items-Properties-Resources-Culture 'xyLOGIX.Queues.Messages.Items.Properties.Resources.Culture')
@@ -137,6 +138,21 @@ with this `MessageQueueItem` if this method is not called.
 
 Associating a message with the Zero GUID means that the message in
 question should be dispatched to all interested parties.
+
+<a name='M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns a string that represents the current object.
+
+##### Returns
+
+A string that represents the current object.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-WithDisposalAction-System-Action{xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem}-'></a>
 ### WithDisposalAction() `method`
