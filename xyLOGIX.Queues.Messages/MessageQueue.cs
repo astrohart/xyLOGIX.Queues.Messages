@@ -245,6 +245,7 @@ namespace xyLOGIX.Queues.Messages
                     if (_internalMessageQueue == null) return;
                     if (_internalMessageQueue.Any(
                             message => messageId.Equals(message.MessageId)
+                            && typeof(T) == message.EventDataType
                         ))
                         return; // message is already mapped
 
