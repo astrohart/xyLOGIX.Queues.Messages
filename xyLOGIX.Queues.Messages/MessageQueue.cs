@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace xyLOGIX.Queues.Messages
     /// <summary>
     /// Centralized storehouse for application messages.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class MessageQueue : IMessageQueue
     {
         /// <summary>

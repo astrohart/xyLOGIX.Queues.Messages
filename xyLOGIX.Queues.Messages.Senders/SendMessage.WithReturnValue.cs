@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -18,6 +19,7 @@ namespace xyLOGIX.Queues.Messages.Senders
     /// Name of the type of the object that the method processing
     /// the received message will return.
     /// </typeparam>
+    [Log(AttributeExclude = true)]
     public class SendMessage<T, R>
     {
         /// <summary>

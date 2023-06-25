@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using xyLOGIX.Core.Debug;
@@ -11,6 +12,7 @@ namespace xyLOGIX.Queues.Messages.Comparers
     ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
     /// interface to see if they are equal.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class
         MessageQueueItemWithDataTypeComparer : IEqualityComparer<
             IMessageQueueItem>

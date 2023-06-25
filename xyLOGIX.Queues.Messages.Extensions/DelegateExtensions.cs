@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -10,6 +11,7 @@ namespace xyLOGIX.Queues.Messages.Extensions
     /// Provides extension methods that are designed to make assigning messages
     /// to handlers more fluent.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class DelegateExtensions
     {
         /// <summary>

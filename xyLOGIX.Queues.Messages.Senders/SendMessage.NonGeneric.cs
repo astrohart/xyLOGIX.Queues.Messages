@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -11,6 +12,7 @@ namespace xyLOGIX.Queues.Messages.Senders
     /// Sends messages to other application components, whose event data is of
     /// type specified.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class SendMessage
     {
         /// <summary>

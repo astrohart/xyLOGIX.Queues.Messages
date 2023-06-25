@@ -1,4 +1,5 @@
-﻿using xyLOGIX.Queues.Messages.Interfaces;
+﻿using PostSharp.Patterns.Diagnostics;
+using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages.Factories
 {
@@ -6,6 +7,7 @@ namespace xyLOGIX.Queues.Messages.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetMessageQueue
     {
         /// <summary>

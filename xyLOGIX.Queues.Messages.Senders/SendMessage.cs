@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -14,6 +15,7 @@ namespace xyLOGIX.Queues.Messages.Senders
     /// <typeparam name="T">
     /// Name of the type of data that the message notification will carry.
     /// </typeparam>
+    [Log(AttributeExclude = true)]
     public class SendMessage<T>
     {
         /// <summary>

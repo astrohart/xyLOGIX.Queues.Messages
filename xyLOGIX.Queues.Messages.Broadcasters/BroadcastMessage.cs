@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using xyLOGIX.Queues.Messages.Factories;
 using xyLOGIX.Queues.Messages.Interfaces;
 
@@ -22,6 +23,7 @@ namespace xyLOGIX.Queues.Messages.Broadcasters
     /// they work with message data having type <typeparamref name="T" />, and
     /// that do not respond to messages tagged with a unique identifier.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class BroadcastMessage<T>
     {
         /// <summary>
