@@ -166,12 +166,6 @@ namespace xyLOGIX.Queues.Messages
             {
                 try
                 {
-                    // Dump the variable messageId to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"MessageQueue.MapMessage: messageId = '{messageId}'"
-                    );
-
                     if (messageId.IsZero()) return;
                     if (messageHandler == null) return;
                     if (_internalMessageQueue == null) return;
@@ -231,17 +225,6 @@ namespace xyLOGIX.Queues.Messages
             {
                 try
                 {
-                    // Dump the variable typeof(T) to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"MessageQueue.MapMessage: typeof(T) = '{typeof(T).FullName}'"
-                    );
-
-                    // Dump the variable messageId to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"MessageQueue.MapMessage: messageId = '{messageId}'"
-                    );
                     if (messageId.IsZero()) return;
                     if (messageHandler == null) return;
                     if (_internalMessageQueue == null) return;
