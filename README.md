@@ -1,4 +1,4 @@
-﻿Related project(s):
+Related project(s):
 [SampleMVP](https://github.com/astrohart/SampleMVP)
 
 # xyLOGIX.Queues.Messages

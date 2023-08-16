@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Extensions
 
 ## Contents

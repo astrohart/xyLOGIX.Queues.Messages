@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Unit Tests Support Library for Support Library for Event Aggregation")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright ? 2023 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software provides unit tests for a component of xyLOGIX Support Library for Event Aggregation.  xyLOGIX Support Library for Event Aggregation is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
