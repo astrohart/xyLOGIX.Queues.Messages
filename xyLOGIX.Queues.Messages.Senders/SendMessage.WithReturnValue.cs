@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -9,11 +9,12 @@ using xyLOGIX.Queues.Messages.Interfaces;
 namespace xyLOGIX.Queues.Messages.Senders
 {
     /// <summary>
-    /// Sends messages to other application components, whose event data is of
-    /// type specified.
+    /// Sends messages to other application components, whose event data is
+    /// of type specified.
     /// </summary>
     /// <typeparam name="T">
-    /// Name of the type of data that the message notification will carry.
+    /// Name of the type of data that the message notification
+    /// will carry.
     /// </typeparam>
     /// <typeparam name="R">
     /// Name of the type of the object that the method processing
@@ -22,18 +23,18 @@ namespace xyLOGIX.Queues.Messages.Senders
     [Log(AttributeExclude = true)]
     public class SendMessage<T, R>
     {
-        /// <summary>
-        /// Array of instances of objects that provide input to the notification.
-        /// </summary>
+        /// <summary> Array of instances of objects that provide input to the notification. </summary>
         private object[] _args;
 
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static SendMessage() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// Empty, protected constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         protected SendMessage() { }
 
@@ -45,11 +46,9 @@ namespace xyLOGIX.Queues.Messages.Senders
         /// This property is meant to be used in a fluent manner.
         /// <para />
         /// When using this property, first invoke the
-        /// <see
-        ///     cref="M:xyLOGIX.Queues.Messages.SendMessage.Args" />
-        /// method and then
-        /// the <see cref="M:xyLOGIX.Queues.Messages.SendMessage.ForMessageId" />
-        /// method to send your message.
+        /// <see cref="M:xyLOGIX.Queues.Messages.SendMessage.Args" /> method and then the
+        /// <see cref="M:xyLOGIX.Queues.Messages.SendMessage.ForMessageId" /> method to
+        /// send your message.
         /// </remarks>
         public static SendMessage<T, R> Having { get; } =
             new SendMessage<T, R>();
@@ -61,18 +60,17 @@ namespace xyLOGIX.Queues.Messages.Senders
         private static IMessageQueue MessageQueue { get; } =
             GetMessageQueue.SoleInstance();
 
-        /// <summary>
-        /// Supplies arguments for the message to be sent.
-        /// </summary>
+        /// <summary> Supplies arguments for the message to be sent. </summary>
         /// <param name="args">
-        /// (Optional.) One of more values to be passed as parameters to the message.
+        /// (Optional.) One of more values to be passed as parameters
+        /// to the message.
         /// <para />
-        /// <b>NOTE:</b> The data types, order, and number of parameters, if
-        /// supplied, must match the signature of the message's delegate.
+        /// <b>NOTE:</b> The data types, order, and number of parameters, if supplied, must
+        /// match the signature of the message's delegate.
         /// </param>
         /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
+        /// Reference to the same instance of the object that called this method,
+        /// for fluent use.
         /// </returns>
         public SendMessage<T, R> Args(params object[] args)
         {
@@ -82,17 +80,17 @@ namespace xyLOGIX.Queues.Messages.Senders
         }
 
         /// <summary>
-        /// Filters the message queue by the unique identifier that the
-        /// message's handler was initially mapped under.
+        /// Filters the message queue by the unique identifier that the message's
+        /// handler was initially mapped under.
         /// </summary>
         /// <param name="messageId">
-        /// (Required). Unique identifier (GUID) that the message handler was
-        /// originally tagged with.
+        /// (Required). Unique identifier (GUID) that the message
+        /// handler was originally tagged with.
         /// <para />
         /// The Zero GUID must not be passed for this parameter.
         /// <para />
-        /// If the Zero GUID is passed for this parameter, then this method
-        /// throws <see cref="T:System.ArgumentException" />.
+        /// If the Zero GUID is passed for this parameter, then this method throws
+        /// <see cref="T:System.ArgumentException" />.
         /// </param>
         public void ForMessageId(Guid messageId)
         {
@@ -110,24 +108,20 @@ namespace xyLOGIX.Queues.Messages.Senders
             }
         }
 
-        /// <summary>
-        /// Specifies that the message is to be sent without any input data.
-        /// </summary>
+        /// <summary> Specifies that the message is to be sent without any input data. </summary>
         /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
+        /// Reference to the same instance of the object that called this method,
+        /// for fluent use.
         /// </returns>
         /// <remarks>
         /// This method initializes the internal storage of this class that is
-        /// devoted to storing the argument list for the new message to contain
-        /// zero elements.
+        /// devoted to storing the argument list for the new message to contain zero
+        /// elements.
         /// <para />
         /// <b>NOTE:</b> Calling this method is the same as calling the
-        /// <see
-        ///     cref="M:xyLOGIX.Queues.Messages.SendMessage.Args" />
-        /// method without
-        /// passing any parameters. Having this method available can make client
-        /// code more fluent.
+        /// <see cref="M:xyLOGIX.Queues.Messages.SendMessage.Args" /> method without
+        /// passing any parameters. Having this method available can make client code more
+        /// fluent.
         /// </remarks>
         public SendMessage<T, R> NoArgs()
         {

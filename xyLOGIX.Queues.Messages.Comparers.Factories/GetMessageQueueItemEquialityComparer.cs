@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System.Collections.Generic;
 using xyLOGIX.Queues.Messages.Items.Interfaces;
 
@@ -6,30 +6,31 @@ namespace xyLOGIX.Queues.Messages.Comparers.Factories
 {
     /// <summary>
     /// Gets references to instances of objects that implement the
-    /// <see
-    ///     cref="T:System.Collections.Generic.IEqualityComparer" />
-    /// interface for
+    /// <see cref="T:System.Collections.Generic.IEqualityComparer" /> interface for
     /// pairs of objects that implement the
-    /// <see
-    ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
+    /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
     /// interface.
     /// </summary>
     [Log(AttributeExclude = true)]
     public class GetMessageQueueItemEquialityComparer
     {
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static GetMessageQueueItemEquialityComparer() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// Empty, protected constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         protected GetMessageQueueItemEquialityComparer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer" />.
+        /// <see
+        ///     cref="T:xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer" />
+        /// .
         /// </summary>
         public static GetMessageQueueItemEquialityComparer That { get; } =
             new GetMessageQueueItemEquialityComparer();
@@ -40,10 +41,8 @@ namespace xyLOGIX.Queues.Messages.Comparers.Factories
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:System.Collections.Generic.IEqualityComparer" />
-        /// interface
-        /// for objects implementing the
+        /// <see cref="T:System.Collections.Generic.IEqualityComparer" /> interface for
+        /// objects implementing the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// interface.
         /// </returns>
@@ -57,12 +56,9 @@ namespace xyLOGIX.Queues.Messages.Comparers.Factories
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:System.Collections.Generic.IEqualityComparer" />
-        /// interface
-        /// for objects implementing the
-        /// <see
-        ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
+        /// <see cref="T:System.Collections.Generic.IEqualityComparer" /> interface for
+        /// objects implementing the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
         /// interface.
         /// </returns>
         public IEqualityComparer<IMessageQueueItem>

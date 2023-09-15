@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -9,9 +9,8 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
     /// <summary>
     /// Provides extension methods that are designed to make working with
     /// instances of objects implementing the
-    /// <see
-    ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
-    /// interface more fluent.
+    /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" /> interface
+    /// more fluent.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class MessageQueueItemExtensions
@@ -24,8 +23,8 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
         /// <typeparam name="T">Name of the class that carries the message data.</typeparam>
         /// <param name="item">
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" /> interface that represents the
-        /// message queue item to be checked.
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
+        /// interface that represents the message queue item to be checked.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the event data type of the provided
@@ -66,8 +65,8 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
         /// </typeparam>
         /// <param name="item">
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" /> interface that represents the
-        /// message queue item to be checked.
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
+        /// interface that represents the message queue item to be checked.
         /// </param>
         /// <param name="messageId">
         /// A <see cref="T:System.Guid" /> indicating who should
@@ -120,16 +119,16 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
         /// </typeparam>
         /// <param name="item">
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" /> interface that represents the
-        /// message queue item to be checked.
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
+        /// interface that represents the message queue item to be checked.
         /// </param>
         /// <param name="messageId">
         /// A <see cref="T:System.Guid" /> indicating who should
         /// receive the message.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
-        /// for the message ID with the specified <paramref name="messageId" />;
+        /// <see langword="true" /> if the message queue <paramref name="item" />
+        /// is bound for the message ID with the specified <paramref name="messageId" />;
         /// <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId<T, R>(
@@ -160,20 +159,22 @@ namespace xyLOGIX.Queues.Messages.Items.Extensions
         }
 
         /// <summary>
-        /// Determines whether a message queue <paramref name="item" /> corresponds to the
-        /// message ID specified by the <paramref name="messageId" /> parameter.
+        /// Determines whether a message queue <paramref name="item" />
+        /// corresponds to the message ID specified by the <paramref name="messageId" />
+        /// parameter.
         /// </summary>
         /// <param name="item">
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" /> interface that represents the
-        /// message queue item to be checked.
+        /// <see cref="T:xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem" />
+        /// interface that represents the message queue item to be checked.
         /// </param>
         /// <param name="messageId">
-        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// A <see cref="T:System.Guid" /> indicating who should
+        /// receive the message.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the message queue <paramref name="item" /> is bound
-        /// for the message ID with the specified <paramref name="messageId" />;
+        /// <see langword="true" /> if the message queue <paramref name="item" />
+        /// is bound for the message ID with the specified <paramref name="messageId" />;
         /// <see langword="false" /> otherwise.
         /// </returns>
         public static bool IsBoundToMessageId(

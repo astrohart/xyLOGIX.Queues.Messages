@@ -1,20 +1,28 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions")]
+[assembly:
+    AssemblyTitle(
+        "xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions"
+    )]
 [assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions")]
+[assembly:
+    AssemblyProduct(
+        "xyLOGIX Support Library for xyLOGIX.Queues.Messages.Items.Extensions"
+    )]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved."
+    )]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX xyLOGIX.Queues.Messages.  xyLOGIX.Queues.Messages is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX xyLOGIX.Queues.Messages.  xyLOGIX.Queues.Messages is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties."
+    )]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,50 +12,47 @@ using xyLOGIX.Queues.Messages.Items.Interfaces;
 
 namespace xyLOGIX.Queues.Messages
 {
-    /// <summary>
-    /// Centralized storehouse for application messages.
-    /// </summary>
+    /// <summary> Centralized storehouse for application messages. </summary>
     [Log(AttributeExclude = true)]
     public class MessageQueue : IMessageQueue
     {
-        /// <summary>
-        /// Synchronization context object.
-        /// </summary>
+        /// <summary> Synchronization context object. </summary>
         private static readonly object SyncRoot = new object();
 
-        /// <summary>
-        /// Internal message queue.
-        /// </summary>
+        /// <summary> Internal message queue. </summary>
         private readonly IList<IMessageQueueItem> _internalMessageQueue =
             new List<IMessageQueueItem>();
 
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static MessageQueue() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// Empty, protected constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         protected MessageQueue() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of the object that implements the
+        /// Gets a reference to the one and only instance of the object that
+        /// implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
         public static IMessageQueue Instance { get; } = new MessageQueue();
 
         /// <summary>
-        /// Broadcasts a message to all subscribers everywhere in the application.
+        /// Broadcasts a message to all subscribers everywhere in the
+        /// application.
         /// </summary>
-        /// <typeparam name="T">
-        /// Name of the class containing the message's data.
-        /// </typeparam>
+        /// <typeparam name="T"> Name of the class containing the message's data. </typeparam>
         /// <param name="args">
-        /// Zero or more arguments to be provided to the message handler.
+        /// Zero or more arguments to be provided to the message
+        /// handler.
         /// <para />
-        /// <b>NOTE:</b> The number, order, and type of arguments provided must
-        /// match the message delegate's signature precisely.
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must match the
+        /// message delegate's signature precisely.
         /// </param>
         public void BroadcastMessage<T>(params object[] args)
         {
@@ -89,21 +86,18 @@ namespace xyLOGIX.Queues.Messages
         }
 
         /// <summary>
-        /// Associates event data with the message handler, i.e., the method
-        /// that contains the code to be executed when the message is posted to
-        /// the queue.
+        /// Associates event data with the message handler, i.e., the method that
+        /// contains the code to be executed when the message is posted to the queue.
         /// </summary>
-        /// <typeparam name="T">
-        /// Name of the type of the event data.
-        /// </typeparam>
+        /// <typeparam name="T"> Name of the type of the event data. </typeparam>
         /// <param name="messageHandler">
-        /// A <see cref="T:System.Delegate" /> that specifies the code to be
-        /// executed when the message is posted to the queue.
+        /// A <see cref="T:System.Delegate" /> that specifies
+        /// the code to be executed when the message is posted to the queue.
         /// </param>
         /// <remarks>
         /// A message that is mapped to a handler using this method will be
-        /// broadcast, i.e., any component of the application that registers a
-        /// handler will automatically have its handler invoked.
+        /// broadcast, i.e., any component of the application that registers a handler will
+        /// automatically have its handler invoked.
         /// </remarks>
         public void MapMessage<T>(Delegate messageHandler)
         {
@@ -152,13 +146,12 @@ namespace xyLOGIX.Queues.Messages
         /// message is posted to the queue, with no regard for the event data type.
         /// </summary>
         /// <param name="messageId">
-        /// (Required.) A <see cref="T:System.Guid" /> indicating the specific
-        /// application object that should process the message.
+        /// (Required.) A <see cref="T:System.Guid" /> indicating
+        /// the specific application object that should process the message.
         /// </param>
         /// <param name="messageHandler">
-        /// s
-        /// A <see cref="T:System.Delegate" /> that specifies the code to be
-        /// executed when the message is posted to the queue.
+        /// s A <see cref="T:System.Delegate" /> that
+        /// specifies the code to be executed when the message is posted to the queue.
         /// </param>
         public void MapMessage(Guid messageId, Delegate messageHandler)
         {
@@ -194,30 +187,26 @@ namespace xyLOGIX.Queues.Messages
         }
 
         /// <summary>
-        /// Associates event data with the message handler, i.e., the method
-        /// that contains the code to be executed when the message is posted to
-        /// the queue.
+        /// Associates event data with the message handler, i.e., the method that
+        /// contains the code to be executed when the message is posted to the queue.
         /// </summary>
-        /// <typeparam name="T">
-        /// Name of the type of the event data.
-        /// </typeparam>
+        /// <typeparam name="T"> Name of the type of the event data. </typeparam>
         /// <param name="messageId">
-        /// (Required.) A <see cref="T:System.Guid" /> indicating the specific
-        /// application object that should process the message.
+        /// (Required.) A <see cref="T:System.Guid" /> indicating
+        /// the specific application object that should process the message.
         /// </param>
         /// <param name="messageHandler">
-        /// A <see cref="T:System.Delegate" /> that specifies the code to be
-        /// executed when the message is posted to the queue.
+        /// A <see cref="T:System.Delegate" /> that specifies
+        /// the code to be executed when the message is posted to the queue.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the Zero GUID is passed for the
-        /// <paramref
-        ///     name="messageId" />
-        /// parameter.
+        /// Thrown if the Zero GUID is passed
+        /// for the <paramref name="messageId" /> parameter.
         /// </exception>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="messageHandler" />,
-        /// is passed a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="messageHandler" />, is passed a
+        /// <see langword="null" /> value.
         /// </exception>
         public void MapMessage<T>(Guid messageId, Delegate messageHandler)
         {
@@ -229,8 +218,8 @@ namespace xyLOGIX.Queues.Messages
                     if (messageHandler == null) return;
                     if (_internalMessageQueue == null) return;
                     if (_internalMessageQueue.Any(
-                            message => messageId.Equals(message.MessageId)
-                            && typeof(T) == message.EventDataType
+                            message => messageId.Equals(message.MessageId) &&
+                                       typeof(T) == message.EventDataType
                         ))
                         return; // message is already mapped
 
@@ -255,21 +244,24 @@ namespace xyLOGIX.Queues.Messages
 
         /// <summary>
         /// Posts a message to the message queue and aims it at the specific
-        /// message ID indicated by the <paramref name="messageId" />. Only the
-        /// objects who originally mapped handlers to the message with the
-        /// specified message ID will be sent the message.
+        /// message ID indicated by the <paramref name="messageId" />. Only the objects who
+        /// originally mapped handlers to the message with the specified message ID will be
+        /// sent the message.
         /// </summary>
         /// <typeparam name="T">
-        /// Name of the type of data that will be passed to the message handler.
+        /// Name of the type of data that will be passed to the
+        /// message handler.
         /// </typeparam>
         /// <param name="messageId">
-        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// A <see cref="T:System.Guid" /> indicating who should
+        /// receive the message.
         /// </param>
         /// <param name="args">
-        /// Zero or more arguments to be provided to the message handler.
+        /// Zero or more arguments to be provided to the message
+        /// handler.
         /// <para />
-        /// <b>NOTE:</b> The number, order, and type of arguments provided must
-        /// match the message delegate's signature precisely.
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must match the
+        /// message delegate's signature precisely.
         /// </param>
         public void PostMessage<T>(Guid messageId, params object[] args)
         {
@@ -314,24 +306,24 @@ namespace xyLOGIX.Queues.Messages
 
         /// <summary>
         /// Posts a message to the message queue and aims it at the specific
-        /// message ID indicated by the <paramref name="messageId" />. Only the
-        /// objects who originally mapped handlers to the message with the
-        /// specified message ID will be sent the message.
+        /// message ID indicated by the <paramref name="messageId" />. Only the objects who
+        /// originally mapped handlers to the message with the specified message ID will be
+        /// sent the message.
         /// </summary>
         /// <param name="messageId">
-        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// A <see cref="T:System.Guid" /> indicating who should
+        /// receive the message.
         /// </param>
         /// <param name="args">
-        /// Zero or more arguments to be provided to the message handler.
+        /// Zero or more arguments to be provided to the message
+        /// handler.
         /// <para />
-        /// <b>NOTE:</b> The number, order, and type of arguments provided must
-        /// match the message delegate's signature precisely.
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must match the
+        /// message delegate's signature precisely.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the Zero GUID is passed for the
-        /// <paramref
-        ///     name="messageId" />
-        /// parameter.
+        /// Thrown if the Zero GUID is passed
+        /// for the <paramref name="messageId" /> parameter.
         /// </exception>
         public void PostMessage(Guid messageId, params object[] args)
         {
@@ -361,25 +353,28 @@ namespace xyLOGIX.Queues.Messages
 
         /// <summary>
         /// Posts a message to the message queue and aims it at the specific
-        /// message ID indicated by the <paramref name="messageId" />. Only the
-        /// objects who originally mapped handlers to the message with the
-        /// specified message ID will be sent the message.
+        /// message ID indicated by the <paramref name="messageId" />. Only the objects who
+        /// originally mapped handlers to the message with the specified message ID will be
+        /// sent the message.
         /// </summary>
         /// <typeparam name="T">
-        /// Name of the type of data that will be passed to the message handler.
+        /// Name of the type of data that will be passed to the
+        /// message handler.
         /// </typeparam>
         /// <typeparam name="R">
-        /// Name of the type of data that will be returned from the message handler as its
-        /// result.
+        /// Name of the type of data that will be returned from the
+        /// message handler as its result.
         /// </typeparam>
         /// <param name="messageId">
-        /// A <see cref="T:System.Guid" /> indicating who should receive the message.
+        /// A <see cref="T:System.Guid" /> indicating who should
+        /// receive the message.
         /// </param>
         /// <param name="args">
-        /// Zero or more arguments to be provided to the message handler.
+        /// Zero or more arguments to be provided to the message
+        /// handler.
         /// <para />
-        /// <b>NOTE:</b> The number, order, and type of arguments provided must
-        /// match the message delegate's signature precisely.
+        /// <b>NOTE:</b> The number, order, and type of arguments provided must match the
+        /// message delegate's signature precisely.
         /// </param>
         public R PostMessage<T, R>(Guid messageId, params object[] args)
         {
@@ -414,20 +409,17 @@ namespace xyLOGIX.Queues.Messages
 
         /// <summary>
         /// Removes the first occurrence of the specified
-        /// <paramref
-        ///     name="item" />
-        /// from the message queue.
+        /// <paramref name="item" /> from the message queue.
         /// </summary>
         /// <param name="item">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" />
-        /// interface and which represents the item to be removed.
+        /// (Required.) Reference to an instance of an object that
+        /// implements the
+        /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem" /> interface
+        /// and which represents the item to be removed.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="item" />, is passed
-        /// a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="item" />, is passed a <see langword="null" /> value.
         /// </exception>
         private void Remove(IMessageQueueItem item)
         {

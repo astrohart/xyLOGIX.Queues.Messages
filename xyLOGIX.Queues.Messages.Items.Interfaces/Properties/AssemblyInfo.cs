@@ -1,20 +1,31 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Interfaces Support Library for Support Library for Event Aggregation's Items in Message Queues Component")]
-[assembly: AssemblyDescription("Provides objects and functionality for the individual elements of a message queue.  This particular library holds the C# interfaces for this component.")]
+[assembly:
+    AssemblyTitle(
+        "xyLOGIX Interfaces Support Library for Support Library for Event Aggregation's Items in Message Queues Component"
+    )]
+[assembly:
+    AssemblyDescription(
+        "Provides objects and functionality for the individual elements of a message queue.  This particular library holds the C# interfaces for this component."
+    )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Support Library for Event Aggregation")]
+[assembly:
+    AssemblyProduct(
+        "xyLOGIX Support Library for Support Library for Event Aggregation"
+    )]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved."
+    )]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX Support Library for Event Aggregation.  xyLOGIX Support Library for Event Aggregation is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX Support Library for Event Aggregation.  xyLOGIX Support Library for Event Aggregation is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties."
+    )]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
