@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Comparers
 
 ## Contents
@@ -29,15 +29,16 @@ xyLOGIX.Queues.Messages.Comparers
 ##### Summary
 
 Compares two instances of objects that implement the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
-interface to see if they are equal.
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') interface
+to see if they are equal.
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithDataTypeComparer-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -57,7 +58,8 @@ interface.
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -72,8 +74,8 @@ Determines whether the specified objects are equal.
 
 ##### Returns
 
-`true` if the specified objects are equal; otherwise,
-`false`.
+`true` if the specified objects are equal;
+otherwise, `false`.
 
 ##### Parameters
 
@@ -101,15 +103,16 @@ A hash code for the specified object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| obj | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') for which a hash code is to be returned. |
+| obj | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') for which a hash code is
+to be returned. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | The type of `obj` is a reference type and
-`obj`
-is `null`. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | The type of
+`obj` is a reference type and `obj` is
+`null`. |
 
 <a name='T-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithNoDataTypeComparer'></a>
 ## MessageQueueItemWithNoDataTypeComparer `type`
@@ -121,16 +124,16 @@ xyLOGIX.Queues.Messages.Comparers
 ##### Summary
 
 Compares two instances of objects that implement the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
-interface to see if they are equal. Ignores the event data type
-associated with the item.
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') interface
+to see if they are equal. Ignores the event data type associated with the item.
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithNoDataTypeComparer-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -150,7 +153,8 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -172,10 +176,10 @@ otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| x | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The first object that implements the [typeparamref](#T-typeparamref 'typeparamref')
-interface to compare. |
-| y | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The second object that implements the [typeparamref](#T-typeparamref 'typeparamref')
-interface to compare. |
+| x | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The first object that implements the
+[typeparamref](#T-typeparamref 'typeparamref') interface to compare. |
+| y | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The second object that implements the
+[typeparamref](#T-typeparamref 'typeparamref') interface to compare. |
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-MessageQueueItemWithNoDataTypeComparer-GetHashCode-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem-'></a>
 ### GetHashCode(obj) `method`
@@ -192,15 +196,16 @@ A hash code for the specified object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| obj | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') for which a hash code is to be returned. |
+| obj | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | The [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') for which a hash code is
+to be returned. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | The type of `obj` is a reference type and
-`obj`
-is `null`. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | The type of
+`obj` is a reference type and `obj` is
+`null`. |
 
 <a name='T-xyLOGIX-Queues-Messages-Comparers-Properties-Resources'></a>
 ## Resources `type`
@@ -218,8 +223,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Comparers-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

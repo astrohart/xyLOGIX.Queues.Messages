@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages
 
 ## Contents
@@ -37,7 +37,8 @@ Centralized storehouse for application messages.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -62,7 +63,8 @@ Internal message queue.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
+Gets a reference to the one and only instance of the object that
+implements the
 [IMessageQueue](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueue 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueue') interface.
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-#cctor'></a>
@@ -70,7 +72,8 @@ Gets a reference to the one and only instance of the object that implements the
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -81,18 +84,20 @@ This method has no parameters.
 
 ##### Summary
 
-Broadcasts a message to all subscribers everywhere in the application.
+Broadcasts a message to all subscribers everywhere in the
+application.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message handler.
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message
+handler.
 
 
 
-The number, order, and type of arguments provided must
-match the message delegate's signature precisely. |
+The number, order, and type of arguments provided must match the
+message delegate's signature precisely. |
 
 ##### Generic Types
 
@@ -112,27 +117,25 @@ message is posted to the queue, with no regard for the event data type.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating the specific
-application object that should process the message. |
-| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | s
-A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that specifies the code to be
-executed when the message is posted to the queue. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating
+the specific application object that should process the message. |
+| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | s A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that
+specifies the code to be executed when the message is posted to the queue. |
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-MapMessage``1-System-Delegate-'></a>
 ### MapMessage\`\`1(messageHandler) `method`
 
 ##### Summary
 
-Associates event data with the message handler, i.e., the method
-that contains the code to be executed when the message is posted to
-the queue.
+Associates event data with the message handler, i.e., the method that
+contains the code to be executed when the message is posted to the queue.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that specifies the code to be
-executed when the message is posted to the queue. |
+| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that specifies
+the code to be executed when the message is posted to the queue. |
 
 ##### Generic Types
 
@@ -143,26 +146,25 @@ executed when the message is posted to the queue. |
 ##### Remarks
 
 A message that is mapped to a handler using this method will be
-broadcast, i.e., any component of the application that registers a
-handler will automatically have its handler invoked.
+broadcast, i.e., any component of the application that registers a handler will
+automatically have its handler invoked.
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-MapMessage``1-System-Guid,System-Delegate-'></a>
 ### MapMessage\`\`1(messageId,messageHandler) `method`
 
 ##### Summary
 
-Associates event data with the message handler, i.e., the method
-that contains the code to be executed when the message is posted to
-the queue.
+Associates event data with the message handler, i.e., the method that
+contains the code to be executed when the message is posted to the queue.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating the specific
-application object that should process the message. |
-| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that specifies the code to be
-executed when the message is posted to the queue. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating
+the specific application object that should process the message. |
+| messageHandler | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that specifies
+the code to be executed when the message is posted to the queue. |
 
 ##### Generic Types
 
@@ -174,11 +176,11 @@ executed when the message is posted to the queue. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is passed for the
-`messageId`
-parameter. |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `messageHandler`,
-is passed a `null` value. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is passed
+for the `messageId` parameter. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `messageHandler`, is passed a
+`null` value. |
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage-System-Guid,System-Object[]-'></a>
 ### PostMessage(messageId,args) `method`
@@ -186,29 +188,30 @@ is passed a `null` value. |
 ##### Summary
 
 Posts a message to the message queue and aims it at the specific
-message ID indicated by the `messageId`. Only the
-objects who originally mapped handlers to the message with the
-specified message ID will be sent the message.
+message ID indicated by the `messageId`. Only the objects who
+originally mapped handlers to the message with the specified message ID will be
+sent the message.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message handler.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
+receive the message. |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message
+handler.
 
 
 
-The number, order, and type of arguments provided must
-match the message delegate's signature precisely. |
+The number, order, and type of arguments provided must match the
+message delegate's signature precisely. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is passed for the
-`messageId`
-parameter. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is passed
+for the `messageId` parameter. |
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``1-System-Guid,System-Object[]-'></a>
 ### PostMessage\`\`1(messageId,args) `method`
@@ -216,27 +219,30 @@ parameter. |
 ##### Summary
 
 Posts a message to the message queue and aims it at the specific
-message ID indicated by the `messageId`. Only the
-objects who originally mapped handlers to the message with the
-specified message ID will be sent the message.
+message ID indicated by the `messageId`. Only the objects who
+originally mapped handlers to the message with the specified message ID will be
+sent the message.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message handler.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
+receive the message. |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message
+handler.
 
 
 
-The number, order, and type of arguments provided must
-match the message delegate's signature precisely. |
+The number, order, and type of arguments provided must match the
+message delegate's signature precisely. |
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the type of data that will be passed to the message handler. |
+| T | Name of the type of data that will be passed to the
+message handler. |
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-PostMessage``2-System-Guid,System-Object[]-'></a>
 ### PostMessage\`\`2(messageId,args) `method`
@@ -244,29 +250,32 @@ match the message delegate's signature precisely. |
 ##### Summary
 
 Posts a message to the message queue and aims it at the specific
-message ID indicated by the `messageId`. Only the
-objects who originally mapped handlers to the message with the
-specified message ID will be sent the message.
+message ID indicated by the `messageId`. Only the objects who
+originally mapped handlers to the message with the specified message ID will be
+sent the message.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message handler.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
+receive the message. |
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | Zero or more arguments to be provided to the message
+handler.
 
 
 
-The number, order, and type of arguments provided must
-match the message delegate's signature precisely. |
+The number, order, and type of arguments provided must match the
+message delegate's signature precisely. |
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the type of data that will be passed to the message handler. |
-| R | Name of the type of data that will be returned from the message handler as its
-result. |
+| T | Name of the type of data that will be passed to the
+message handler. |
+| R | Name of the type of data that will be returned from the
+message handler as its result. |
 
 <a name='M-xyLOGIX-Queues-Messages-MessageQueue-Remove-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem-'></a>
 ### Remove(item) `method`
@@ -274,24 +283,23 @@ result. |
 ##### Summary
 
 Removes the first occurrence of the specified
-`item`
-from the message queue.
+`item` from the message queue.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | (Required.) Reference to an instance of an object that implements
-the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
-interface and which represents the item to be removed. |
+| item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | (Required.) Reference to an instance of an object that
+implements the
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') interface
+and which represents the item to be removed. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `item`, is passed
-a `null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `item`, is passed a `null` value. |
 
 <a name='T-xyLOGIX-Queues-Messages-Properties-Resources'></a>
 ## Resources `type`
@@ -309,8 +317,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

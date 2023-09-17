@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Comparers.Factories
 
 ## Contents
@@ -23,8 +23,7 @@ xyLOGIX.Queues.Messages.Comparers.Factories
 ##### Summary
 
 Gets references to instances of objects that implement the
-[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer')
-interface for
+[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer') interface for
 pairs of objects that implement the
 [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 interface.
@@ -34,7 +33,8 @@ interface.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -46,14 +46,16 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[GetMessageQueueItemEquialityComparer](#T-xyLOGIX-Queues-Messages-Comparers-Factories-GetMessageQueueItemEquialityComparer 'xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer').
+[GetMessageQueueItemEquialityComparer](#T-xyLOGIX-Queues-Messages-Comparers-Factories-GetMessageQueueItemEquialityComparer 'xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer')
+.
 
 <a name='M-xyLOGIX-Queues-Messages-Comparers-Factories-GetMessageQueueItemEquialityComparer-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -70,9 +72,8 @@ event data type into account.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer')
-interface
-for objects implementing the
+[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer') interface for
+objects implementing the
 [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 interface.
 
@@ -91,9 +92,8 @@ type into account.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer')
-interface
-for objects implementing the
+[IEqualityComparer](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEqualityComparer 'System.Collections.Generic.IEqualityComparer') interface for
+objects implementing the
 [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
 interface.
 
@@ -117,8 +117,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Comparers-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

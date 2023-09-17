@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Items
 
 ## Contents
@@ -58,12 +58,13 @@ code is to be run when a message is sent.
 
 ##### Summary
 
-Gets or sets the unique identifier of the message ID of this
-specific `MessageQueueItem`.
+Gets or sets the unique identifier of the message ID of this specific
+`MessageQueueItem`.
 
 ##### Remarks
 
-If this property is set to the zero GUID, then the message is broadcast.
+If this property is set to the zero GUID, then the message is
+broadcast.
 
 <a name='P-xyLOGIX-Queues-Messages-Items-MessageQueueItem-ResultDataType'></a>
 ### ResultDataType `property`
@@ -82,8 +83,8 @@ code to be executed when the message is published.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
@@ -93,8 +94,9 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `messageHandler`,
-is passed a `null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `messageHandler`, is passed a
+`null` value. |
 
 <a name='M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-Dispose'></a>
 ### Dispose() `method`
@@ -114,20 +116,19 @@ This method has no parameters.
 ##### Summary
 
 Fluent-builder method to mark this `MessageQueueItem` for
-processing only by those objects who map handlers to a specific
-message ID.
+processing only by those objects who map handlers to a specific message ID.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') tagging this message with
-a unique identifier. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') tagging
+this message with a unique identifier. |
 
 ##### Remarks
 
@@ -136,8 +137,8 @@ with this `MessageQueueItem` if this method is not called.
 
 
 
-Associating a message with the Zero GUID means that the message in
-question should be dispatched to all interested parties.
+Associating a message with the Zero GUID means that the message in question
+should be dispatched to all interested parties.
 
 <a name='M-xyLOGIX-Queues-Messages-Items-MessageQueueItem-ToString'></a>
 ### ToString() `method`
@@ -161,8 +162,8 @@ This method has no parameters.
 
 Fluent-builder method that enables us to attach a
 [IMessageQueueItem}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem}')
-to this object that is called when this object's resources are freed
-from memory by the garbage collector.
+to this object that is called when this object's resources are freed from
+memory by the garbage collector.
 
 
 
@@ -173,8 +174,8 @@ The most common implementation is to remove the newly-built
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
@@ -196,8 +197,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Items-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

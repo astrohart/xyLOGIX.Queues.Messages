@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Items.Extensions
 
 ## Contents
@@ -23,8 +23,8 @@ xyLOGIX.Queues.Messages.Items.Extensions
 
 Provides extension methods that are designed to make working with
 instances of objects implementing the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
-interface more fluent.
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') interface
+more fluent.
 
 <a name='M-xyLOGIX-Queues-Messages-Items-Extensions-MessageQueueItemExtensions-DoesEventDataTypeMatch``1-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem-'></a>
 ### DoesEventDataTypeMatch\`\`1(item) `method`
@@ -45,8 +45,8 @@ Determines whether the specified message queue
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | Reference to an instance of an object that implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') interface that represents the
-message queue item to be checked. |
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
+interface that represents the message queue item to be checked. |
 
 ##### Generic Types
 
@@ -59,13 +59,14 @@ message queue item to be checked. |
 
 ##### Summary
 
-Determines whether a message queue `item` corresponds to the
-message ID specified by the `messageId` parameter.
+Determines whether a message queue `item`
+corresponds to the message ID specified by the `messageId`
+parameter.
 
 ##### Returns
 
-`true` if the message queue `item` is bound
-for the message ID with the specified `messageId`;
+`true` if the message queue `item`
+is bound for the message ID with the specified `messageId`;
 `false` otherwise.
 
 ##### Parameters
@@ -73,9 +74,10 @@ for the message ID with the specified `messageId`;
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | Reference to an instance of an object that implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') interface that represents the
-message queue item to be checked. |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should receive the message. |
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
+interface that represents the message queue item to be checked. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
+receive the message. |
 
 <a name='M-xyLOGIX-Queues-Messages-Items-Extensions-MessageQueueItemExtensions-IsBoundToMessageId``1-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem,System-Guid-'></a>
 ### IsBoundToMessageId\`\`1(item,messageId) `method`
@@ -97,8 +99,8 @@ is bound for the message ID with the specified `messageId`;
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | Reference to an instance of an object that implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') interface that represents the
-message queue item to be checked. |
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
+interface that represents the message queue item to be checked. |
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
 receive the message. |
 
@@ -120,8 +122,8 @@ by the `messageId` parameter.
 
 ##### Returns
 
-`true` if the message queue `item` is bound
-for the message ID with the specified `messageId`;
+`true` if the message queue `item`
+is bound for the message ID with the specified `messageId`;
 `false` otherwise.
 
 ##### Parameters
@@ -129,8 +131,8 @@ for the message ID with the specified `messageId`;
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | item | [xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') | Reference to an instance of an object that implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem') interface that represents the
-message queue item to be checked. |
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
+interface that represents the message queue item to be checked. |
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') indicating who should
 receive the message. |
 
@@ -159,8 +161,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Items-Extensions-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

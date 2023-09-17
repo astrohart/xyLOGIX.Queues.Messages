@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Broadcasters
 
 ## Contents
@@ -22,15 +22,16 @@ xyLOGIX.Queues.Messages.Broadcasters
 
 ##### Summary
 
-Broadcasts messages, with event data of type `T`,
-to all interested parties throughout the application.
+Broadcasts messages, with event data of type
+`T`, to all interested parties throughout the
+application.
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the data type of the `class` or `struct` that carries
-the event data. |
+| T | Name of the data type of the `class` or `struct`
+that carries the event data. |
 
 ##### Remarks
 
@@ -38,22 +39,23 @@ This class is implemented as a singleton.
 
 
 
-This class was designed to be very fluent, in that clients of this class
-use the dot operator to string together its methods and properties to
-form complete sentences.
+This class was designed to be very fluent, in that clients of this class use
+the dot operator to string together its methods and properties to form complete
+sentences.
 
 
 
-Use this class when you want to invoke all message handlers that say
-they work with message data having type `T`, and
-that do not respond to messages tagged with a unique identifier.
+Use this class when you want to invoke all message handlers that say they work
+with message data having type `T`, and that do not
+respond to messages tagged with a unique identifier.
 
 <a name='M-xyLOGIX-Queues-Messages-Broadcasters-BroadcastMessage`1-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -80,7 +82,8 @@ Gets a reference to an instance of an object that implements the
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -98,12 +101,13 @@ parties throughout the application, with the `args` provided.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters
+to the message.
 
 
 
-The data types, order, and number of parameters, if
-supplied, must match the signature of the message's delegate. |
+The data types, order, and number of parameters, if supplied, must
+match the signature of the message's delegate. |
 
 <a name='T-xyLOGIX-Queues-Messages-Broadcasters-Properties-Resources'></a>
 ## Resources `type`
@@ -121,8 +125,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Broadcasters-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Mappings
 
 ## Contents
@@ -46,13 +46,14 @@ Fluent-builder object to build message-map entries.
 
 ##### Remarks
 
-Message-map entries are what bind together a message's identifier and/or
-data object type with a method that handles it; i.e, its message handler.
+Message-map entries are what bind together a message's identifier
+and/or data object type with a method that handles it; i.e, its message
+handler.
 
 
 
-Message handlers are invoked automatically in response to messages being
-sent or broadcast with the corresponding identifier or data type specified.
+Message handlers are invoked automatically in response to messages being sent
+or broadcast with the corresponding identifier or data type specified.
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping-#ctor'></a>
 ### #ctor() `constructor`
@@ -60,9 +61,8 @@ sent or broadcast with the corresponding identifier or data type specified.
 ##### Summary
 
 Constructs a new instance of
-[NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}')
-and returns
-a reference to it.
+[NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}') and returns a
+reference to it.
 
 ##### Parameters
 
@@ -88,7 +88,8 @@ Associates a message and its handler together.
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -108,28 +109,26 @@ method.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| handler | [System.EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the code to be
-invoked when the message is sent. |
+| handler | [System.EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the
+code to be invoked when the message is sent. |
 
 ##### Remarks
 
 The delegate, `handler`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is not meant to be called in a standalone fashion;
-rather, it should be called in a fluent chain after calling the
-WithMessageId method.
+This method is not meant to be called in a standalone fashion; rather, it
+should be called in a fluent chain after calling the WithMessageId method.
 
 
 
 It is not required, nor is it even advisable, to call the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method before calling this one. If this has been done anyway, then
-this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+before calling this one. If this has been done anyway, then this method throws
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping-AndHandler-System-Delegate-'></a>
 ### AndHandler(d) `method`
@@ -145,38 +144,36 @@ method.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
-when the message is sent. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be
+invoked when the message is sent. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `d`, is passed a
-`null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `d`, is passed a `null` value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method has been called prior to calling this method. |
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+has been called prior to calling this method. |
 
 ##### Remarks
 
 The delegate, `d`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is not meant to be called in a standalone fashion;
-rather, it should be called in a fluent chain after calling the
-WithMessageId method.
+This method is not meant to be called in a standalone fashion; rather, it
+should be called in a fluent chain after calling the WithMessageId method.
 
 
 
 It is not required, nor is it even advisable, to call the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method before calling this one. If this has been done anyway, then
-this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+before calling this one. If this has been done anyway, then this method throws
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping-WithMessageId-System-Guid-'></a>
 ### WithMessageId(messageId) `method`
@@ -194,8 +191,8 @@ message handler.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that contains the unique
-identifier to assign to the message.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that
+contains the unique identifier to assign to the message.
 
 
 
@@ -205,21 +202,19 @@ The Empty GUID is not allowed. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the `messageId` parameter is passed
-[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty')
-for its value. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the
+`messageId` parameter is passed
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') for its value. |
 
 ##### Remarks
 
 You must call the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method after calling this method. This method has to be called prior
-to calling the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method. If this is not done, then the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException')
-exception.
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+after calling this method. This method has to be called prior to calling the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
+If this is not done, then the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
 <a name='T-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`1'></a>
 ## NewMessageMapping\`1 `type`
@@ -240,13 +235,14 @@ Fluent-builder object to build message-map entries.
 
 ##### Remarks
 
-Message-map entries are what bind together a message's identifier and/or
-data object type with a method that handles it; i.e, its message handler.
+Message-map entries are what bind together a message's identifier
+and/or data object type with a method that handles it; i.e, its message
+handler.
 
 
 
-Message handlers are invoked automatically in response to messages being
-sent or broadcast with the corresponding identifier or data type specified.
+Message handlers are invoked automatically in response to messages being sent
+or broadcast with the corresponding identifier or data type specified.
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`1-#ctor'></a>
 ### #ctor() `constructor`
@@ -254,9 +250,8 @@ sent or broadcast with the corresponding identifier or data type specified.
 ##### Summary
 
 Constructs a new instance of
-[NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}')
-and returns
-a reference to it.
+[NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}') and returns a
+reference to it.
 
 ##### Parameters
 
@@ -282,7 +277,8 @@ Associates a message and its handler together.
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -302,37 +298,36 @@ method.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| handler | [System.EventHandler{\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler{`0}') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the code to be
-invoked when the message is sent. |
+| handler | [System.EventHandler{\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler{`0}') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the
+code to be invoked when the message is sent. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `handler`, is
-passed a `null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `handler`, is passed a `null`
+value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method has been called prior to calling this method. |
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+has been called prior to calling this method. |
 
 ##### Remarks
 
 The delegate, `handler`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is meant to be called in a fluent-builder
-style after calling the
+This method is meant to be called in a fluent-builder style after
+calling the
 [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
 method.
 
 
 
-If the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+If the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
 method has not been called before this one, this method will throw
 [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
@@ -347,37 +342,35 @@ Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
-when the message is sent. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be
+invoked when the message is sent. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `d`, is passed a
-`null` value. |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `d`, is passed a `null` value. |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that
+the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
 method has not been called. |
 
 ##### Remarks
 
 The delegate, `d`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is meant to be called in a fluent-builder
-style after calling the
+This method is meant to be called in a fluent-builder style after
+calling the
 [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
 method.
 
 
 
-If the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+If the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
 method has not been called before this one, this method will throw
 [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
@@ -392,25 +385,24 @@ Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
-when the message is sent. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be
+invoked when the message is sent. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `d`, is passed a
-`null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `d`, is passed a `null` value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method has been called prior to calling this method. |
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+has been called prior to calling this method. |
 
 ##### Remarks
 
 The delegate, `d`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
@@ -419,9 +411,9 @@ This method is meant to be called in a standalone fashion.
 
 
 It is not required, nor is it even advisable, to call the
-[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method before calling this one. If this has been done anyway, then
-this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+before calling this one. If this has been done anyway, then this method throws
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`1-WithMessageId-System-Guid-'></a>
 ### WithMessageId(messageId) `method`
@@ -439,8 +431,8 @@ message handler.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that contains the unique
-identifier to assign to the message.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that
+contains the unique identifier to assign to the message.
 
 
 
@@ -450,21 +442,19 @@ The Empty GUID is not allowed. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the `messageId` parameter is passed
-[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty')
-for its value. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the
+`messageId` parameter is passed
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') for its value. |
 
 ##### Remarks
 
 You must call the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method after calling this method. This method has to be called prior
-to calling the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method. If this is not done, then the
-[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException')
-exception.
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+after calling this method. This method has to be called prior to calling the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
+If this is not done, then the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
 <a name='T-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`2'></a>
 ## NewMessageMapping\`2 `type`
@@ -482,25 +472,28 @@ Fluent-builder object to build message-map entries.
 | Name | Description |
 | ---- | ----------- |
 | T | Name of the data type that carries the event data. |
-| R | Name of the data type that carries the result of processing the message. |
+| R | Name of the data type that carries the result of
+processing the message. |
 
 ##### Remarks
 
-Message-map entries are what bind together a message's identifier and/or
-data object type with a method that handles it; i.e, its message handler.
+Message-map entries are what bind together a message's identifier
+and/or data object type with a method that handles it; i.e, its message
+handler.
 
 
 
-Message handlers are invoked automatically in response to messages being
-sent or broadcast with the corresponding identifier or data type specified.
+Message handlers are invoked automatically in response to messages being sent
+or broadcast with the corresponding identifier or data type specified.
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`2-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Constructs a new instance of [NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}') and returns
-a reference to it.
+Constructs a new instance of
+[NewMessageMapping{T}](#T-xyLOGIX-Queues-Messages-NewMessageMapping{T} 'xyLOGIX.Queues.Messages.NewMessageMapping{T}') and returns a
+reference to it.
 
 ##### Parameters
 
@@ -526,7 +519,8 @@ Associates a message and its handler together.
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -538,26 +532,29 @@ This method has no parameters.
 ##### Summary
 
 Associates a [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') with the message
-having unique identifier specified by the earlier call to the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+having unique identifier specified by the earlier call to the
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| handler | [System.Func{System.Object,\`0,\`1}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,`0,`1}') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the code to be
-invoked when the message is sent. |
+| handler | [System.Func{System.Object,\`0,\`1}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,`0,`1}') | A [EventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventHandler 'System.EventHandler') specifying the
+code to be invoked when the message is sent. |
 
 ##### Remarks
 
 The delegate, `handler`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is meant to be called in a fluent-builder
-style after calling the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+This method is meant to be called in a fluent-builder style after
+calling the
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method.
 
 
 
@@ -576,20 +573,21 @@ Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
-when the message is sent. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be
+invoked when the message is sent. |
 
 ##### Remarks
 
 The delegate, `d`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
-This method is meant to be called in a fluent-builder
-style after calling the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method.
+This method is meant to be called in a fluent-builder style after
+calling the
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
+method.
 
 
 
@@ -608,15 +606,14 @@ Associates a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be invoked
-when the message is sent. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | A [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') specifying the code to be
+invoked when the message is sent. |
 
 ##### Remarks
 
 The delegate, `d`, can be thought of as being
-analogous to a C-style function pointer, in that it refers to code
-that will be invoked when a message matching the creation criteria
-is sent.
+analogous to a C-style function pointer, in that it refers to code that will be
+invoked when a message matching the creation criteria is sent.
 
 
 
@@ -624,9 +621,10 @@ This method is meant to be called in a standalone fashion.
 
 
 
-It is not required, nor is it even advisable, to call the [WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId')
-method before calling this one. If this has been done anyway, then
-this method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
+It is not required, nor is it even advisable, to call the
+[WithMessageId](#M-xyLOGIX-Queues-Messages-NewMessageMapping-WithMessageId 'xyLOGIX.Queues.Messages.NewMessageMapping.WithMessageId') method
+before calling this one. If this has been done anyway, then this method throws
+[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException').
 
 <a name='M-xyLOGIX-Queues-Messages-Mappings-NewMessageMapping`2-WithMessageId-System-Guid-'></a>
 ### WithMessageId(messageId) `method`
@@ -644,8 +642,8 @@ message handler.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that contains the unique
-identifier to assign to the message.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that
+contains the unique identifier to assign to the message.
 
 
 
@@ -653,11 +651,13 @@ The Empty GUID is not allowed. |
 
 ##### Remarks
 
-You must call the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method after calling this method. This method has to be called prior
-to calling the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method. If this is not done, then the [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler')
-method will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
+You must call the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+after calling this method. This method has to be called prior to calling the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
+If this is not done, then the
+[AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
+will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
 <a name='T-xyLOGIX-Queues-Messages-Mappings-Properties-Resources'></a>
 ## Resources `type`
@@ -675,8 +675,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Mappings-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

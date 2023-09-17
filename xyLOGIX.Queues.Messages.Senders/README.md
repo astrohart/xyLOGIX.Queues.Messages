@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Senders
 
 ## Contents
@@ -50,8 +50,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Senders-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
@@ -69,15 +68,16 @@ xyLOGIX.Queues.Messages.Senders
 
 ##### Summary
 
-Sends messages to other application components, whose event data is of
-type specified.
+Sends messages to other application components, whose event data is
+of type specified.
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -105,10 +105,9 @@ This property is meant to be used in a fluent manner.
 
 
 When using this property, first invoke the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method and then
-the [ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId')
-method to send your message.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method and then the
+[ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId') method to
+send your message.
 
 <a name='P-xyLOGIX-Queues-Messages-Senders-SendMessage-MessageQueue'></a>
 ### MessageQueue `property`
@@ -123,7 +122,8 @@ Gets a reference to an instance of an object that implements the
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -138,34 +138,35 @@ Supplies arguments for the message to be sent.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters
+to the message.
 
 
 
-The data types, order, and number of parameters, if
-supplied, must match the signature of the message's delegate. |
+The data types, order, and number of parameters, if supplied, must
+match the signature of the message's delegate. |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage-ForMessageId-System-Guid-'></a>
 ### ForMessageId(messageId) `method`
 
 ##### Summary
 
-Filters the message queue by the unique identifier that the
-message's handler was initially mapped under.
+Filters the message queue by the unique identifier that the message's
+handler was initially mapped under.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was
-originally tagged with.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message
+handler was originally tagged with.
 
 
 
@@ -173,8 +174,8 @@ The Zero GUID must not be passed for this parameter.
 
 
 
-If the Zero GUID is passed for this parameter, then this method
-throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+If the Zero GUID is passed for this parameter, then this method throws
+[ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage-NoArgs'></a>
 ### NoArgs() `method`
@@ -185,8 +186,8 @@ Specifies that the message is to be sent without any input data.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
@@ -195,16 +196,15 @@ This method has no parameters.
 ##### Remarks
 
 This method initializes the internal storage of this class that is
-devoted to storing the argument list for the new message to contain
-zero elements.
+devoted to storing the argument list for the new message to contain zero
+elements.
 
 
 
 Calling this method is the same as calling the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method without
-passing any parameters. Having this method available can make client
-code more fluent.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method without
+passing any parameters. Having this method available can make client code more
+fluent.
 
 <a name='T-xyLOGIX-Queues-Messages-Senders-SendMessage`1'></a>
 ## SendMessage\`1 `type`
@@ -215,21 +215,23 @@ xyLOGIX.Queues.Messages.Senders
 
 ##### Summary
 
-Sends messages to other application components, whose event data is of
-type specified.
+Sends messages to other application components, whose event data is
+of type specified.
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the type of data that the message notification will carry. |
+| T | Name of the type of data that the message notification
+will carry. |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage`1-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -257,10 +259,9 @@ This property is meant to be used in a fluent manner.
 
 
 When using this property, first invoke the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method and then
-the [ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId')
-method to send your message.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method and then the
+[ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId') method to
+send your message.
 
 <a name='P-xyLOGIX-Queues-Messages-Senders-SendMessage`1-MessageQueue'></a>
 ### MessageQueue `property`
@@ -275,7 +276,8 @@ Gets a reference to an instance of an object that implements the
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -290,34 +292,35 @@ Supplies arguments for the message to be sent.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters
+to the message.
 
 
 
-The data types, order, and number of parameters, if
-supplied, must match the signature of the message's delegate. |
+The data types, order, and number of parameters, if supplied, must
+match the signature of the message's delegate. |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage`1-ForMessageId-System-Guid-'></a>
 ### ForMessageId(messageId) `method`
 
 ##### Summary
 
-Filters the message queue by the unique identifier that the
-message's handler was initially mapped under.
+Filters the message queue by the unique identifier that the message's
+handler was initially mapped under.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was
-originally tagged with.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message
+handler was originally tagged with.
 
 
 
@@ -325,8 +328,8 @@ The Zero GUID must not be passed for this parameter.
 
 
 
-If the Zero GUID is passed for this parameter, then this method
-throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+If the Zero GUID is passed for this parameter, then this method throws
+[ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage`1-NoArgs'></a>
 ### NoArgs() `method`
@@ -337,8 +340,8 @@ Specifies that the message is to be sent without any input data.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
@@ -347,16 +350,15 @@ This method has no parameters.
 ##### Remarks
 
 This method initializes the internal storage of this class that is
-devoted to storing the argument list for the new message to contain
-zero elements.
+devoted to storing the argument list for the new message to contain zero
+elements.
 
 
 
 Calling this method is the same as calling the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method without
-passing any parameters. Having this method available can make client
-code more fluent.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method without
+passing any parameters. Having this method available can make client code more
+fluent.
 
 <a name='T-xyLOGIX-Queues-Messages-Senders-SendMessage`2'></a>
 ## SendMessage\`2 `type`
@@ -367,14 +369,15 @@ xyLOGIX.Queues.Messages.Senders
 
 ##### Summary
 
-Sends messages to other application components, whose event data is of
-type specified.
+Sends messages to other application components, whose event data is
+of type specified.
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the type of data that the message notification will carry. |
+| T | Name of the type of data that the message notification
+will carry. |
 | R | Name of the type of the object that the method processing
 the received message will return. |
 
@@ -383,7 +386,8 @@ the received message will return. |
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Empty, protected constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -411,10 +415,9 @@ This property is meant to be used in a fluent manner.
 
 
 When using this property, first invoke the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method and then
-the [ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId')
-method to send your message.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method and then the
+[ForMessageId](#M-xyLOGIX-Queues-Messages-SendMessage-ForMessageId 'xyLOGIX.Queues.Messages.SendMessage.ForMessageId') method to
+send your message.
 
 <a name='P-xyLOGIX-Queues-Messages-Senders-SendMessage`2-MessageQueue'></a>
 ### MessageQueue `property`
@@ -429,7 +432,8 @@ Gets a reference to an instance of an object that implements the
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Empty, static constructor to prohibit direct allocation of this
+class.
 
 ##### Parameters
 
@@ -444,34 +448,35 @@ Supplies arguments for the message to be sent.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters to the message.
+| args | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Optional.) One of more values to be passed as parameters
+to the message.
 
 
 
-The data types, order, and number of parameters, if
-supplied, must match the signature of the message's delegate. |
+The data types, order, and number of parameters, if supplied, must
+match the signature of the message's delegate. |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage`2-ForMessageId-System-Guid-'></a>
 ### ForMessageId(messageId) `method`
 
 ##### Summary
 
-Filters the message queue by the unique identifier that the
-message's handler was initially mapped under.
+Filters the message queue by the unique identifier that the message's
+handler was initially mapped under.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message handler was
-originally tagged with.
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required). Unique identifier (GUID) that the message
+handler was originally tagged with.
 
 
 
@@ -479,8 +484,8 @@ The Zero GUID must not be passed for this parameter.
 
 
 
-If the Zero GUID is passed for this parameter, then this method
-throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+If the Zero GUID is passed for this parameter, then this method throws
+[ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 <a name='M-xyLOGIX-Queues-Messages-Senders-SendMessage`2-NoArgs'></a>
 ### NoArgs() `method`
@@ -491,8 +496,8 @@ Specifies that the message is to be sent without any input data.
 
 ##### Returns
 
-Reference to the same instance of the object that called this
-method, for fluent use.
+Reference to the same instance of the object that called this method,
+for fluent use.
 
 ##### Parameters
 
@@ -501,13 +506,12 @@ This method has no parameters.
 ##### Remarks
 
 This method initializes the internal storage of this class that is
-devoted to storing the argument list for the new message to contain
-zero elements.
+devoted to storing the argument list for the new message to contain zero
+elements.
 
 
 
 Calling this method is the same as calling the
-[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args')
-method without
-passing any parameters. Having this method available can make client
-code more fluent.
+[Args](#M-xyLOGIX-Queues-Messages-SendMessage-Args 'xyLOGIX.Queues.Messages.SendMessage.Args') method without
+passing any parameters. Having this method available can make client code more
+fluent.

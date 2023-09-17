@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Extensions
 
 ## Contents
@@ -21,8 +21,8 @@ xyLOGIX.Queues.Messages.Extensions
 
 ##### Summary
 
-Provides extension methods that are designed to make assigning messages
-to handlers more fluent.
+Provides extension methods that are designed to make assigning
+messages to handlers more fluent.
 
 <a name='P-xyLOGIX-Queues-Messages-Extensions-DelegateExtensions-MessageQueue'></a>
 ### MessageQueue `property`
@@ -38,32 +38,33 @@ Gets a reference to an instance of an object that implements the
 ##### Summary
 
 Called to map a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate'), that specifies the
-code to execute in order to handle a message, with a unique
-identifier, `messageId`.
+code to execute in order to handle a message, with a unique identifier,
+`messageId`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that is
-to be matched with messages that have ID of `messageId`. |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Unique identifier (GUID) to be associated with the
-message to allow subscribers to filter.
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate')
+that is to be matched with messages that have ID of
+`messageId`. |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Unique identifier (GUID) to be associated
+with the message to allow subscribers to filter.
 
 
 
-The Zero GUID may not be passed for this parameter. If it is, then
-this method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+The Zero GUID may not be passed for this parameter. If it is, then this method
+throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `messageId`, is
-passed a `null` value. |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is supplied for the
-`messageId`
-parameter.
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `messageId`, is passed a `null`
+value. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is
+supplied for the `messageId` parameter.
 
 
 
@@ -75,23 +76,23 @@ The Zero GUID is defined as a GUID that has all its values set to zero. |
 ##### Summary
 
 Called to map a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate'), that specifies the
-code to execute in order to handle a message, with a data parameter
-type, `T`.
+code to execute in order to handle a message, with a data parameter type,
+`T`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that is
-to be matched with messages that carry objects of the
-`T`
-. |
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate')
+that is to be matched with messages that carry objects of the
+`T` . |
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the data type of the object that carries the message's data. |
+| T | Name of the data type of the object that carries the
+message's data. |
 
 <a name='M-xyLOGIX-Queues-Messages-Extensions-DelegateExtensions-MapToMessage``1-System-Delegate,System-Guid-'></a>
 ### MapToMessage\`\`1(d,messageId) `method`
@@ -99,40 +100,40 @@ to be matched with messages that carry objects of the
 ##### Summary
 
 Called to map a [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate'), that specifies the
-code to execute in order to handle a message, with a data parameter
-type, `T`.
+code to execute in order to handle a message, with a data parameter type,
+`T`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') that is
-to be matched with messages that carry objects of the
-`T`
-. |
-| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Unique identifier (GUID) to be associated with the
-message to allow subscribers to filter.
+| d | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) Reference to the [Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate')
+that is to be matched with messages that carry objects of the
+`T` . |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Unique identifier (GUID) to be associated
+with the message to allow subscribers to filter.
 
 
 
-The Zero GUID may not be passed for this parameter. If it is, then
-this method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
+The Zero GUID may not be passed for this parameter. If it is, then this method
+throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException'). |
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
-| T | Name of the data type of the object that carries the message's data. |
+| T | Name of the data type of the object that carries the
+message's data. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `messageId`, is
-passed a `null` value. |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is supplied for the
-`messageId`
-parameter.
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `messageId`, is passed a `null`
+value. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the Zero GUID is
+supplied for the `messageId` parameter.
 
 
 
@@ -154,8 +155,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Extensions-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

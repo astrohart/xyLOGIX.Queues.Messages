@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Items.Factories
 
 ## Contents
@@ -26,11 +26,10 @@ Creates new message queue item objects.
 
 ##### Summary
 
-Creates a new instance of a message queue item object that
-implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
-interface
-and associates it with the specified event data [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type').
+Creates a new instance of a message queue item object that implements
+the [IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Items-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem')
+interface and associates it with the specified event data
+[Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type').
 
 ##### Returns
 
@@ -42,17 +41,16 @@ interface.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| eventDataType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | (Required.) Reference to an instance of [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')
-that specifies the data type of the event data object that is
-associated with this event. |
+| eventDataType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | (Required.) Reference to an instance of
+[Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') that specifies the data type of the event data
+object that is associated with this event. |
 
 ##### Remarks
 
 After calling this method, callers must then invoke the
-[AndHandler](#M-SampleMVP-MessageQueueItem-AndHandler 'SampleMVP.MessageQueueItem.AndHandler')
-method to associate
-the event data type specified with the code that is to be executed
-when the message is posted to the queue.
+[AndHandler](#M-SampleMVP-MessageQueueItem-AndHandler 'SampleMVP.MessageQueueItem.AndHandler') method to associate the
+event data type specified with the code that is to be executed when the message
+is posted to the queue.
 
 <a name='M-xyLOGIX-Queues-Messages-Items-Factories-MakeNewMessageQueueItem-FromScratch'></a>
 ### FromScratch() `method`
@@ -60,8 +58,8 @@ when the message is posted to the queue.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem')
-interface and which is totally uninitialized.
+[IMessageQueueItem](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueueItem 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueueItem') interface
+and which is totally uninitialized.
 
 ##### Returns
 
@@ -89,8 +87,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Items-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

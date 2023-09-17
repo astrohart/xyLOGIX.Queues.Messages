@@ -1,4 +1,4 @@
-﻿<a name='assembly'></a>
+<a name='assembly'></a>
 # xyLOGIX.Queues.Messages.Factories
 
 ## Contents
@@ -18,7 +18,8 @@ xyLOGIX.Queues.Messages.Factories
 
 ##### Summary
 
-Provides access to the one and only instance of the object that implements the
+Provides access to the one and only instance of the object that
+implements the
 [IMessageQueue](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueue 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueue') interface.
 
 <a name='M-xyLOGIX-Queues-Messages-Factories-GetMessageQueue-SoleInstance'></a>
@@ -32,7 +33,8 @@ and returns a reference to it.
 
 ##### Returns
 
-Reference to the one, and only, instance of the object that implements the
+Reference to the one, and only, instance of the object that
+implements the
 [IMessageQueue](#T-xyLOGIX-Queues-Messages-Interfaces-IMessageQueue 'xyLOGIX.Queues.Messages.Interfaces.IMessageQueue') interface.
 
 ##### Parameters
@@ -55,8 +57,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Queues-Messages-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
