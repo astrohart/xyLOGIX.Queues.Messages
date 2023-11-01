@@ -1,4 +1,4 @@
-﻿using PostSharp.Extensibility;
+using PostSharp.Extensibility;
 using PostSharp.Patterns.Diagnostics;
 
 // This file contains registration of aspects that are applied to several classes of this project.
@@ -17,6 +17,6 @@ using PostSharp.Patterns.Diagnostics;
 [assembly: Log(AttributePriority = 1)]
 [assembly:
     Log(
-        AttributeExclude = true, AttributeTargetMembers = "regex:^get_|^set_",
+        AttributeExclude = true, AttributeTargetMembers = "regex:^get_|^set_|^add_|^remove_",
         AttributePriority = 2
     )]
