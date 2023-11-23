@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		approvedPackages.json = approvedPackages.json
 		README.md = README.md
+		xyLOGIX.Queues.Messages.pssln = xyLOGIX.Queues.Messages.pssln
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Queues.Messages.Factories", "xyLOGIX.Queues.Messages.Factories\xyLOGIX.Queues.Messages.Factories.csproj", "{DCBCCE5A-2E09-48E4-ABBA-7F7A9E7BA147}"
