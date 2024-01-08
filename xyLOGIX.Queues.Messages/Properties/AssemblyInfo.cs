@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Support Library for Event Aggregation")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved."
+        "Copyright © 2020-24 by xyLOGIX, LLC.  All rights reserved."
     )]
 [assembly:
     AssemblyTrademark(
