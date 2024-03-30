@@ -195,7 +195,7 @@ namespace xyLOGIX.Queues.Messages.Mappings
         /// <see cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler" /> method
         /// after calling this method. This method has to be called prior to calling the
         /// <see cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler" /> method.
-        /// If this is not done, then the
+        /// If this not done, then the
         /// <see cref="M:xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler" /> method
         /// will throw a <see cref="T:System.InvalidOperationException" /> exception.
         /// </remarks>
