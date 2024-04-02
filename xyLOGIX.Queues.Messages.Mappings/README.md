@@ -212,7 +212,7 @@ You must call the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 after calling this method. This method has to be called prior to calling the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
-If this not done, then the
+If this is not done, then the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
@@ -452,7 +452,7 @@ You must call the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 after calling this method. This method has to be called prior to calling the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
-If this not done, then the
+If this is not done, then the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
@@ -655,7 +655,7 @@ You must call the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 after calling this method. This method has to be called prior to calling the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method.
-If this not done, then the
+If this is not done, then the
 [AndHandler](#M-xyLOGIX-Queues-Messages-NewMessageMapping-AndHandler 'xyLOGIX.Queues.Messages.NewMessageMapping.AndHandler') method
 will throw a [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') exception.
 
