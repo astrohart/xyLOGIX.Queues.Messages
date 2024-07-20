@@ -1,4 +1,4 @@
-﻿using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics;
 using xyLOGIX.Queues.Messages.Interfaces;
 
 namespace xyLOGIX.Queues.Messages.Factories
