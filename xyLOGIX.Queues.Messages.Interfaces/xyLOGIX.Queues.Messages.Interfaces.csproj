@@ -36,7 +36,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Release\xyLOGIX.Queues.Messages.Interfaces.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
-    <SkipPostSharp>True</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -64,7 +64,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Release\xyLOGIX.Queues.Messages.Interfaces.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
-    <SkipPostSharp>True</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
