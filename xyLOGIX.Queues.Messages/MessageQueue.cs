@@ -30,10 +30,10 @@ namespace xyLOGIX.Queues.Messages
         static MessageQueue() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, private constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
-        protected MessageQueue() { }
+        private MessageQueue() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that
