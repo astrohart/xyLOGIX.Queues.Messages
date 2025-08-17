@@ -33,10 +33,11 @@ namespace xyLOGIX.Queues.Messages.Senders
         static SendMessage() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, <see langword="private" /> constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
-        protected SendMessage() { }
+        [Log(AttributeExclude = true)]
+        private SendMessage() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of

@@ -34,10 +34,11 @@ namespace xyLOGIX.Queues.Messages.Broadcasters
         static BroadcastMessage() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, <see langword="private" /> constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
-        protected BroadcastMessage() { }
+        [Log(AttributeExclude = true)]
+        private BroadcastMessage() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of

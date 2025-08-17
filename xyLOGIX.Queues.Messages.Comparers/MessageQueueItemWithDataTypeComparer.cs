@@ -23,10 +23,11 @@ namespace xyLOGIX.Queues.Messages.Comparers
         static MessageQueueItemWithDataTypeComparer() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, <see langword="private" /> constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
-        protected MessageQueueItemWithDataTypeComparer() { }
+        [Log(AttributeExclude = true)]
+        private MessageQueueItemWithDataTypeComparer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
