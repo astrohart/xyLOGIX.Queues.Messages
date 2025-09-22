@@ -1,4 +1,5 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using System.Diagnostics;
+using PostSharp.Patterns.Diagnostics;
 using xyLOGIX.Queues.Messages.Factories;
 using xyLOGIX.Queues.Messages.Interfaces;
 
