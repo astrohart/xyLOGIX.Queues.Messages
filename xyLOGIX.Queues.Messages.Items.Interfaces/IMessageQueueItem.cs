@@ -9,13 +9,13 @@ namespace xyLOGIX.Queues.Messages.Items.Interfaces
     public interface IMessageQueueItem : IDisposable
     {
         /// <summary> Gets or sets the <see cref="T:System.Type" /> of the event data. </summary>
-        Type EventDataType { get; set; }
+        Type EventDataType { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets a <see cref="T:System.Delegate" /> that specifies what
         /// code is to be run when a message is sent.
         /// </summary>
-        Delegate MessageHandler { get; set; }
+        Delegate MessageHandler { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets the unique identifier of the message ID of this specific
@@ -25,10 +25,10 @@ namespace xyLOGIX.Queues.Messages.Items.Interfaces
         /// If this property is set to the zero GUID, then the message is
         /// broadcast.
         /// </remarks>
-        Guid MessageId { get; set; }
+        Guid MessageId { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the <see cref="T:System.Type" /> of the result. </summary>
-        Type ResultDataType { get; set; }
+        Type ResultDataType { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Fluent-builder method to associate this message queue item with code
