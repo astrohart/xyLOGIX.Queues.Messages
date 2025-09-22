@@ -40,7 +40,7 @@ namespace xyLOGIX.Queues.Messages
         /// implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        public static IMessageQueue Instance { get; } = new MessageQueue();
+        public static IMessageQueue Instance { [DebuggerStepThrough] get; } = new MessageQueue();
 
         /// <summary>
         /// Broadcasts a message to all subscribers everywhere in the
