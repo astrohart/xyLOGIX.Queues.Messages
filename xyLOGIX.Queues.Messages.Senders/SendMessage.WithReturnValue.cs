@@ -51,14 +51,14 @@ namespace xyLOGIX.Queues.Messages.Senders
         /// <see cref="M:xyLOGIX.Queues.Messages.SendMessage.ForMessageId" /> method to
         /// send your message.
         /// </remarks>
-        public static SendMessage<T, R> Having { get; } =
+        public static SendMessage<T, R> Having { [DebuggerStepThrough] get; } =
             new SendMessage<T, R>();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        private static IMessageQueue MessageQueue { get; } =
+        private static IMessageQueue MessageQueue { [DebuggerStepThrough] get; } =
             GetMessageQueue.SoleInstance();
 
         /// <summary> Supplies arguments for the message to be sent. </summary>
