@@ -35,7 +35,7 @@ namespace xyLOGIX.Queues.Messages.Comparers
         ///     cref="T:System.Collections.Generic.IEqualityComparer{xyLOGIX.Queues.Messages.Items.Interfaces.IMessageQueueItem}" />
         /// interface.
         /// </summary>
-        public static IEqualityComparer<IMessageQueueItem> Instance { get; } =
+        public static IEqualityComparer<IMessageQueueItem> Instance { [DebuggerStepThrough] get; } =
             new MessageQueueItemWithDataTypeComparer();
 
         /// <summary>Determines whether the specified objects are equal.</summary>
