@@ -33,7 +33,7 @@ namespace xyLOGIX.Queues.Messages.Comparers
         ///     cref="T:xyLOGIX.Queues.Messages.Comparers.MessageQueueItemWithNoDataTypeComparer" />
         /// .
         /// </summary>
-        public static MessageQueueItemWithNoDataTypeComparer Instance { get; } =
+        public static MessageQueueItemWithNoDataTypeComparer Instance { [DebuggerStepThrough] get; } =
             new MessageQueueItemWithNoDataTypeComparer();
 
         /// <summary> Determines whether the specified objects are equal. </summary>
