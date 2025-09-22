@@ -39,7 +39,7 @@ namespace xyLOGIX.Queues.Messages.Mappings
         protected NewMessageMapping() { }
 
         /// <summary> Associates a message and its handler together. </summary>
-        public static NewMessageMapping<T> Associate { get; } =
+        public static NewMessageMapping<T> Associate { [DebuggerStepThrough] get; } =
             new NewMessageMapping<T>();
 
         /// <summary>
