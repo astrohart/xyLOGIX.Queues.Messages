@@ -33,7 +33,7 @@ namespace xyLOGIX.Queues.Messages.Comparers.Factories
         ///     cref="T:xyLOGIX.Queues.Messages.Comparers.Factories.GetMessageQueueItemEquialityComparer" />
         /// .
         /// </summary>
-        public static GetMessageQueueItemEquialityComparer That { get; } =
+        public static GetMessageQueueItemEquialityComparer That { [DebuggerStepThrough] get; } =
             new GetMessageQueueItemEquialityComparer();
 
         /// <summary>
