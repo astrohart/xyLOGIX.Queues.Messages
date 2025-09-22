@@ -44,14 +44,14 @@ namespace xyLOGIX.Queues.Messages.Broadcasters
         /// Gets a reference to the one and only instance of
         /// <see cref="T:SampleMVP.BroadcastMessage" />.
         /// </summary>
-        public static BroadcastMessage<T> Having { get; } =
+        public static BroadcastMessage<T> Having { [DebuggerStepThrough] get; } =
             new BroadcastMessage<T>();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        private static IMessageQueue MessageQueue { get; } =
+        private static IMessageQueue MessageQueue { [DebuggerStepThrough] get; } =
             GetMessageQueue.SoleInstance();
 
         /// <summary>
