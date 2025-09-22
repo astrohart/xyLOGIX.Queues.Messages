@@ -18,7 +18,7 @@ namespace xyLOGIX.Queues.Messages.Extensions
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.Queues.Messages.Interfaces.IMessageQueue" /> interface.
         /// </summary>
-        private static IMessageQueue MessageQueue { get; } =
+        private static IMessageQueue MessageQueue { [DebuggerStepThrough] get; } =
             GetMessageQueue.SoleInstance();
 
         /// <summary>
