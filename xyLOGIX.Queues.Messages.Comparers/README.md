@@ -37,7 +37,7 @@ to see if they are equal.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
@@ -132,7 +132,7 @@ to see if they are equal. Ignores the event data type associated with the item.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
