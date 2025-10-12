@@ -54,7 +54,7 @@ respond to messages tagged with a unique identifier.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
