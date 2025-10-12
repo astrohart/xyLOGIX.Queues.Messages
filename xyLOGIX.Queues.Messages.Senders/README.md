@@ -76,7 +76,7 @@ of type specified.
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
@@ -230,7 +230,7 @@ will carry. |
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
@@ -386,7 +386,7 @@ the received message will return. |
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this
+Empty, `private` constructor to prohibit direct allocation of this
 class.
 
 ##### Parameters
