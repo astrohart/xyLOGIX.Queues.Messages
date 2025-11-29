@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
     )]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality to support comparing two message queues, or individual message queue items, for equality with each other.  This particular library holds the factories for this component."
+        "Provides object(s) and functionality to support comparing two message queues, or individual message queue items, for equality with each other.  This particular library holds the factories for this component."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
