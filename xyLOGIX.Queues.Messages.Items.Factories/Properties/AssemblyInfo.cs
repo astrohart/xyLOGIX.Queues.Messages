@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
     )]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality for the individual elements of a message queue.  This particular library holds the factories for this component."
+        "Provides object(s) and functionality for the individual elements of a message queue.  This particular library holds the factories for this component."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
