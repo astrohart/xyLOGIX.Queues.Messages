@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
     )]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality to create mappings between messages and their handlers a la MFC message maps.  This particular library holds the concrete classes and implementations of the component."
+        "Provides object(s) and functionality to create mappings between messages and their handlers a la MFC message maps.  This particular library holds the concrete classes and implementations of the component."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
