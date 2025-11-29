@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly:
     AssemblyTitle("xyLOGIX Support Library for xyLOGIX.Queues.Messages.Events")]
-[assembly: AssemblyDescription("Provides objects and functionality for ")]
+[assembly: AssemblyDescription("Provides object(s) and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly:
