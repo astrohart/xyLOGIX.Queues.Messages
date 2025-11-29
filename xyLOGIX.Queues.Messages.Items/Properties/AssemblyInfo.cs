@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
     )]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality for the individual elements of a message queue.  This particular library holds the concrete classes and implementations of the component."
+        "Provides object(s) and functionality for the individual elements of a message queue.  This particular library holds the concrete classes and implementations of the component."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
