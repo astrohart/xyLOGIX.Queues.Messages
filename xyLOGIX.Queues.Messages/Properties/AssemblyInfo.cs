@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("yLOGIX.Queues.Messages")]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality for event aggregation in xyLOGIX software."
+        "Provides object(s) and functionality for event aggregation in xyLOGIX software."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
