@@ -19,7 +19,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Debug\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -33,7 +33,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x64\Release\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Debug\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\x86\Release\xyLOGIX.Queues.Messages.Events.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup>
